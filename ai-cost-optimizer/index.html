@@ -8,11 +8,12 @@
 <meta property="og:title" content="AI Cost Optimizer - Compare 20+ AI API Prices">
 <meta property="og:description" content="Compare monthly API costs across Claude, GPT, Gemini, Llama, and 20+ AI models. Calculate batch API and prompt caching savings.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://beelinkfarm.github.io/dongili/proj_ai-cost-optimizer/">
+<meta property="og:url" content="https://beelinkfarm.github.io/dongili-tools/ai-cost-optimizer/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Cost Optimizer - Compare 20+ AI API Prices">
 <meta name="twitter:description" content="Compare monthly API costs across Claude, GPT, Gemini, Llama, and 20+ AI models. Free calculator.">
-<link rel="canonical" href="https://beelinkfarm.github.io/dongili/proj_ai-cost-optimizer/">
+<link rel="canonical" href="https://beelinkfarm.github.io/dongili-tools/ai-cost-optimizer/">
+<meta name="robots" content="index,follow">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -625,6 +626,19 @@ footer a:hover { text-decoration: underline; }
   body { background: #fff; color: #000; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How are AI API costs calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Costs are based on input and output token counts multiplied by each model's per-token pricing. This calculator lets you enter your expected daily request volume, average input and output token sizes, and computes monthly cost across 25+ models."}},
+    {"@type": "Question", "name": "What is Batch API pricing?", "acceptedAnswer": {"@type": "Answer", "text": "Batch processing offers up to 50% discount by processing requests asynchronously rather than in real time. For example, the Anthropic Batch API and OpenAI Batch API both offer 50% discounts for non-latency-sensitive workloads."}},
+    {"@type": "Question", "name": "Which AI model is cheapest?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your workload. Smaller models like Claude Haiku or GPT-4o-mini cost less per token but may require more tokens for complex tasks. For simple classification or extraction tasks, smaller models are often the most cost-effective choice."}},
+    {"@type": "Question", "name": "How accurate are these prices?", "acceptedAnswer": {"@type": "Answer", "text": "Prices are sourced directly from official provider pricing pages as of March 2026. AI pricing changes frequently, so always verify current rates at the official provider pages linked in the footer before making financial decisions."}},
+    {"@type": "Question", "name": "What about free tiers?", "acceptedAnswer": {"@type": "Answer", "text": "Many providers offer free credits or free tiers for low-volume usage. This calculator focuses on paid usage at scale. Free tiers are generally unsuitable for production workloads and are not included in cost comparisons."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -634,7 +648,7 @@ footer a:hover { text-decoration: underline; }
 </button>
 <a class="micro-nav-home" href="../index.html" aria-label="Home">&#127968;</a>
 <div class="micro-float-bar">
-  <a class="micro-float-bmc" href="https://buymeacoffee.com/beelinkfarm" target="_blank" rel="noopener">&#9749; Buy me a coffee</a>
+  <a class="micro-float-bmc" href="https://buymeacoffee.com/dongili" target="_blank" rel="noopener">&#9749; Buy me a coffee</a>
   <a class="micro-float-feedback" href="https://github.com/beelinkfarm/dongili/issues/new?title=[AI-Cost-Optimizer]%20Feedback&labels=ai-cost-optimizer" target="_blank" rel="noopener">&#128221; Feedback</a>
 </div>
 
@@ -804,7 +818,29 @@ footer a:hover { text-decoration: underline; }
   </div>
 </div>
 
+<!-- Affiliate CTA -->
+<div style="max-width:800px;margin:32px auto;padding:24px;background:linear-gradient(135deg,#F5F3FF,#EFF6FF);border-radius:12px;text-align:center">
+  <h3 style="margin:0 0 8px;font-size:1.1rem;color:#1E3A5F">Start building with AI</h3>
+  <p style="margin:0 0 16px;color:#6B7280;font-size:.9rem">Get API access from the top providers</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="https://console.anthropic.com/" target="_blank" rel="noopener" style="display:inline-block;padding:10px 24px;background:#D97706;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem">Claude API Console &rarr;</a>
+    <a href="https://platform.openai.com/signup" target="_blank" rel="noopener" style="display:inline-block;padding:10px 24px;background:#10A37F;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem">OpenAI Platform &rarr;</a>
+  </div>
+  <p style="margin:8px 0 0;font-size:.72rem;color:#9CA3AF">Direct links to official platforms</p>
+</div>
+
 <!-- Footer -->
+<section style="max-width:800px;margin:40px auto;padding:0 16px">
+<h2 style="font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:16px">Frequently Asked Questions</h2>
+<div id="faq-ai-cost">
+  <div style="border-bottom:1px solid var(--border);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--text)">How are AI API costs calculated?</summary><p style="margin-top:8px;color:var(--text-2);font-size:.9rem">Costs are based on input and output token counts multiplied by each model's per-token pricing. This calculator lets you enter your expected daily request volume, average input and output token sizes, and computes monthly cost across 25+ models.</p></details></div>
+  <div style="border-bottom:1px solid var(--border);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--text)">What is Batch API pricing?</summary><p style="margin-top:8px;color:var(--text-2);font-size:.9rem">Batch processing offers up to 50% discount by processing requests asynchronously rather than in real time. For example, the Anthropic Batch API and OpenAI Batch API both offer 50% discounts for non-latency-sensitive workloads.</p></details></div>
+  <div style="border-bottom:1px solid var(--border);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--text)">Which AI model is cheapest?</summary><p style="margin-top:8px;color:var(--text-2);font-size:.9rem">It depends on your workload. Smaller models like Claude Haiku or GPT-4o-mini cost less per token but may require more tokens for complex tasks. For simple classification or extraction tasks, smaller models are often the most cost-effective choice.</p></details></div>
+  <div style="border-bottom:1px solid var(--border);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--text)">How accurate are these prices?</summary><p style="margin-top:8px;color:var(--text-2);font-size:.9rem">Prices are sourced directly from official provider pricing pages as of March 2026. AI pricing changes frequently, so always verify current rates at the official provider pages linked in the footer before making financial decisions.</p></details></div>
+  <div style="padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--text)">What about free tiers?</summary><p style="margin-top:8px;color:var(--text-2);font-size:.9rem">Many providers offer free credits or free tiers for low-volume usage. This calculator focuses on paid usage at scale. Free tiers are generally unsuitable for production workloads and are not included in cost comparisons.</p></details></div>
+</div>
+</section>
+
 <footer>
   <div class="footer-links">
     <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI Pricing</a>

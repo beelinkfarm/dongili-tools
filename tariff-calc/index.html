@@ -12,7 +12,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="US Tariff Calculator 2026">
 <meta name="twitter:description" content="Free tariff stacking calculator with Section 301, 232, and Section 122 rates.">
-<link rel="canonical" href="https://dongili.app/tools/tariff-calculator/">
+<link rel="canonical" href="https://beelinkfarm.github.io/dongili-tools/tariff-calc/">
+<meta property="og:url" content="https://beelinkfarm.github.io/dongili-tools/tariff-calc/">
+<meta name="robots" content="index,follow">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -208,6 +210,19 @@ select:focus,input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 
 /* Accessible focus */
 :focus-visible{outline:2px solid var(--navy);outline-offset:2px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How are tariff rates determined?", "acceptedAnswer": {"@type": "Answer", "text": "Rates are based on HTS (Harmonized Tariff Schedule) codes and country-specific trade agreements, executive orders, and Section 301/232 actions. The final rate is often a stack of a base MFN rate plus one or more additional tariff layers."}},
+    {"@type": "Question", "name": "Will tariff rates change?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, tariff policy changes frequently. This tool reflects publicly available rates as of March 2026. Always verify current rates with official USITC or CBP sources before making import decisions."}},
+    {"@type": "Question", "name": "What is the de minimis exemption?", "acceptedAnswer": {"@type": "Answer", "text": "Previously, packages valued under $800 entered the US duty-free under the de minimis rule. This exemption was eliminated for goods from China in May 2025, and for all countries in August 2025. All shipments now require formal entry and duty payment."}},
+    {"@type": "Question", "name": "Is this calculator legally binding?", "acceptedAnswer": {"@type": "Answer", "text": "No. This tool provides estimates for planning and educational purposes only. Actual duty classification requires determination of the correct HTS code by a licensed customs broker. Consult a licensed customs broker for binding rulings."}},
+    {"@type": "Question", "name": "Does this include state-level taxes?", "acceptedAnswer": {"@type": "Answer", "text": "No. This calculator covers federal import tariffs only. State and local sales tax, use tax, or other fees may apply separately after the goods clear customs."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -503,6 +518,14 @@ select:focus,input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 
   </div>
 </div>
 
+<!-- Affiliate CTA -->
+<div style="max-width:800px;margin:32px auto;padding:24px;background:linear-gradient(135deg,#FEF3C7,#FFF7ED);border-radius:12px;text-align:center">
+  <h3 style="margin:0 0 8px;font-size:1.1rem;color:#1E3A5F">Need professional tariff help?</h3>
+  <p style="margin:0 0 16px;color:#6B7280;font-size:.9rem">Consult a licensed customs broker for binding rulings and compliance</p>
+  <a href="https://www.flexport.com/" target="_blank" rel="noopener" style="display:inline-block;padding:10px 24px;background:#0047FF;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem">Explore Flexport &rarr;</a>
+  <p style="margin:8px 0 0;font-size:.72rem;color:#9CA3AF">This calculator provides estimates only &mdash; not legal or customs advice</p>
+</div>
+
 <!-- Disclaimer -->
 <div class="container">
   <div class="disclaimer">
@@ -513,6 +536,16 @@ select:focus,input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 
   <div class="ad-slot">Advertisement (Google AdSense placeholder - 728x90)</div>
 </div>
 
+<section class="container" style="margin-top:40px;margin-bottom:40px">
+<h2 style="font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:16px">Frequently Asked Questions</h2>
+<div id="faq-tariff">
+  <div style="border-bottom:1px solid var(--gray-200);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--gray-800)">How are tariff rates determined?</summary><p style="margin-top:8px;color:var(--gray-600);font-size:.9rem">Rates are based on HTS (Harmonized Tariff Schedule) codes and country-specific trade agreements, executive orders, and Section 301/232 actions. The final rate is often a stack of a base MFN rate plus one or more additional tariff layers.</p></details></div>
+  <div style="border-bottom:1px solid var(--gray-200);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--gray-800)">Will tariff rates change?</summary><p style="margin-top:8px;color:var(--gray-600);font-size:.9rem">Yes, tariff policy changes frequently. This tool reflects publicly available rates as of March 2026. Always verify current rates with official USITC or CBP sources before making import decisions.</p></details></div>
+  <div style="border-bottom:1px solid var(--gray-200);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--gray-800)">What is the de minimis exemption?</summary><p style="margin-top:8px;color:var(--gray-600);font-size:.9rem">Previously, packages valued under $800 entered the US duty-free under the de minimis rule. This exemption was eliminated for goods from China in May 2025, and for all countries in August 2025. All shipments now require formal entry and duty payment.</p></details></div>
+  <div style="border-bottom:1px solid var(--gray-200);padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--gray-800)">Is this calculator legally binding?</summary><p style="margin-top:8px;color:var(--gray-600);font-size:.9rem">No. This tool provides estimates for planning and educational purposes only. Actual duty classification requires determination of the correct HTS code by a licensed customs broker. Consult a licensed customs broker for binding rulings.</p></details></div>
+  <div style="padding:12px 0"><details><summary style="font-weight:600;cursor:pointer;color:var(--gray-800)">Does this include state-level taxes?</summary><p style="margin-top:8px;color:var(--gray-600);font-size:.9rem">No. This calculator covers federal import tariffs only. State and local sales tax, use tax, or other fees may apply separately after the goods clear customs.</p></details></div>
+</div>
+</section>
 <footer class="footer">
   <div class="container">
     <div class="footer-links">
