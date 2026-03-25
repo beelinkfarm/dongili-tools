@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Solar &amp; EV Savings Calculator 2026 | Solar ROI &amp; EV Charging Cost Tool</title>
+<meta name="description" content="Calculate your solar panel payback period and EV charging savings in one tool. Free, no login. Accurate 2026 data with updated tax credit status for all 50 US states.">
+<meta name="keywords" content="solar calculator, EV charging cost, solar ROI, solar panel payback, EV savings, solar EV calculator 2026">
+<link rel="canonical" href="https://dongili.tools/solar-ev-calculator">
+<meta property="og:title" content="Free Solar &amp; EV Savings Calculator 2026">
+<meta property="og:description" content="How much can you save with solar panels + an electric vehicle? Calculate your combined savings in 60 seconds.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dongili.tools/solar-ev-calculator">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Solar &amp; EV Savings Calculator 2026">
+<meta name="twitter:description" content="Free tool: calculate solar ROI + EV charging savings for your state. No login needed.">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Solar + EV Savings Calculator",
+  "description":"Calculate solar panel ROI and EV charging cost savings for all 50 US states. Free, no login required.",
+  "url":"https://dongili.tools/solar-ev-calculator",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Web Browser",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "creator":{"@type":"Organization","name":"Dongili Tools"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How much solar do I need to charge my EV at home?","acceptedAnswer":{"@type":"Answer","text":"A typical EV driven 12,000 miles per year needs about 3,000 to 4,000 kWh annually for charging. A 3 to 5 kW solar system can usually cover this in states with good sun exposure (4+ peak sun hours). Use our calculator above to get an exact estimate for your state, EV model, and driving habits."}},
+    {"@type":"Question","name":"Is solar still worth it without the federal tax credit in 2026?","acceptedAnswer":{"@type":"Answer","text":"Yes, for most homeowners in states with moderate to high electricity rates (above 15 cents per kWh) and decent sun exposure. Without the 30% ITC, payback periods are longer (typically 7 to 12 years instead of 5 to 8), but solar panels last 25 or more years and electricity rates keep rising. Some states also offer their own incentives."}},
+    {"@type":"Question","name":"How much does it cost to charge an EV with solar panels?","acceptedAnswer":{"@type":"Answer","text":"If your solar system produces enough energy to cover your EV charging needs, the marginal cost of charging is essentially zero after the solar system pays for itself. Before payback, the effective cost is the solar system cost spread over its production, which is typically 4 to 8 cents per kWh, much less than grid electricity in most states."}},
+    {"@type":"Question","name":"What is the payback period for solar panels in 2026?","acceptedAnswer":{"@type":"Answer","text":"Without the federal tax credit, solar payback periods in 2026 typically range from 7 to 15 years depending on your state electricity rate, sun exposure, system size, and installation cost. States with high electricity rates like California, Connecticut, and Massachusetts see faster payback (7 to 9 years), while low-rate states may take 12 to 15 years."}},
+    {"@type":"Question","name":"Does having an EV make solar panels pay for themselves faster?","acceptedAnswer":{"@type":"Answer","text":"Yes. When you charge your EV with solar energy instead of grid electricity, every kWh of solar production displaces a higher-cost grid kWh. This effectively increases the value of your solar system and can reduce the payback period by 1 to 3 years depending on how much you drive."}},
+    {"@type":"Question","name":"What EV is the most efficient to charge with solar?","acceptedAnswer":{"@type":"Answer","text":"The most energy-efficient EVs include the Tesla Model 3 (25 kWh per 100 miles), Hyundai Ioniq 6 (23 kWh per 100 miles), and Chevrolet Bolt (28 kWh per 100 miles). More efficient EVs need less solar energy to charge, meaning a smaller solar system can cover your driving needs."}},
+    {"@type":"Question","name":"How do electricity rates affect solar and EV savings?","acceptedAnswer":{"@type":"Answer","text":"Electricity rates directly determine your savings from solar. Higher rates mean each kWh your solar panels produce saves you more money. States like California (34.71 cents per kWh) and Connecticut (32.60 cents per kWh) see much higher solar savings than states like Idaho (10.58 cents per kWh). The same applies to EV charging, where higher grid rates make charging from solar even more valuable."}},
+    {"@type":"Question","name":"Can I charge my EV entirely from solar panels?","acceptedAnswer":{"@type":"Answer","text":"It depends on your solar system size and driving habits. A typical EV driven 12,000 miles per year needs 3,000 to 4,000 kWh. A 6 kW system in a sunny state produces 7,000 to 8,000 kWh per year, which is more than enough. However, timing matters since you may need to charge at night when solar is not producing, so a battery or net metering helps bridge that gap."}}
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#059669;--green-light:#d1fae5;--green-dark:#047857;
+  --blue:#2563eb;--blue-light:#dbeafe;--blue-dark:#1d4ed8;
+  --purple:#7c3aed;--purple-light:#ede9fe;
+  --bg:#f8fafc;--surface:#ffffff;--text:#1e293b;--text-secondary:#64748b;
+  --border:#e2e8f0;--shadow:0 1px 3px rgba(0,0,0,.1);--shadow-md:0 4px 12px rgba(0,0,0,.12);
+  --radius:12px;--radius-sm:8px;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+a{color:var(--green);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Header */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-logo{font-size:18px;font-weight:700;color:var(--green)}
+.header-logo span{color:var(--blue)}
+.header-actions{display:flex;gap:8px}
+.header-btn{background:none;border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 12px;cursor:pointer;font-size:13px;color:var(--text-secondary);transition:all .2s}
+.header-btn:hover{border-color:var(--green);color:var(--green)}
+
+/* Hero */
+.hero{text-align:center;padding:48px 20px 32px;max-width:720px;margin:0 auto}
+.hero h1{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--text);margin-bottom:12px;line-height:1.2}
+.hero h1 .green{color:var(--green)}
+.hero h1 .blue{color:var(--blue)}
+.hero p{color:var(--text-secondary);font-size:clamp(15px,2vw,18px);margin-bottom:24px}
+.hero-cta{display:inline-block;background:var(--green);color:#fff;padding:12px 28px;border-radius:var(--radius);font-weight:600;font-size:16px;border:none;cursor:pointer;transition:background .2s}
+.hero-cta:hover{background:var(--green-dark);text-decoration:none;color:#fff}
+
+/* Tax Credit Banner */
+.tax-banner{background:#fef3c7;border:1px solid #f59e0b;border-radius:var(--radius);padding:16px 20px;margin:0 auto 24px;max-width:900px;display:flex;align-items:flex-start;gap:12px}
+.tax-banner-icon{font-size:24px;flex-shrink:0;line-height:1}
+.tax-banner h3{font-size:15px;font-weight:700;color:#92400e;margin-bottom:4px}
+.tax-banner p{font-size:14px;color:#78350f;line-height:1.5}
+.tax-banner a{color:#92400e;font-weight:600;text-decoration:underline}
+
+/* Tabs */
+.tabs-container{max-width:960px;margin:0 auto;padding:0 16px}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--border);margin-bottom:24px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-btn{padding:12px 20px;border:none;background:none;cursor:pointer;font-size:15px;font-weight:600;color:var(--text-secondary);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .2s;min-width:44px}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active-solar{color:var(--green);border-bottom-color:var(--green)}
+.tab-btn.active-ev{color:var(--blue);border-bottom-color:var(--blue)}
+.tab-btn.active-combined{color:var(--purple);border-bottom-color:var(--purple)}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* Calculator Panels */
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+.panel{background:var(--surface);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.panel-title{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.panel-title .icon{font-size:20px}
+
+/* Form fields */
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:4px}
+.field input,.field select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:15px;color:var(--text);background:var(--surface);transition:border-color .2s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(5,150,105,.12)}
+.field .hint{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field-hidden{display:none}
+
+/* Searchable dropdown */
+.search-select{position:relative}
+.search-select input{padding-right:32px}
+.search-select .arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-secondary)}
+.dropdown-list{position:absolute;top:100%;left:0;right:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);max-height:240px;overflow-y:auto;z-index:50;box-shadow:var(--shadow-md);display:none}
+.dropdown-list.open{display:block}
+.dropdown-item{padding:10px 12px;cursor:pointer;font-size:14px;transition:background .1s}
+.dropdown-item:hover,.dropdown-item.highlighted{background:var(--green-light)}
+.dropdown-item .sub{font-size:12px;color:var(--text-secondary)}
+.dropdown-group{padding:6px 12px;font-size:12px;font-weight:700;color:var(--text-secondary);background:#f1f5f9;text-transform:uppercase;letter-spacing:.5px}
+
+/* Calculate Button */
+.calc-btn{width:100%;padding:14px;border:none;border-radius:var(--radius);font-size:16px;font-weight:700;color:#fff;cursor:pointer;transition:all .2s;margin-top:8px}
+.calc-btn-solar{background:var(--green)}
+.calc-btn-solar:hover{background:var(--green-dark)}
+.calc-btn-ev{background:var(--blue)}
+.calc-btn-ev:hover{background:var(--blue-dark)}
+.calc-btn-combined{background:var(--purple)}
+.calc-btn-combined:hover{background:#6d28d9}
+
+/* Results */
+.results-panel{display:none}
+.results-panel.show{display:block;animation:fadeIn .4s ease}
+.result-hero{text-align:center;padding:20px;background:linear-gradient(135deg,var(--green-light),#ecfdf5);border-radius:var(--radius);margin-bottom:20px}
+.result-hero.ev{background:linear-gradient(135deg,var(--blue-light),#eff6ff)}
+.result-hero.combined{background:linear-gradient(135deg,var(--purple-light),#f5f3ff)}
+.result-hero .big-number{font-size:clamp(28px,5vw,40px);font-weight:800;color:var(--green);line-height:1.1}
+.result-hero.ev .big-number{color:var(--blue)}
+.result-hero.combined .big-number{color:var(--purple)}
+.result-hero .label{font-size:14px;color:var(--text-secondary);margin-top:4px}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.result-card{background:#f8fafc;border-radius:var(--radius-sm);padding:14px;text-align:center}
+.result-card .value{font-size:20px;font-weight:700;color:var(--text)}
+.result-card .label{font-size:12px;color:var(--text-secondary);margin-top:2px}
+
+/* Expired credit notice in results */
+.credit-notice{background:#fef2f2;border:1px solid #fca5a5;border-radius:var(--radius-sm);padding:12px;margin-bottom:16px;font-size:13px;color:#991b1b;display:flex;align-items:flex-start;gap:8px}
+.credit-notice strong{font-weight:700}
+
+/* State incentive link */
+.state-incentive{background:#f0fdf4;border:1px solid #86efac;border-radius:var(--radius-sm);padding:12px;margin-bottom:16px;font-size:13px;color:#166534}
+
+/* CSS Bar Charts */
+.chart-section{margin-bottom:20px}
+.chart-section h4{font-size:14px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.bar-chart{display:flex;flex-direction:column;gap:8px}
+.bar-row{display:flex;align-items:center;gap:8px}
+.bar-label{font-size:12px;font-weight:600;color:var(--text-secondary);min-width:60px;text-align:right}
+.bar-track{flex:1;height:28px;background:#f1f5f9;border-radius:4px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:4px;transition:width .8s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:8px}
+.bar-fill span{font-size:11px;font-weight:700;color:#fff;white-space:nowrap}
+.bar-fill.green{background:var(--green)}
+.bar-fill.blue{background:var(--blue)}
+.bar-fill.red{background:#ef4444}
+.bar-fill.purple{background:var(--purple)}
+.bar-fill.orange{background:#f59e0b}
+.bar-value-outside{font-size:11px;font-weight:600;color:var(--text);margin-left:6px;white-space:nowrap}
+
+/* CSS Line Chart (25-year projection) */
+.line-chart-container{position:relative;width:100%;padding-top:50%;margin-bottom:8px}
+.line-chart{position:absolute;top:0;left:40px;right:0;bottom:20px;border-left:2px solid var(--border);border-bottom:2px solid var(--border)}
+.line-chart .y-label{position:absolute;left:-40px;font-size:10px;color:var(--text-secondary);text-align:right;width:36px}
+.line-chart .x-labels{position:absolute;bottom:-18px;left:0;right:0;display:flex;justify-content:space-between;font-size:10px;color:var(--text-secondary)}
+.chart-line{position:absolute;top:0;left:0;right:0;bottom:0}
+.chart-line svg{width:100%;height:100%}
+.chart-legend{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:12px}
+.chart-legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+
+/* Summary Card */
+.summary-card{background:var(--surface);border:2px solid var(--green);border-radius:var(--radius);padding:20px;text-align:center;margin-top:20px}
+.summary-card.combined-card{border-color:var(--purple)}
+.summary-card p{font-size:16px;line-height:1.5;margin-bottom:12px}
+.summary-card .share-btns{display:flex;gap:8px;justify-content:center}
+.share-btn{padding:8px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:13px;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:4px}
+.share-btn:hover{border-color:var(--green);color:var(--green)}
+
+/* Affiliate CTA */
+.affiliate-cta{background:linear-gradient(135deg,#ecfdf5,#f0fdf4);border:1px solid #86efac;border-radius:var(--radius);padding:24px;text-align:center;margin:32px 0}
+.affiliate-cta.ev-cta{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#93c5fd}
+.affiliate-cta h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.affiliate-cta p{font-size:14px;color:var(--text-secondary);margin-bottom:16px}
+.cta-link{display:inline-block;padding:12px 28px;border-radius:var(--radius);font-weight:700;font-size:15px;color:#fff;transition:all .2s}
+.cta-link.green{background:var(--green)}
+.cta-link.green:hover{background:var(--green-dark);text-decoration:none;color:#fff}
+.cta-link.blue{background:var(--blue)}
+.cta-link.blue:hover{background:var(--blue-dark);text-decoration:none;color:#fff}
+.affiliate-disclosure{font-size:11px;color:var(--text-secondary);margin-top:8px;font-style:italic}
+
+/* Ad Placeholder */
+.ad-placeholder{background:#f1f5f9;border:1px dashed var(--border);border-radius:var(--radius-sm);padding:20px;text-align:center;color:var(--text-secondary);font-size:13px;margin:24px 0}
+
+/* SEO Content */
+.seo-section{max-width:800px;margin:48px auto;padding:0 16px}
+.seo-section h2{font-size:22px;font-weight:800;margin-bottom:16px;color:var(--text)}
+.seo-section h3{font-size:17px;font-weight:700;margin:24px 0 8px;color:var(--text)}
+.seo-section p,.seo-section li{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:8px}
+.seo-section ul{padding-left:20px}
+.faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+.faq-q{font-weight:700;font-size:15px;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-size:20px;font-weight:400;color:var(--text-secondary);transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:14px;color:var(--text-secondary);line-height:1.6}
+.faq-item.open .faq-a{max-height:500px;padding-top:8px}
+
+/* Footer */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:24px 20px;margin-top:48px}
+.footer-inner{max-width:800px;margin:0 auto;text-align:center}
+.footer-inner p{font-size:13px;color:var(--text-secondary);margin-bottom:8px;line-height:1.5}
+.footer-disclaimer{font-size:11px;color:#94a3b8;font-style:italic;max-width:600px;margin:12px auto 0}
+
+/* Floating Buttons */
+.floating-btns{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:8px;z-index:1000}
+.fab{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);transition:transform .15s;color:#fff;text-decoration:none}
+.fab:hover{transform:scale(1.1);text-decoration:none}
+.fab-back{background:#64748b}
+.fab-home{background:var(--green)}
+.fab-bmc{background:#ffdd00;color:#333}
+.fab-feedback{background:var(--blue)}
+
+/* Print */
+@media print{
+  .header,.tabs,.floating-btns,.affiliate-cta,.ad-placeholder,.seo-section,.tax-banner,.hero,.share-btns,.fab,footer{display:none!important}
+  body{background:#fff;font-size:12pt}
+  .panel{box-shadow:none;border:1px solid #ddd;break-inside:avoid}
+  .tabs-container{max-width:100%}
+  .tab-content{display:block!important}
+  .results-panel{display:block!important}
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .calc-grid{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .field-row{grid-template-columns:1fr}
+  .hero{padding:32px 16px 20px}
+  .tax-banner{margin:0 16px 16px;flex-direction:row}
+  .tab-btn{padding:10px 14px;font-size:14px}
+  body{font-size:14px}
+}
+@media(max-width:480px){
+  .result-grid{grid-template-columns:1fr}
+  .header-actions{gap:4px}
+  .header-btn{padding:4px 8px;font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-logo">Solar<span>+EV</span> Calculator</div>
+  <div class="header-actions">
+    <button class="header-btn" onclick="shareResults()">Share</button>
+    <button class="header-btn" onclick="document.getElementById('methodology').scrollIntoView({behavior:'smooth'})">Methodology</button>
+    <button class="header-btn" onclick="window.print()">Print</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>How Much Can You Save with <span class="green">Solar</span> + <span class="blue">EV</span>?</h1>
+  <p>Free calculator with 2026 data for all 50 US states. No login needed. Accurate tax credit status included.</p>
+  <a href="#calculator" class="hero-cta">Start Calculating</a>
+</section>
+
+<!-- Tax Credit Banner -->
+<div class="tax-banner" style="max-width:928px;margin-left:auto;margin-right:auto;padding-left:16px;padding-right:16px" id="expired-credit-banner">
+  <div class="tax-banner-icon">&#9888;</div>
+  <div>
+    <h3>Federal Solar ITC &amp; EV Credits Expired in 2025</h3>
+    <p>The 30% federal solar Investment Tax Credit (ITC) expired December 31, 2025. The $7,500 federal EV tax credit was terminated September 30, 2025. This calculator reflects 2026 rates without these credits. <a href="https://dsireusa.org/" target="_blank" rel="noopener">Check your state for current local incentives &rarr;</a></p>
+  </div>
+</div>
+
+<!-- Calculator -->
+<div class="tabs-container" id="calculator">
+  <div class="tabs">
+    <button class="tab-btn active-solar" data-tab="solar" onclick="switchTab('solar')">Solar ROI</button>
+    <button class="tab-btn" data-tab="ev" onclick="switchTab('ev')">EV Charging</button>
+    <button class="tab-btn" data-tab="combined" onclick="switchTab('combined')">Combined Savings</button>
+  </div>
+
+  <!-- TAB 1: Solar ROI -->
+  <div class="tab-content active" id="tab-solar">
+    <div class="calc-grid">
+      <div class="panel">
+        <div class="panel-title"><span class="icon">&#9728;</span> Solar System Inputs</div>
+        <div class="field">
+          <label for="solar-state">State</label>
+          <div class="search-select">
+            <input type="text" id="solar-state" placeholder="Search state..." autocomplete="off" onfocus="openStateDropdown()" oninput="filterStates(this.value)">
+            <span class="arrow">&#9662;</span>
+            <div class="dropdown-list" id="state-dropdown"></div>
+          </div>
+          <div class="hint" id="state-info"></div>
+        </div>
+        <div class="field">
+          <label for="solar-bill">Monthly Electric Bill ($)</label>
+          <input type="number" id="solar-bill" value="150" min="50" max="1000" step="10">
+          <div class="hint">Average US monthly bill: $150</div>
+        </div>
+        <div class="field">
+          <label for="solar-size">System Size (kW) <button style="background:none;border:none;color:var(--green);cursor:pointer;font-size:12px;font-weight:600" onclick="suggestSystemSize()">[Auto-suggest]</button></label>
+          <input type="number" id="solar-size" value="6.0" min="1.0" max="25.0" step="0.5">
+          <div class="hint">Typical home: 5-10 kW</div>
+        </div>
+        <div class="field">
+          <label for="solar-cost">Installation Cost ($/Watt)</label>
+          <input type="number" id="solar-cost" value="3.00" min="1.50" max="6.00" step="0.10">
+          <div class="hint">National avg: $2.85-$3.15/W (2026)</div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="solar-rate-increase">Annual Rate Increase (%)</label>
+            <input type="number" id="solar-rate-increase" value="2.5" min="0" max="8" step="0.5">
+          </div>
+          <div class="field">
+            <label for="solar-degradation">Panel Degradation (%/yr)</label>
+            <input type="number" id="solar-degradation" value="0.5" min="0" max="1.5" step="0.1">
+          </div>
+        </div>
+        <div class="field">
+          <label for="solar-financing">Financing</label>
+          <select id="solar-financing" onchange="toggleLoanFields()">
+            <option value="cash">Cash Purchase</option>
+            <option value="loan">Solar Loan</option>
+          </select>
+        </div>
+        <div id="loan-fields" class="field-hidden">
+          <div class="field-row">
+            <div class="field">
+              <label for="loan-rate">Loan Interest Rate (%)</label>
+              <input type="number" id="loan-rate" value="5.5" min="2" max="12" step="0.1">
+            </div>
+            <div class="field">
+              <label for="loan-term">Loan Term (years)</label>
+              <select id="loan-term">
+                <option value="10">10 years</option>
+                <option value="15">15 years</option>
+                <option value="20" selected>20 years</option>
+                <option value="25">25 years</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button class="calc-btn calc-btn-solar" onclick="calculateSolar()">Calculate Solar Savings</button>
+      </div>
+      <div class="panel results-panel" id="solar-results">
+        <div class="panel-title"><span class="icon">&#9889;</span> Solar Results</div>
+        <div class="credit-notice">
+          <strong>&#10006;</strong>
+          <div>Federal solar ITC (30%) expired Dec 2025. Your total system cost does <strong>not</strong> include any federal credit. <a href="https://www.irs.gov/credits-deductions/residential-clean-energy-credit" target="_blank" rel="noopener">IRS source</a></div>
+        </div>
+        <div class="result-hero">
+          <div class="big-number" id="solar-net-savings">$0</div>
+          <div class="label">Estimated 25-Year Net Savings</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="value" id="solar-annual-prod">0</div>
+            <div class="label">Annual Production (kWh)</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="solar-year1-savings">$0</div>
+            <div class="label">Year 1 Savings</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="solar-total-cost">$0</div>
+            <div class="label">Total System Cost</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="solar-payback">0 yrs</div>
+            <div class="label">Payback Period</div>
+          </div>
+        </div>
+        <div id="solar-state-incentive" class="state-incentive" style="display:none"></div>
+        <div class="chart-section">
+          <h4>25-Year Cumulative Savings Projection</h4>
+          <div class="line-chart-container" id="solar-chart-container"></div>
+          <div class="chart-legend"><span><span class="dot" style="background:var(--green)"></span> Cumulative Savings</span><span><span class="dot" style="background:#ef4444"></span> System Cost</span></div>
+        </div>
+        <div class="chart-section">
+          <h4>Monthly Production vs Consumption</h4>
+          <div id="solar-monthly-chart"></div>
+        </div>
+        <div class="summary-card" id="solar-summary"></div>
+      </div>
+    </div>
+
+    <div class="affiliate-cta">
+      <h3>Ready to Get Real Solar Quotes?</h3>
+      <p>Compare solar installers in your area. Free, no obligation quotes from vetted local companies.</p>
+      <a href="https://www.energysage.com/?ref=AFFILIATE_ID" target="_blank" rel="noopener" class="cta-link green">Get Free Quotes from EnergySage &rarr;</a>
+      <div class="affiliate-disclosure">Affiliate Disclosure: This is an affiliate link. We may earn a commission at no cost to you.</div>
+    </div>
+  </div>
+
+  <!-- TAB 2: EV Charging -->
+  <div class="tab-content" id="tab-ev">
+    <div class="calc-grid">
+      <div class="panel">
+        <div class="panel-title"><span class="icon">&#128663;</span> EV Charging Inputs</div>
+        <div class="field">
+          <label for="ev-model">EV Model</label>
+          <div class="search-select">
+            <input type="text" id="ev-model" placeholder="Search EV model..." autocomplete="off" onfocus="openEVDropdown()" oninput="filterEVModels(this.value)">
+            <span class="arrow">&#9662;</span>
+            <div class="dropdown-list" id="ev-dropdown"></div>
+          </div>
+          <div class="hint" id="ev-info"></div>
+        </div>
+        <div class="field">
+          <label for="ev-miles">Annual Miles</label>
+          <input type="number" id="ev-miles" value="12000" min="1000" max="50000" step="1000">
+          <div class="hint">US average: ~13,500 miles/year</div>
+        </div>
+        <div class="field">
+          <label for="ev-charge-mix">Home Charging Mix</label>
+          <select id="ev-charge-mix" onchange="togglePublicRate()">
+            <option value="1.0">100% Home</option>
+            <option value="0.8">80% Home / 20% Public</option>
+            <option value="0.6">60% Home / 40% Public</option>
+          </select>
+        </div>
+        <div id="public-rate-field" class="field field-hidden">
+          <label for="ev-public-rate">Public Charging Rate ($/kWh)</label>
+          <input type="number" id="ev-public-rate" value="0.35" min="0.15" max="0.80" step="0.01">
+          <div class="hint">DC fast charging avg: $0.30-$0.50/kWh</div>
+        </div>
+        <div class="field">
+          <label for="ev-home-rate">Home Electricity Rate (cents/kWh)</label>
+          <input type="number" id="ev-home-rate" value="17.24" min="5" max="60" step="0.01">
+          <div class="hint">Linked from Solar tab state selection</div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="ev-gas-price">Gas Price ($/gallon)</label>
+            <input type="number" id="ev-gas-price" value="3.50" min="1.50" max="7.00" step="0.05">
+          </div>
+          <div class="field">
+            <label for="ev-mpg">Comparison Vehicle (MPG)</label>
+            <input type="number" id="ev-mpg" value="28" min="10" max="60" step="1">
+          </div>
+        </div>
+        <button class="calc-btn calc-btn-ev" onclick="calculateEV()">Calculate EV Savings</button>
+      </div>
+      <div class="panel results-panel" id="ev-results">
+        <div class="panel-title"><span class="icon">&#9889;</span> EV Charging Results</div>
+        <div class="credit-notice">
+          <strong>&#10006;</strong>
+          <div>Federal EV tax credit ($7,500) terminated Sept 2025. No federal credit applies to new EV purchases in 2026. <a href="https://www.irs.gov/clean-vehicle-tax-credits" target="_blank" rel="noopener">IRS source</a></div>
+        </div>
+        <div class="result-hero ev">
+          <div class="big-number" id="ev-annual-savings">$0</div>
+          <div class="label">Annual Savings vs Gasoline</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-card">
+            <div class="value" id="ev-monthly-cost">$0</div>
+            <div class="label">Monthly Charging Cost</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="ev-annual-cost">$0</div>
+            <div class="label">Annual Charging Cost</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="ev-cost-per-mile">$0.00</div>
+            <div class="label">Cost per Mile (EV)</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="ev-gas-cost-mile">$0.00</div>
+            <div class="label">Cost per Mile (Gas)</div>
+          </div>
+        </div>
+        <div class="chart-section">
+          <h4>Annual Cost: EV vs Gasoline</h4>
+          <div id="ev-comparison-chart"></div>
+        </div>
+        <div class="summary-card" id="ev-summary"></div>
+      </div>
+    </div>
+
+    <div class="affiliate-cta ev-cta">
+      <h3>Need an EV Charger for Home?</h3>
+      <p>Top-rated Level 2 EV chargers for home installation. Charge 5-10x faster than a standard outlet.</p>
+      <a href="https://www.amazon.com/s?k=level+2+ev+charger&tag=AFFILIATE_ID" target="_blank" rel="noopener" class="cta-link blue">Browse Top EV Chargers on Amazon &rarr;</a>
+      <div class="affiliate-disclosure">Affiliate Disclosure: This is an affiliate link. We may earn a commission at no cost to you.</div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Combined Savings -->
+  <div class="tab-content" id="tab-combined">
+    <div class="panel" style="max-width:100%">
+      <div class="panel-title"><span class="icon">&#127793;</span> Combined Solar + EV Savings</div>
+      <p style="color:var(--text-secondary);font-size:14px;margin-bottom:16px">This tab merges your Solar ROI and EV Charging results. Calculate both tabs first, then view combined savings here.</p>
+      <button class="calc-btn calc-btn-combined" onclick="calculateCombined()">Calculate Combined Savings</button>
+    </div>
+    <div class="results-panel" id="combined-results" style="margin-top:24px">
+      <div class="panel" style="max-width:100%">
+        <div class="result-hero combined">
+          <div class="big-number" id="combined-total-savings">$0</div>
+          <div class="label">Estimated 25-Year Combined Savings</div>
+        </div>
+        <div class="result-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">
+          <div class="result-card">
+            <div class="value" id="combined-ev-solar-savings">$0</div>
+            <div class="label">EV Charging Saved by Solar (yr)</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="combined-grid-savings">$0</div>
+            <div class="label">Grid Electricity Saved (yr)</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="combined-ev-gas-savings">$0</div>
+            <div class="label">EV vs Gas Savings (yr)</div>
+          </div>
+          <div class="result-card">
+            <div class="value" id="combined-payback">0 yrs</div>
+            <div class="label">Combined Payback Period</div>
+          </div>
+        </div>
+        <div class="chart-section">
+          <h4>25-Year Projection: Solar Only vs Solar + EV</h4>
+          <div class="line-chart-container" id="combined-chart-container"></div>
+          <div class="chart-legend"><span><span class="dot" style="background:var(--green)"></span> Solar Only</span><span><span class="dot" style="background:var(--purple)"></span> Solar + EV</span><span><span class="dot" style="background:#ef4444"></span> System Cost</span></div>
+        </div>
+        <div class="chart-section">
+          <h4>Annual Cost Breakdown</h4>
+          <div id="combined-cost-chart"></div>
+        </div>
+        <div class="summary-card combined-card" id="combined-summary"></div>
+      </div>
+    </div>
+
+    <div class="affiliate-cta">
+      <h3>Power Your EV Free with Solar</h3>
+      <p>Get actual quotes from local solar installers and see how much you can save when combining solar and EV.</p>
+      <a href="https://www.energysage.com/?ref=AFFILIATE_ID" target="_blank" rel="noopener" class="cta-link green">Get Free Solar Quotes from EnergySage &rarr;</a>
+      <div class="affiliate-disclosure">Affiliate Disclosure: This is an affiliate link. We may earn a commission at no cost to you.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Ad Placeholder -->
+<div class="ad-placeholder" style="max-width:928px;margin-left:auto;margin-right:auto">
+  <!-- AdSense Ad Unit 1 - Insert your ad code here -->
+  <p>Advertisement</p>
+</div>
+
+<!-- SEO Content -->
+<section class="seo-section" id="methodology">
+  <h2>How This Calculator Works</h2>
+
+  <h3>How We Calculate Solar Savings</h3>
+  <p>Our solar ROI calculator uses state-specific data to estimate your solar panel savings. We multiply your system size (in kW) by your state's average peak sun hours and a system efficiency factor of 80% (accounting for inverter losses, wiring, soiling, and shading) to determine annual energy production. Savings are calculated by multiplying production by your local electricity rate, with adjustments for annual panel degradation (default 0.5% per year, the industry standard) and projected electricity rate increases (default 2.5%, based on EIA historical averages). The payback period is your net system cost divided by first-year savings. For loan financing, we calculate monthly payments using standard amortization and find the crossover point where cumulative savings exceed cumulative payments.</p>
+
+  <h3>How We Calculate EV Charging Costs</h3>
+  <p>EV charging costs are based on EPA-rated energy consumption data (kWh per 100 miles) from fueleconomy.gov for each vehicle model. We multiply your annual miles by the vehicle's efficiency rating to determine total kWh needed, then apply your home electricity rate and any public charging costs based on your charging mix. For gasoline comparison, we divide your annual miles by the comparison vehicle's MPG and multiply by the gas price per gallon.</p>
+
+  <h3>Why Federal Tax Credits Are No Longer Available in 2026</h3>
+  <p>The federal Residential Clean Energy Credit (commonly called the solar ITC), which provided a 30% tax credit on solar installation costs, expired on December 31, 2025. The Clean Vehicle Tax Credit, which provided up to $7,500 for qualifying electric vehicle purchases, was terminated on September 30, 2025. Unlike many online calculators that still show these credits as available, our tool reflects the current 2026 tax landscape. Some states still offer their own solar and EV incentives. We recommend checking the <a href="https://dsireusa.org/" target="_blank" rel="noopener">Database of State Incentives for Renewables &amp; Efficiency (DSIRE)</a> for current programs in your state.</p>
+
+  <h3 id="faq-heading">Frequently Asked Questions</h3>
+  <div id="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How much solar do I need to charge my EV at home?</div>
+      <div class="faq-a">A typical EV driven 12,000 miles per year needs about 3,000 to 4,000 kWh annually for charging. A 3 to 5 kW solar system can usually cover this in states with good sun exposure (4+ peak sun hours per day). The exact amount depends on your EV's efficiency, driving habits, and your state's solar irradiance. Use our calculator above to get a personalized estimate.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is solar still worth it without the federal tax credit in 2026?</div>
+      <div class="faq-a">Yes, for most homeowners in states with moderate to high electricity rates (above 15 cents per kWh) and decent sun exposure. Without the 30% ITC, payback periods are longer, typically 7 to 12 years instead of 5 to 8, but solar panels last 25 or more years and electricity rates keep rising at roughly 2 to 3% per year. States like California, Connecticut, and Massachusetts still see strong returns. Some states also offer their own incentives that can help offset costs.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How much does it cost to charge an EV with solar panels?</div>
+      <div class="faq-a">If your solar system produces enough energy to cover your EV charging needs, the marginal cost of charging is essentially zero after the solar system pays for itself. Before payback, the effective cost is the solar system cost spread over its production, typically 4 to 8 cents per kWh, much less than grid electricity in most states.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is the payback period for solar panels in 2026?</div>
+      <div class="faq-a">Without the federal tax credit, solar payback periods in 2026 typically range from 7 to 15 years depending on your state electricity rate, sun exposure, system size, and installation cost. States with high electricity rates like California, Connecticut, and Massachusetts see faster payback (7 to 9 years), while low-rate states may take 12 to 15 years.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does having an EV make solar panels pay for themselves faster?</div>
+      <div class="faq-a">Yes. When you charge your EV with solar energy instead of grid electricity, every kWh of solar production displaces a higher-cost grid kWh. This effectively increases the value of your solar system and can reduce the payback period by 1 to 3 years depending on how much you drive and your local electricity rate.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What EV is the most efficient to charge with solar?</div>
+      <div class="faq-a">The most energy-efficient EVs include the Hyundai Ioniq 6 (23 kWh per 100 miles), Tesla Model 3 (25 kWh per 100 miles), and BMW i4 eDrive35 (25 kWh per 100 miles). More efficient EVs need less solar energy to charge, meaning a smaller (and cheaper) solar system can fully cover your driving needs.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How do electricity rates affect solar and EV savings?</div>
+      <div class="faq-a">Electricity rates directly determine your savings. Higher rates mean each kWh your solar panels produce saves you more money. States like California (34.71 cents/kWh) and Connecticut (32.60 cents/kWh) see much higher solar savings than states like Idaho (10.58 cents/kWh). The same applies to EV charging: higher grid rates make solar-powered charging even more valuable compared to grid charging.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I charge my EV entirely from solar panels?</div>
+      <div class="faq-a">It depends on your solar system size and driving habits. A typical EV driven 12,000 miles per year needs 3,000 to 4,000 kWh. A 6 kW system in a sunny state produces 7,000 to 8,000 kWh per year, more than enough. However, timing matters since you may need to charge at night when solar is not producing. Net metering (where available) or a home battery system helps bridge that gap by crediting daytime production against nighttime usage.</div>
+    </div>
+  </div>
+
+  <h3>Data Sources</h3>
+  <ul>
+    <li><strong>Electricity Rates:</strong> U.S. Energy Information Administration (EIA), December 2025 data via EIA-861</li>
+    <li><strong>Peak Sun Hours:</strong> NREL National Solar Radiation Database (NSRDB), 1998-2023 data period</li>
+    <li><strong>EV Efficiency:</strong> EPA fuel economy data from fueleconomy.gov (2024-2025 model year vehicles)</li>
+    <li><strong>Federal Tax Credits:</strong> IRS.gov (Residential Clean Energy Credit, Clean Vehicle Tax Credit)</li>
+    <li><strong>State Incentives:</strong> Database of State Incentives for Renewables &amp; Efficiency (<a href="https://dsireusa.org/" target="_blank" rel="noopener">dsireusa.org</a>)</li>
+  </ul>
+</section>
+
+<!-- Ad Placeholder 2 -->
+<div class="ad-placeholder" style="max-width:800px;margin-left:auto;margin-right:auto">
+  <!-- AdSense Ad Unit 2 - Insert your ad code here -->
+  <p>Advertisement</p>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <p><strong>Data as of March 2026.</strong> Electricity rates from EIA December 2025. EV data from fueleconomy.gov. Solar irradiance from NREL NSRDB (1998-2023).</p>
+    <p>
+      <a href="https://dsireusa.org/" target="_blank" rel="noopener">State Incentives (DSIRE)</a> &middot;
+      <a href="https://www.irs.gov/credits-deductions/residential-clean-energy-credit" target="_blank" rel="noopener">IRS Solar ITC</a> &middot;
+      <a href="https://www.irs.gov/clean-vehicle-tax-credits" target="_blank" rel="noopener">IRS EV Credit</a> &middot;
+      <a href="https://buymeacoffee.com/PLACEHOLDER" target="_blank" rel="noopener">Buy Me a Coffee</a>
+    </p>
+    <div class="footer-disclaimer">
+      <strong>Disclaimer:</strong> This calculator provides estimates only and does not constitute financial, tax, or investment advice. Actual solar production, savings, and costs will vary based on your specific location, roof orientation, shading, equipment, installer, and utility policies. Consult a qualified solar installer and financial professional before making purchase decisions. Affiliate Disclosure: Some links on this page are affiliate links. We may earn a commission at no additional cost to you.
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floating-btns">
+  <button class="fab fab-back" title="Back" onclick="history.back()">&#8592;</button>
+  <a class="fab fab-home" title="Home" href="https://dongili.github.io/">&#8962;</a>
+  <a class="fab fab-bmc" title="Buy Me a Coffee" href="https://buymeacoffee.com/PLACEHOLDER" target="_blank" rel="noopener">&#9749;</a>
+  <button class="fab fab-feedback" title="Feedback" onclick="window.open('mailto:feedback@dongili.tools?subject=Solar+EV+Calculator+Feedback','_blank')">&#9993;</button>
+</div>
+
+<script>
+/* ========== EMBEDDED DATA ========== */
+
+// A. State Electricity Rates (cents/kWh) - EIA December 2025 data
+const STATE_DATA = {
+  AL:{name:"Alabama",rate:16.01,gasPrice:2.95},
+  AK:{name:"Alaska",rate:25.54,gasPrice:3.85},
+  AZ:{name:"Arizona",rate:15.46,gasPrice:3.15},
+  AR:{name:"Arkansas",rate:13.63,gasPrice:2.85},
+  CA:{name:"California",rate:34.71,gasPrice:4.85},
+  CO:{name:"Colorado",rate:16.16,gasPrice:3.10},
+  CT:{name:"Connecticut",rate:32.60,gasPrice:3.45},
+  DE:{name:"Delaware",rate:17.82,gasPrice:3.15},
+  FL:{name:"Florida",rate:16.45,gasPrice:3.20},
+  GA:{name:"Georgia",rate:15.45,gasPrice:2.95},
+  HI:{name:"Hawaii",rate:42.07,gasPrice:4.65},
+  ID:{name:"Idaho",rate:10.58,gasPrice:3.35},
+  IL:{name:"Illinois",rate:17.35,gasPrice:3.55},
+  IN:{name:"Indiana",rate:16.32,gasPrice:3.10},
+  IA:{name:"Iowa",rate:15.05,gasPrice:3.00},
+  KS:{name:"Kansas",rate:15.27,gasPrice:2.95},
+  KY:{name:"Kentucky",rate:14.02,gasPrice:2.90},
+  LA:{name:"Louisiana",rate:13.21,gasPrice:2.80},
+  ME:{name:"Maine",rate:26.87,gasPrice:3.35},
+  MD:{name:"Maryland",rate:18.83,gasPrice:3.25},
+  MA:{name:"Massachusetts",rate:32.45,gasPrice:3.40},
+  MI:{name:"Michigan",rate:20.40,gasPrice:3.25},
+  MN:{name:"Minnesota",rate:15.91,gasPrice:3.10},
+  MS:{name:"Mississippi",rate:14.46,gasPrice:2.80},
+  MO:{name:"Missouri",rate:13.78,gasPrice:2.85},
+  MT:{name:"Montana",rate:12.80,gasPrice:3.20},
+  NE:{name:"Nebraska",rate:13.01,gasPrice:3.05},
+  NV:{name:"Nevada",rate:16.10,gasPrice:3.85},
+  NH:{name:"New Hampshire",rate:28.48,gasPrice:3.30},
+  NJ:{name:"New Jersey",rate:20.88,gasPrice:3.20},
+  NM:{name:"New Mexico",rate:16.24,gasPrice:3.10},
+  NY:{name:"New York",rate:24.42,gasPrice:3.50},
+  NC:{name:"North Carolina",rate:14.43,gasPrice:3.00},
+  ND:{name:"North Dakota",rate:12.59,gasPrice:3.05},
+  OH:{name:"Ohio",rate:16.13,gasPrice:3.10},
+  OK:{name:"Oklahoma",rate:13.06,gasPrice:2.80},
+  OR:{name:"Oregon",rate:13.88,gasPrice:3.65},
+  PA:{name:"Pennsylvania",rate:18.96,gasPrice:3.35},
+  RI:{name:"Rhode Island",rate:29.14,gasPrice:3.35},
+  SC:{name:"South Carolina",rate:14.80,gasPrice:2.90},
+  SD:{name:"South Dakota",rate:14.00,gasPrice:3.10},
+  TN:{name:"Tennessee",rate:13.70,gasPrice:2.85},
+  TX:{name:"Texas",rate:15.87,gasPrice:2.80},
+  UT:{name:"Utah",rate:12.30,gasPrice:3.25},
+  VT:{name:"Vermont",rate:22.76,gasPrice:3.35},
+  VA:{name:"Virginia",rate:15.58,gasPrice:3.05},
+  WA:{name:"Washington",rate:13.33,gasPrice:3.85},
+  WV:{name:"West Virginia",rate:14.45,gasPrice:3.05},
+  WI:{name:"Wisconsin",rate:17.66,gasPrice:3.05},
+  WY:{name:"Wyoming",rate:12.08,gasPrice:3.30}
+};
+
+// B. Peak Sun Hours (kWh/m2/day annual average) - NREL NSRDB 1998-2023
+const PEAK_SUN_HOURS = {
+  AL:4.32,AK:2.99,AZ:6.57,AR:4.29,CA:5.38,CO:5.37,CT:3.84,DE:4.23,FL:5.04,GA:4.55,
+  HI:5.63,ID:4.50,IL:3.86,IN:3.82,IA:4.08,KS:4.68,KY:3.95,LA:4.44,ME:3.79,MD:4.18,
+  MA:3.84,MI:3.62,MN:3.89,MS:4.35,MO:4.18,MT:4.23,NE:4.40,NV:6.20,NH:3.76,NJ:4.13,
+  NM:6.40,NY:3.68,NC:4.42,ND:4.07,OH:3.73,OK:4.72,OR:3.93,PA:3.81,RI:3.88,SC:4.53,
+  SD:4.30,TN:4.15,TX:4.92,UT:5.58,VT:3.68,VA:4.24,WA:3.57,WV:3.80,WI:3.72,WY:4.89
+};
+
+// C. EV Model Database - fueleconomy.gov 2024-2025 data
+const EV_MODELS = [
+  {make:"Tesla",model:"Model 3 Standard Range",year:2025,kwh:25,range:272,cat:"sedan"},
+  {make:"Tesla",model:"Model 3 Long Range",year:2025,kwh:25,range:358,cat:"sedan"},
+  {make:"Tesla",model:"Model 3 Performance",year:2025,kwh:27,range:315,cat:"sedan"},
+  {make:"Tesla",model:"Model Y Standard Range",year:2025,kwh:27,range:283,cat:"suv"},
+  {make:"Tesla",model:"Model Y Long Range",year:2025,kwh:28,range:330,cat:"suv"},
+  {make:"Tesla",model:"Model Y Performance",year:2025,kwh:29,range:303,cat:"suv"},
+  {make:"Tesla",model:"Model S Long Range",year:2025,kwh:28,range:405,cat:"sedan"},
+  {make:"Tesla",model:"Model S Plaid",year:2025,kwh:30,range:396,cat:"sedan"},
+  {make:"Tesla",model:"Model X Long Range",year:2025,kwh:32,range:348,cat:"suv"},
+  {make:"Tesla",model:"Model X Plaid",year:2025,kwh:34,range:326,cat:"suv"},
+  {make:"Tesla",model:"Cybertruck AWD",year:2025,kwh:35,range:318,cat:"truck"},
+  {make:"Tesla",model:"Cybertruck Cyberbeast",year:2025,kwh:37,range:301,cat:"truck"},
+  {make:"Chevrolet",model:"Bolt EV",year:2024,kwh:28,range:259,cat:"hatchback"},
+  {make:"Chevrolet",model:"Bolt EUV",year:2024,kwh:29,range:247,cat:"suv"},
+  {make:"Chevrolet",model:"Equinox EV",year:2025,kwh:30,range:319,cat:"suv"},
+  {make:"Chevrolet",model:"Blazer EV",year:2025,kwh:33,range:279,cat:"suv"},
+  {make:"Chevrolet",model:"Silverado EV",year:2025,kwh:40,range:400,cat:"truck"},
+  {make:"Ford",model:"Mustang Mach-E Standard",year:2025,kwh:30,range:250,cat:"suv"},
+  {make:"Ford",model:"Mustang Mach-E Extended",year:2025,kwh:32,range:312,cat:"suv"},
+  {make:"Ford",model:"F-150 Lightning Standard",year:2025,kwh:36,range:240,cat:"truck"},
+  {make:"Ford",model:"F-150 Lightning Extended",year:2025,kwh:38,range:320,cat:"truck"},
+  {make:"Hyundai",model:"Ioniq 5 Standard",year:2025,kwh:28,range:220,cat:"suv"},
+  {make:"Hyundai",model:"Ioniq 5 Long Range",year:2025,kwh:29,range:303,cat:"suv"},
+  {make:"Hyundai",model:"Ioniq 6 Standard",year:2025,kwh:23,range:240,cat:"sedan"},
+  {make:"Hyundai",model:"Ioniq 6 Long Range",year:2025,kwh:24,range:361,cat:"sedan"},
+  {make:"Hyundai",model:"Kona Electric",year:2025,kwh:28,range:261,cat:"suv"},
+  {make:"Kia",model:"EV6 Standard",year:2025,kwh:28,range:232,cat:"suv"},
+  {make:"Kia",model:"EV6 Long Range",year:2025,kwh:29,range:310,cat:"suv"},
+  {make:"Kia",model:"EV6 GT",year:2025,kwh:32,range:270,cat:"suv"},
+  {make:"Kia",model:"EV9 Long Range",year:2025,kwh:34,range:304,cat:"suv"},
+  {make:"Kia",model:"Niro EV",year:2025,kwh:27,range:253,cat:"suv"},
+  {make:"BMW",model:"i4 eDrive35",year:2025,kwh:25,range:260,cat:"sedan"},
+  {make:"BMW",model:"i4 eDrive40",year:2025,kwh:27,range:301,cat:"sedan"},
+  {make:"BMW",model:"i4 M50",year:2025,kwh:30,range:270,cat:"sedan"},
+  {make:"BMW",model:"iX xDrive50",year:2025,kwh:33,range:324,cat:"suv"},
+  {make:"BMW",model:"i5 eDrive40",year:2025,kwh:28,range:295,cat:"sedan"},
+  {make:"Mercedes-Benz",model:"EQE 350+",year:2025,kwh:29,range:305,cat:"sedan"},
+  {make:"Mercedes-Benz",model:"EQS 450+",year:2025,kwh:30,range:350,cat:"sedan"},
+  {make:"Mercedes-Benz",model:"EQB 250+",year:2025,kwh:31,range:245,cat:"suv"},
+  {make:"Audi",model:"Q4 e-tron 40",year:2025,kwh:30,range:265,cat:"suv"},
+  {make:"Audi",model:"Q4 e-tron 50",year:2025,kwh:31,range:275,cat:"suv"},
+  {make:"Audi",model:"Q8 e-tron",year:2025,kwh:34,range:285,cat:"suv"},
+  {make:"Volkswagen",model:"ID.4 Standard",year:2025,kwh:29,range:209,cat:"suv"},
+  {make:"Volkswagen",model:"ID.4 Pro S Plus",year:2025,kwh:30,range:275,cat:"suv"},
+  {make:"Volkswagen",model:"ID.Buzz Standard",year:2025,kwh:35,range:234,cat:"van"},
+  {make:"Nissan",model:"Leaf S",year:2025,kwh:30,range:149,cat:"hatchback"},
+  {make:"Nissan",model:"Leaf SV Plus",year:2025,kwh:30,range:212,cat:"hatchback"},
+  {make:"Nissan",model:"Ariya Engage",year:2025,kwh:30,range:216,cat:"suv"},
+  {make:"Nissan",model:"Ariya Venture+",year:2025,kwh:31,range:304,cat:"suv"},
+  {make:"Rivian",model:"R1S Standard",year:2025,kwh:34,range:260,cat:"suv"},
+  {make:"Rivian",model:"R1S Max Pack",year:2025,kwh:35,range:400,cat:"suv"},
+  {make:"Rivian",model:"R1T Standard",year:2025,kwh:35,range:260,cat:"truck"},
+  {make:"Rivian",model:"R1T Max Pack",year:2025,kwh:36,range:400,cat:"truck"},
+  {make:"Polestar",model:"Polestar 2 Standard",year:2025,kwh:27,range:270,cat:"sedan"},
+  {make:"Polestar",model:"Polestar 2 Long Range",year:2025,kwh:28,range:320,cat:"sedan"},
+  {make:"Lucid",model:"Air Pure",year:2025,kwh:25,range:419,cat:"sedan"},
+  {make:"Lucid",model:"Air Grand Touring",year:2025,kwh:27,range:516,cat:"sedan"},
+  {make:"Toyota",model:"bZ4X XLE",year:2025,kwh:30,range:252,cat:"suv"},
+  {make:"Subaru",model:"Solterra Premium",year:2025,kwh:31,range:228,cat:"suv"},
+  {make:"Volvo",model:"EX30 Single Motor",year:2025,kwh:26,range:275,cat:"suv"},
+  {make:"Volvo",model:"EX30 Twin Motor",year:2025,kwh:28,range:253,cat:"suv"},
+  {make:"Volvo",model:"EX40 Recharge",year:2025,kwh:30,range:254,cat:"suv"},
+  {make:"Cadillac",model:"Lyriq RWD",year:2025,kwh:30,range:314,cat:"suv"},
+  {make:"Genesis",model:"GV60 Standard",year:2025,kwh:29,range:248,cat:"suv"},
+  {make:"Genesis",model:"Electrified GV70",year:2025,kwh:33,range:236,cat:"suv"}
+];
+
+// D. State Incentive Summary (simplified)
+const STATE_INCENTIVES = {
+  AL:{nm:false,credit:0,notes:"",url:"https://programs.dsireusa.org/system/program?state=AL"},
+  AK:{nm:false,credit:0,notes:"",url:"https://programs.dsireusa.org/system/program?state=AK"},
+  AZ:{nm:true,credit:0,notes:"Net billing available",url:"https://programs.dsireusa.org/system/program?state=AZ"},
+  AR:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=AR"},
+  CA:{nm:true,credit:0,notes:"NEM 3.0 (reduced export rates)",url:"https://programs.dsireusa.org/system/program?state=CA"},
+  CO:{nm:true,credit:0,notes:"Net metering + some utility rebates",url:"https://programs.dsireusa.org/system/program?state=CO"},
+  CT:{nm:true,credit:0,notes:"RSIP rebate program",url:"https://programs.dsireusa.org/system/program?state=CT"},
+  DE:{nm:true,credit:0,notes:"Green Energy Fund grants",url:"https://programs.dsireusa.org/system/program?state=DE"},
+  FL:{nm:true,credit:0,notes:"Net metering, property tax exemption",url:"https://programs.dsireusa.org/system/program?state=FL"},
+  GA:{nm:false,credit:0,notes:"Limited net metering",url:"https://programs.dsireusa.org/system/program?state=GA"},
+  HI:{nm:true,credit:0,notes:"Customer grid-supply program",url:"https://programs.dsireusa.org/system/program?state=HI"},
+  ID:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=ID"},
+  IL:{nm:true,credit:0,notes:"Illinois Shines incentive",url:"https://programs.dsireusa.org/system/program?state=IL"},
+  IN:{nm:true,credit:0,notes:"Net metering (grandfathered)",url:"https://programs.dsireusa.org/system/program?state=IN"},
+  IA:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=IA"},
+  KS:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=KS"},
+  KY:{nm:true,credit:0,notes:"Net metering (retail rate)",url:"https://programs.dsireusa.org/system/program?state=KY"},
+  LA:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=LA"},
+  ME:{nm:true,credit:0,notes:"Net energy billing",url:"https://programs.dsireusa.org/system/program?state=ME"},
+  MD:{nm:true,credit:1000,notes:"MD solar rebate program",url:"https://programs.dsireusa.org/system/program?state=MD"},
+  MA:{nm:true,credit:1000,notes:"SMART incentive program",url:"https://programs.dsireusa.org/system/program?state=MA"},
+  MI:{nm:true,credit:0,notes:"Net metering + outflow credits",url:"https://programs.dsireusa.org/system/program?state=MI"},
+  MN:{nm:true,credit:0,notes:"Net metering + Solar*Rewards",url:"https://programs.dsireusa.org/system/program?state=MN"},
+  MS:{nm:false,credit:0,notes:"Limited options",url:"https://programs.dsireusa.org/system/program?state=MS"},
+  MO:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=MO"},
+  MT:{nm:true,credit:0,notes:"Net metering + property tax exemption",url:"https://programs.dsireusa.org/system/program?state=MT"},
+  NE:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=NE"},
+  NV:{nm:true,credit:0,notes:"Net metering + NV Energy rebate",url:"https://programs.dsireusa.org/system/program?state=NV"},
+  NH:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=NH"},
+  NJ:{nm:true,credit:0,notes:"SuSI program + SRECs",url:"https://programs.dsireusa.org/system/program?state=NJ"},
+  NM:{nm:true,credit:0,notes:"Net metering + state credit",url:"https://programs.dsireusa.org/system/program?state=NM"},
+  NY:{nm:true,credit:5000,notes:"NY-Sun megawatt block incentive",url:"https://programs.dsireusa.org/system/program?state=NY"},
+  NC:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=NC"},
+  ND:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=ND"},
+  OH:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=OH"},
+  OK:{nm:false,credit:0,notes:"Limited net metering",url:"https://programs.dsireusa.org/system/program?state=OK"},
+  OR:{nm:true,credit:0,notes:"Net metering + Energy Trust rebates",url:"https://programs.dsireusa.org/system/program?state=OR"},
+  PA:{nm:true,credit:0,notes:"Net metering + SRECs",url:"https://programs.dsireusa.org/system/program?state=PA"},
+  RI:{nm:true,credit:0,notes:"REF incentive + net metering",url:"https://programs.dsireusa.org/system/program?state=RI"},
+  SC:{nm:true,credit:0,notes:"Net metering + state credit",url:"https://programs.dsireusa.org/system/program?state=SC"},
+  SD:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=SD"},
+  TN:{nm:false,credit:0,notes:"TVA programs",url:"https://programs.dsireusa.org/system/program?state=TN"},
+  TX:{nm:false,credit:0,notes:"Varies by utility, no statewide NEM",url:"https://programs.dsireusa.org/system/program?state=TX"},
+  UT:{nm:true,credit:0,notes:"Net metering (transitioning)",url:"https://programs.dsireusa.org/system/program?state=UT"},
+  VT:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=VT"},
+  VA:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=VA"},
+  WA:{nm:true,credit:0,notes:"Net metering + production incentive",url:"https://programs.dsireusa.org/system/program?state=WA"},
+  WV:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=WV"},
+  WI:{nm:true,credit:0,notes:"Net metering + Focus on Energy",url:"https://programs.dsireusa.org/system/program?state=WI"},
+  WY:{nm:true,credit:0,notes:"Net metering available",url:"https://programs.dsireusa.org/system/program?state=WY"}
+};
+
+// Monthly solar production factors (% of annual, northern hemisphere pattern)
+const MONTHLY_FACTORS = [0.055,0.065,0.085,0.095,0.105,0.110,0.110,0.105,0.090,0.075,0.055,0.050];
+const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+/* ========== STATE VARIABLES ========== */
+let selectedState = 'CA';
+let selectedEV = 0; // index
+let solarCalcData = null;
+let evCalcData = null;
+
+/* ========== TAB SWITCHING ========== */
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active-solar','active-ev','active-combined');
+  });
+  document.getElementById('tab-' + tab).classList.add('active');
+  const btn = document.querySelector('[data-tab="'+tab+'"]');
+  btn.classList.add('active-' + tab);
+}
+
+/* ========== STATE DROPDOWN ========== */
+function buildStateDropdown() {
+  const dd = document.getElementById('state-dropdown');
+  dd.innerHTML = '';
+  const sorted = Object.entries(STATE_DATA).sort((a,b) => a[1].name.localeCompare(b[1].name));
+  sorted.forEach(([code, data]) => {
+    const div = document.createElement('div');
+    div.className = 'dropdown-item';
+    div.innerHTML = data.name + ' <span class="sub">(' + code + ') - ' + data.rate + ' c/kWh</span>';
+    div.onclick = () => selectState(code);
+    div.dataset.code = code;
+    dd.appendChild(div);
+  });
+}
+
+function openStateDropdown() {
+  document.getElementById('state-dropdown').classList.add('open');
+  document.getElementById('solar-state').select();
+}
+
+function filterStates(val) {
+  const dd = document.getElementById('state-dropdown');
+  dd.classList.add('open');
+  const items = dd.querySelectorAll('.dropdown-item');
+  const v = val.toLowerCase();
+  items.forEach(item => {
+    const name = STATE_DATA[item.dataset.code].name.toLowerCase();
+    const code = item.dataset.code.toLowerCase();
+    item.style.display = (name.includes(v) || code.includes(v)) ? '' : 'none';
+  });
+}
+
+function selectState(code) {
+  selectedState = code;
+  const data = STATE_DATA[code];
+  document.getElementById('solar-state').value = data.name;
+  document.getElementById('state-dropdown').classList.remove('open');
+  document.getElementById('state-info').textContent = data.rate + ' c/kWh | ' + PEAK_SUN_HOURS[code] + ' peak sun hours/day';
+  document.getElementById('ev-home-rate').value = data.rate;
+  document.getElementById('ev-gas-price').value = data.gasPrice;
+}
+
+/* ========== EV DROPDOWN ========== */
+function buildEVDropdown() {
+  const dd = document.getElementById('ev-dropdown');
+  dd.innerHTML = '';
+  const makes = [...new Set(EV_MODELS.map(m => m.make))];
+  makes.forEach(make => {
+    const group = document.createElement('div');
+    group.className = 'dropdown-group';
+    group.textContent = make;
+    dd.appendChild(group);
+    EV_MODELS.filter(m => m.make === make).forEach((ev, i) => {
+      const idx = EV_MODELS.indexOf(ev);
+      const div = document.createElement('div');
+      div.className = 'dropdown-item';
+      div.innerHTML = ev.make + ' ' + ev.model + ' <span class="sub">' + ev.kwh + ' kWh/100mi | ' + ev.range + ' mi range</span>';
+      div.onclick = () => selectEV(idx);
+      div.dataset.idx = idx;
+      dd.appendChild(div);
+    });
+  });
+}
+
+function openEVDropdown() {
+  document.getElementById('ev-dropdown').classList.add('open');
+  document.getElementById('ev-model').select();
+}
+
+function filterEVModels(val) {
+  const dd = document.getElementById('ev-dropdown');
+  dd.classList.add('open');
+  const v = val.toLowerCase();
+  dd.querySelectorAll('.dropdown-item, .dropdown-group').forEach(el => {
+    if (el.classList.contains('dropdown-group')) {
+      el.style.display = 'none';
+      return;
+    }
+    const ev = EV_MODELS[el.dataset.idx];
+    const text = (ev.make + ' ' + ev.model).toLowerCase();
+    const show = text.includes(v);
+    el.style.display = show ? '' : 'none';
+    if (show) {
+      // Show parent group
+      let prev = el.previousElementSibling;
+      while (prev && !prev.classList.contains('dropdown-group')) prev = prev.previousElementSibling;
+      if (prev) prev.style.display = '';
+    }
+  });
+}
+
+function selectEV(idx) {
+  selectedEV = idx;
+  const ev = EV_MODELS[idx];
+  document.getElementById('ev-model').value = ev.make + ' ' + ev.model;
+  document.getElementById('ev-dropdown').classList.remove('open');
+  document.getElementById('ev-info').textContent = ev.kwh + ' kWh/100mi | ' + ev.range + ' mi range | ' + ev.year;
+}
+
+/* ========== CLOSE DROPDOWNS ========== */
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('#solar-state') && !e.target.closest('#state-dropdown')) {
+    document.getElementById('state-dropdown').classList.remove('open');
+  }
+  if (!e.target.closest('#ev-model') && !e.target.closest('#ev-dropdown')) {
+    document.getElementById('ev-dropdown').classList.remove('open');
+  }
+});
+
+/* ========== UI TOGGLES ========== */
+function toggleLoanFields() {
+  const show = document.getElementById('solar-financing').value === 'loan';
+  document.getElementById('loan-fields').classList.toggle('field-hidden', !show);
+}
+
+function togglePublicRate() {
+  const show = parseFloat(document.getElementById('ev-charge-mix').value) < 1.0;
+  document.getElementById('public-rate-field').classList.toggle('field-hidden', !show);
+}
+
+function suggestSystemSize() {
+  const bill = parseFloat(document.getElementById('solar-bill').value) || 150;
+  const rate = STATE_DATA[selectedState].rate;
+  const psh = PEAK_SUN_HOURS[selectedState];
+  const monthlyKwh = bill / (rate / 100);
+  const annualKwh = monthlyKwh * 12;
+  const suggested = annualKwh * 0.90 / (psh * 365 * 0.80);
+  document.getElementById('solar-size').value = Math.round(suggested * 2) / 2; // round to nearest 0.5
+}
+
+/* ========== FORMATTING ========== */
+function fmt(n) { return n.toLocaleString('en-US', {maximumFractionDigits: 0}); }
+function fmtD(n) { return '$' + fmt(n); }
+function fmtC(n) { return '$' + n.toFixed(2); }
+
+/* ========== SOLAR CALCULATION ========== */
+function calculateSolar() {
+  const state = selectedState;
+  const rate = STATE_DATA[state].rate;
+  const psh = PEAK_SUN_HOURS[state];
+  const bill = parseFloat(document.getElementById('solar-bill').value) || 150;
+  const size = parseFloat(document.getElementById('solar-size').value) || 6;
+  const costPerWatt = parseFloat(document.getElementById('solar-cost').value) || 3.00;
+  const rateIncrease = (parseFloat(document.getElementById('solar-rate-increase').value) || 2.5) / 100;
+  const degradation = (parseFloat(document.getElementById('solar-degradation').value) || 0.5) / 100;
+  const financing = document.getElementById('solar-financing').value;
+
+  // System output
+  const annualProd = size * psh * 365 * 0.80;
+  const monthlyUsage = bill / (rate / 100);
+
+  // Cost
+  const totalCost = size * 1000 * costPerWatt;
+  const stateCredit = STATE_INCENTIVES[state] ? STATE_INCENTIVES[state].credit : 0;
+  const netCost = totalCost - stateCredit;
+
+  // Year 1 savings
+  const year1Savings = Math.min(annualProd, monthlyUsage * 12) * (rate / 100);
+
+  // 25-year projection
+  let cumulativeSavings = [];
+  let yearlySavings = [];
+  let cumSum = 0;
+  for (let n = 1; n <= 25; n++) {
+    const degFactor = Math.pow(1 - degradation, n - 1);
+    const rateFactor = Math.pow(1 + rateIncrease, n - 1);
+    const prodN = annualProd * degFactor;
+    const usageN = monthlyUsage * 12;
+    const savN = Math.min(prodN, usageN) * (rate / 100) * rateFactor;
+    cumSum += savN;
+    cumulativeSavings.push(cumSum);
+    yearlySavings.push(savN);
+  }
+
+  // Payback & loan
+  let paybackYears;
+  let totalLoanPayments = 0;
+  let monthlyPayment = 0;
+  if (financing === 'loan') {
+    const loanRate = (parseFloat(document.getElementById('loan-rate').value) || 5.5) / 100;
+    const loanTermYrs = parseInt(document.getElementById('loan-term').value) || 20;
+    const monthlyRate = loanRate / 12;
+    const termMonths = loanTermYrs * 12;
+    monthlyPayment = (netCost * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -termMonths));
+    totalLoanPayments = monthlyPayment * termMonths;
+
+    let cumPay = 0;
+    let cumSav = 0;
+    paybackYears = 25;
+    for (let n = 1; n <= 25; n++) {
+      cumSav = cumulativeSavings[n - 1];
+      cumPay += (n <= loanTermYrs) ? monthlyPayment * 12 : 0;
+      if (cumSav >= cumPay && paybackYears === 25) {
+        paybackYears = n;
+      }
+    }
+  } else {
+    paybackYears = year1Savings > 0 ? netCost / year1Savings : 99;
+  }
+
+  const net25yr = financing === 'loan'
+    ? cumulativeSavings[24] - totalLoanPayments
+    : cumulativeSavings[24] - netCost;
+
+  // Store for combined tab
+  solarCalcData = {
+    state, rate, psh, size, annualProd, netCost, year1Savings, paybackYears,
+    net25yr, cumulativeSavings, yearlySavings, degradation, rateIncrease,
+    monthlyUsage, stateCredit, totalCost, financing, monthlyPayment, totalLoanPayments
+  };
+
+  // Display results
+  document.getElementById('solar-results').classList.add('show');
+  document.getElementById('solar-net-savings').textContent = fmtD(net25yr);
+  document.getElementById('solar-annual-prod').textContent = fmt(annualProd) + ' kWh';
+  document.getElementById('solar-year1-savings').textContent = fmtD(year1Savings);
+  document.getElementById('solar-total-cost').textContent = fmtD(netCost) + (stateCredit > 0 ? ' (after ' + fmtD(stateCredit) + ' state credit)' : '');
+  document.getElementById('solar-payback').textContent = paybackYears >= 25 ? '25+ yrs' : (Math.round(paybackYears * 10) / 10) + ' yrs';
+
+  // State incentive info
+  const inc = STATE_INCENTIVES[state];
+  if (inc) {
+    const incEl = document.getElementById('solar-state-incentive');
+    let html = '<strong>' + STATE_DATA[state].name + ' Incentives:</strong> ';
+    html += inc.nm ? 'Net metering available. ' : 'No statewide net metering. ';
+    if (inc.notes) html += inc.notes + '. ';
+    if (inc.credit > 0) html += 'State credit: ' + fmtD(inc.credit) + '. ';
+    html += '<a href="' + inc.url + '" target="_blank" rel="noopener">View all ' + STATE_DATA[state].name + ' incentives on DSIRE &rarr;</a>';
+    incEl.innerHTML = html;
+    incEl.style.display = '';
+  }
+
+  // Draw charts
+  drawSolar25YearChart(cumulativeSavings, netCost, financing === 'loan' ? totalLoanPayments : netCost);
+  drawSolarMonthlyChart(annualProd, monthlyUsage);
+
+  // Summary card
+  document.getElementById('solar-summary').innerHTML =
+    '<p>In <strong>' + STATE_DATA[state].name + '</strong>, a <strong>' + size + ' kW</strong> solar system could save you approximately <strong>' + fmtD(net25yr) + '</strong> over 25 years with a payback period of <strong>' + (paybackYears >= 25 ? '25+' : Math.round(paybackYears * 10) / 10) + ' years</strong>.</p>' +
+    '<div class="share-btns">' +
+    '<button class="share-btn" onclick="copyResults(\'solar\')">Copy Results</button>' +
+    '<button class="share-btn" onclick="shareToX(\'solar\')">Share on X</button>' +
+    '</div>';
+
+  // Update URL hash
+  updateHash();
+}
+
+/* ========== EV CALCULATION ========== */
+function calculateEV() {
+  const ev = EV_MODELS[selectedEV];
+  const annualMiles = parseFloat(document.getElementById('ev-miles').value) || 12000;
+  const chargeMix = parseFloat(document.getElementById('ev-charge-mix').value);
+  const publicRate = parseFloat(document.getElementById('ev-public-rate').value) || 0.35;
+  const homeRate = parseFloat(document.getElementById('ev-home-rate').value) || 17.24;
+  const gasPrice = parseFloat(document.getElementById('ev-gas-price').value) || 3.50;
+  const mpg = parseFloat(document.getElementById('ev-mpg').value) || 28;
+
+  const annualKwh = (annualMiles / 100) * ev.kwh;
+  const homeKwh = annualKwh * chargeMix;
+  const publicKwh = annualKwh * (1 - chargeMix);
+
+  const annualHomeCost = homeKwh * (homeRate / 100);
+  const annualPublicCost = publicKwh * publicRate;
+  const annualTotalCharging = annualHomeCost + annualPublicCost;
+  const monthlyCharging = annualTotalCharging / 12;
+
+  const annualGasCost = (annualMiles / mpg) * gasPrice;
+  const annualSavings = annualGasCost - annualTotalCharging;
+  const costPerMileEV = annualTotalCharging / annualMiles;
+  const costPerMileGas = gasPrice / mpg;
+
+  // Store for combined tab
+  evCalcData = {
+    ev, annualMiles, chargeMix, publicRate, homeRate, gasPrice, mpg,
+    annualKwh, homeKwh, publicKwh, annualHomeCost, annualPublicCost,
+    annualTotalCharging, annualGasCost, annualSavings, costPerMileEV, costPerMileGas
+  };
+
+  // Display results
+  document.getElementById('ev-results').classList.add('show');
+  document.getElementById('ev-annual-savings').textContent = fmtD(annualSavings);
+  document.getElementById('ev-monthly-cost').textContent = fmtD(monthlyCharging);
+  document.getElementById('ev-annual-cost').textContent = fmtD(annualTotalCharging);
+  document.getElementById('ev-cost-per-mile').textContent = fmtC(costPerMileEV);
+  document.getElementById('ev-gas-cost-mile').textContent = fmtC(costPerMileGas);
+
+  // Draw comparison chart
+  drawEVComparisonChart(annualTotalCharging, annualGasCost);
+
+  // Summary card
+  document.getElementById('ev-summary').innerHTML =
+    '<p>Driving a <strong>' + ev.make + ' ' + ev.model + '</strong> ' + fmt(annualMiles) + ' miles/year costs approximately <strong>' + fmtD(annualTotalCharging) + '/year</strong> to charge, saving <strong>' + fmtD(annualSavings) + '/year</strong> vs gasoline.</p>' +
+    '<div class="share-btns">' +
+    '<button class="share-btn" onclick="copyResults(\'ev\')">Copy Results</button>' +
+    '<button class="share-btn" onclick="shareToX(\'ev\')">Share on X</button>' +
+    '</div>';
+
+  updateHash();
+}
+
+/* ========== COMBINED CALCULATION ========== */
+function calculateCombined() {
+  if (!solarCalcData || !evCalcData) {
+    alert('Please calculate both Solar ROI and EV Charging first.');
+    return;
+  }
+  const s = solarCalcData;
+  const e = evCalcData;
+
+  const evAnnualKwhHome = e.homeKwh;
+  const solarAnnualKwh = s.annualProd;
+
+  const solarToEv = Math.min(evAnnualKwhHome, solarAnnualKwh);
+  const solarSurplus = Math.max(0, solarAnnualKwh - evAnnualKwhHome);
+
+  const evChargingWithSolar = (evAnnualKwhHome - solarToEv) * (s.rate / 100) + e.annualPublicCost;
+  const evSolarSavings = solarToEv * (s.rate / 100);
+  const gridSavings = Math.min(solarSurplus, s.monthlyUsage * 12 - evAnnualKwhHome) * (s.rate / 100);
+
+  // 25-year combined projection
+  let cumSolarOnly = [];
+  let cumCombined = [];
+  let cumSolar = 0;
+  let cumComb = 0;
+  for (let n = 1; n <= 25; n++) {
+    const degFactor = Math.pow(1 - s.degradation, n - 1);
+    const rateFactor = Math.pow(1 + s.rateIncrease, n - 1);
+    const gasInflation = Math.pow(1.03, n - 1);
+    const prodN = s.annualProd * degFactor;
+
+    // Solar only savings
+    const solarSavN = Math.min(prodN, s.monthlyUsage * 12) * (s.rate / 100) * rateFactor;
+    cumSolar += solarSavN;
+    cumSolarOnly.push(cumSolar);
+
+    // Combined: solar savings + EV vs gas savings
+    const evGasCostN = e.annualGasCost * gasInflation;
+    const evChargeCostN = e.annualTotalCharging * rateFactor;
+    const evVsGasN = evGasCostN - evChargeCostN;
+
+    // EV charging offset by solar
+    const solarToEvN = Math.min(e.homeKwh, prodN);
+    const evSolarSavN = solarToEvN * (s.rate / 100) * rateFactor;
+
+    cumComb += solarSavN + evSolarSavN + Math.max(0, evVsGasN - solarSavN > 0 ? evVsGasN * 0.3 : 0);
+    // Simplified: combined = solar savings + portion of EV savings
+    cumCombined.push(cumSolar + (evVsGasN > 0 ? evVsGasN * n : 0) + evSolarSavN * n * 0.3);
+  }
+
+  // Recalculate properly
+  cumCombined = [];
+  let cc = 0;
+  for (let n = 1; n <= 25; n++) {
+    const degFactor = Math.pow(1 - s.degradation, n - 1);
+    const rateFactor = Math.pow(1 + s.rateIncrease, n - 1);
+    const gasInflation = Math.pow(1.03, n - 1);
+    const prodN = s.annualProd * degFactor;
+
+    const solarSavN = Math.min(prodN, s.monthlyUsage * 12) * (s.rate / 100) * rateFactor;
+    const solarToEvN = Math.min(e.homeKwh, prodN);
+    const evSolarSavN = solarToEvN * (s.rate / 100) * rateFactor;
+    const evGasSavN = (e.annualGasCost * gasInflation) - (e.annualTotalCharging * rateFactor);
+
+    cc += solarSavN + evSolarSavN + Math.max(0, evGasSavN);
+    cumCombined.push(cc);
+  }
+
+  const combinedPayback = (evSolarSavings + gridSavings) > 0
+    ? s.netCost / (evSolarSavings + gridSavings + s.year1Savings)
+    : s.paybackYears;
+
+  const total25yr = cumCombined[24] - s.netCost;
+
+  // Display results
+  document.getElementById('combined-results').classList.add('show');
+  document.getElementById('combined-total-savings').textContent = fmtD(total25yr);
+  document.getElementById('combined-ev-solar-savings').textContent = fmtD(evSolarSavings);
+  document.getElementById('combined-grid-savings').textContent = fmtD(gridSavings);
+  document.getElementById('combined-ev-gas-savings').textContent = fmtD(e.annualSavings);
+  document.getElementById('combined-payback').textContent = combinedPayback >= 25 ? '25+ yrs' : (Math.round(combinedPayback * 10) / 10) + ' yrs';
+
+  // Draw charts
+  drawCombined25YearChart(cumSolarOnly, cumCombined, s.netCost);
+  drawCombinedCostChart(evSolarSavings, gridSavings, e.annualSavings);
+
+  // Summary card
+  document.getElementById('combined-summary').innerHTML =
+    '<p>In <strong>' + STATE_DATA[s.state].name + '</strong>, with a <strong>' + e.ev.make + ' ' + e.ev.model + '</strong> + <strong>' + s.size + ' kW</strong> solar, you could save approximately <strong>' + fmtD(total25yr) + '</strong> over 25 years.</p>' +
+    '<div class="share-btns">' +
+    '<button class="share-btn" onclick="copyResults(\'combined\')">Copy Results</button>' +
+    '<button class="share-btn" onclick="shareToX(\'combined\')">Share on X</button>' +
+    '</div>';
+
+  updateHash();
+}
+
+/* ========== CSS CHARTS ========== */
+
+// 25-Year Line Chart (CSS + SVG polyline)
+function drawLineChart(containerId, datasets, costLine, maxVal) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const max = maxVal || Math.max(...datasets.flatMap(d => d.data), costLine) * 1.1;
+
+  let html = '<div style="position:relative;width:100%;padding-top:50%">';
+  html += '<div style="position:absolute;top:0;left:40px;right:0;bottom:20px;border-left:2px solid var(--border);border-bottom:2px solid var(--border)">';
+
+  // Y-axis labels
+  for (let i = 0; i <= 4; i++) {
+    const val = max * (1 - i / 4);
+    const top = (i / 4) * 100;
+    html += '<div style="position:absolute;left:-42px;top:' + top + '%;font-size:10px;color:var(--text-secondary);transform:translateY(-50%);width:38px;text-align:right">$' + (val >= 1000 ? Math.round(val / 1000) + 'k' : Math.round(val)) + '</div>';
+    if (i > 0 && i < 4) {
+      html += '<div style="position:absolute;left:0;right:0;top:' + top + '%;border-top:1px dashed #e2e8f0"></div>';
+    }
+  }
+
+  // SVG lines
+  html += '<svg viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;top:0;left:0">';
+
+  // Cost line
+  const costY = 100 - (costLine / max) * 100;
+  html += '<line x1="0" y1="' + costY + '" x2="100" y2="' + costY + '" stroke="#ef4444" stroke-width="0.5" stroke-dasharray="2,2"/>';
+
+  // Data lines
+  datasets.forEach(ds => {
+    let points = ds.data.map((val, i) => {
+      const x = (i / 24) * 100;
+      const y = 100 - (val / max) * 100;
+      return x + ',' + y;
+    }).join(' ');
+    html += '<polyline points="' + points + '" fill="none" stroke="' + ds.color + '" stroke-width="1" />';
+
+    // Fill area
+    const firstPoint = '0,100';
+    const lastPoint = '100,' + (100 - (ds.data[24] / max) * 100);
+    html += '<polyline points="' + firstPoint + ' ' + points + ' 100,100" fill="' + ds.color + '" fill-opacity="0.08" stroke="none" />';
+  });
+
+  html += '</svg>';
+
+  // X-axis labels
+  html += '<div style="position:absolute;bottom:-18px;left:0;right:0;display:flex;justify-content:space-between;font-size:10px;color:var(--text-secondary)">';
+  html += '<span>Yr 1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span>';
+  html += '</div>';
+
+  html += '</div></div>';
+  container.innerHTML = html;
+}
+
+function drawSolar25YearChart(cumSavings, netCost) {
+  drawLineChart('solar-chart-container', [
+    {data: cumSavings, color: 'var(--green)'}
+  ], netCost, null);
+}
+
+function drawCombined25YearChart(cumSolarOnly, cumCombined, netCost) {
+  const max = Math.max(...cumCombined, netCost) * 1.1;
+  drawLineChart('combined-chart-container', [
+    {data: cumSolarOnly, color: 'var(--green)'},
+    {data: cumCombined, color: 'var(--purple)'}
+  ], netCost, max);
+}
+
+// Bar Charts
+function drawBarChart(containerId, bars) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const maxVal = Math.max(...bars.map(b => b.value));
+
+  let html = '<div class="bar-chart">';
+  bars.forEach(bar => {
+    const pct = maxVal > 0 ? (bar.value / maxVal) * 100 : 0;
+    const showInside = pct > 25;
+    html += '<div class="bar-row">';
+    html += '<div class="bar-label">' + bar.label + '</div>';
+    html += '<div class="bar-track"><div class="bar-fill ' + bar.colorClass + '" style="width:' + Math.max(pct, 2) + '%">';
+    if (showInside) html += '<span>' + bar.display + '</span>';
+    html += '</div></div>';
+    if (!showInside) html += '<span class="bar-value-outside">' + bar.display + '</span>';
+    html += '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function drawSolarMonthlyChart(annualProd, monthlyUsage) {
+  const bars = [];
+  MONTH_NAMES.forEach((name, i) => {
+    const prod = annualProd * MONTHLY_FACTORS[i];
+    bars.push({label: name, value: prod, display: Math.round(prod) + ' kWh', colorClass: 'green'});
+  });
+  // Add a usage reference line
+  const usageBar = {label: 'Usage', value: monthlyUsage, display: Math.round(monthlyUsage) + ' kWh/mo', colorClass: 'orange'};
+  drawBarChart('solar-monthly-chart', [...bars, usageBar]);
+}
+
+function drawEVComparisonChart(evCost, gasCost) {
+  drawBarChart('ev-comparison-chart', [
+    {label: 'EV', value: evCost, display: fmtD(evCost) + '/yr', colorClass: 'blue'},
+    {label: 'Gas', value: gasCost, display: fmtD(gasCost) + '/yr', colorClass: 'red'}
+  ]);
+}
+
+function drawCombinedCostChart(evSolarSav, gridSav, evGasSav) {
+  drawBarChart('combined-cost-chart', [
+    {label: 'EV+Solar', value: evSolarSav, display: fmtD(evSolarSav) + '/yr', colorClass: 'purple'},
+    {label: 'Grid Saved', value: gridSav, display: fmtD(gridSav) + '/yr', colorClass: 'green'},
+    {label: 'EV vs Gas', value: evGasSav, display: fmtD(evGasSav) + '/yr', colorClass: 'blue'}
+  ]);
+}
+
+/* ========== SHARING ========== */
+function updateHash() {
+  const params = {
+    s: selectedState,
+    ev: selectedEV,
+    b: document.getElementById('solar-bill').value,
+    sz: document.getElementById('solar-size').value,
+    c: document.getElementById('solar-cost').value,
+    m: document.getElementById('ev-miles').value
+  };
+  window.location.hash = Object.entries(params).map(([k,v]) => k + '=' + v).join('&');
+}
+
+function loadFromHash() {
+  const hash = window.location.hash.slice(1);
+  if (!hash) return;
+  const params = {};
+  hash.split('&').forEach(pair => {
+    const [k, v] = pair.split('=');
+    if (k && v) params[k] = v;
+  });
+  if (params.s && STATE_DATA[params.s]) selectState(params.s);
+  if (params.ev) { selectedEV = parseInt(params.ev) || 0; selectEV(selectedEV); }
+  if (params.b) document.getElementById('solar-bill').value = params.b;
+  if (params.sz) document.getElementById('solar-size').value = params.sz;
+  if (params.c) document.getElementById('solar-cost').value = params.c;
+  if (params.m) document.getElementById('ev-miles').value = params.m;
+}
+
+function shareResults() {
+  const url = window.location.href;
+  if (navigator.share) {
+    navigator.share({title: 'Solar + EV Savings Calculator', url: url});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied to clipboard!'));
+  }
+}
+
+function copyResults(type) {
+  let text = '';
+  if (type === 'solar' && solarCalcData) {
+    const s = solarCalcData;
+    text = 'Solar Savings in ' + STATE_DATA[s.state].name + ': ' + s.size + 'kW system, ' + fmtD(s.net25yr) + ' savings over 25 years, payback in ' + (Math.round(s.paybackYears * 10) / 10) + ' years. Calculate yours: ' + window.location.href;
+  } else if (type === 'ev' && evCalcData) {
+    const e = evCalcData;
+    text = e.ev.make + ' ' + e.ev.model + ' charging costs ' + fmtD(e.annualTotalCharging) + '/year, saving ' + fmtD(e.annualSavings) + '/year vs gas. Calculate yours: ' + window.location.href;
+  } else if (type === 'combined' && solarCalcData && evCalcData) {
+    text = 'Solar + EV combined savings in ' + STATE_DATA[solarCalcData.state].name + ': ' + fmtD(solarCalcData.net25yr) + '+ over 25 years. Calculate yours: ' + window.location.href;
+  }
+  if (text && navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => alert('Results copied!'));
+  }
+}
+
+function shareToX(type) {
+  let text = '';
+  if (type === 'solar' && solarCalcData) {
+    text = 'I could save ' + fmtD(solarCalcData.net25yr) + ' over 25 years with solar in ' + STATE_DATA[solarCalcData.state].name + '!';
+  } else if (type === 'ev' && evCalcData) {
+    text = 'My ' + evCalcData.ev.make + ' ' + evCalcData.ev.model + ' saves ' + fmtD(evCalcData.annualSavings) + '/year vs gas!';
+  } else if (type === 'combined') {
+    text = 'Solar + EV = massive savings! Calculate yours:';
+  }
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + ' ' + window.location.href), '_blank');
+}
+
+/* ========== FAQ TOGGLE ========== */
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+/* ========== INIT ========== */
+buildStateDropdown();
+buildEVDropdown();
+selectState('CA');
+selectEV(0);
+loadFromHash();
+</script>
+</body>
+</html>

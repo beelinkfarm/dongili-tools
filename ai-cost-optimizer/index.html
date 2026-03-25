@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Cost Optimizer - Compare 20+ AI API Prices | Free Calculator</title>
+<meta name="description" content="Compare monthly API costs across Claude, GPT, Gemini, Llama, and 20+ AI models. Calculate batch API and prompt caching savings. Free, no signup required.">
+<meta property="og:title" content="AI Cost Optimizer - Compare 20+ AI API Prices">
+<meta property="og:description" content="Compare monthly API costs across Claude, GPT, Gemini, Llama, and 20+ AI models. Calculate batch API and prompt caching savings.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://beelinkfarm.github.io/dongili/proj_ai-cost-optimizer/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Cost Optimizer - Compare 20+ AI API Prices">
+<meta name="twitter:description" content="Compare monthly API costs across Claude, GPT, Gemini, Llama, and 20+ AI models. Free calculator.">
+<link rel="canonical" href="https://beelinkfarm.github.io/dongili/proj_ai-cost-optimizer/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AI Cost Optimizer",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Compare monthly API costs across 20+ AI models with batch API and prompt caching savings.",
+  "dateModified": "2026-03-25"
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #0b0b10;
+  --bg-2: #111118;
+  --bg-3: #181822;
+  --bg-4: #20202e;
+  --bg-5: #2a2a3a;
+  --border: rgba(255,255,255,0.07);
+  --border-h: rgba(255,255,255,0.14);
+  --text: #f0f0f8;
+  --text-2: #9898b0;
+  --text-3: #5a5a72;
+  --accent: #7C3AED;
+  --accent-l: #9F67FF;
+  --accent-d: #5B21B6;
+  --green: #10B981;
+  --green-bg: rgba(16,185,129,0.12);
+  --red: #EF4444;
+  --red-bg: rgba(239,68,68,0.10);
+  --yellow: #F59E0B;
+  --yellow-bg: rgba(245,158,11,0.12);
+  --blue: #3B82F6;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --t: 0.2s ease;
+  /* provider colors */
+  --c-openai: #10A37F;
+  --c-anthropic: #D97706;
+  --c-google: #4285F4;
+  --c-meta: #0668E1;
+  --c-mistral: #FF7000;
+  --c-xai: #1DA1F2;
+  --c-deepseek: #4F46E5;
+  --c-cohere: #39D353;
+}
+
+[data-theme="light"] {
+  --bg: #F8F7FF;
+  --bg-2: #FFFFFF;
+  --bg-3: #F0EEFF;
+  --bg-4: #E8E5FA;
+  --bg-5: #DBD7F0;
+  --border: rgba(0,0,0,0.08);
+  --border-h: rgba(0,0,0,0.15);
+  --text: #1A1A2E;
+  --text-2: #4A4A6A;
+  --text-3: #8888A8;
+  --shadow: 0 4px 24px rgba(124,58,237,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background var(--t), color var(--t);
+}
+
+/* Floating Nav */
+.micro-nav-back, .micro-nav-home {
+  position: fixed;
+  top: 72px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--text-2);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background var(--t), border-color var(--t);
+}
+.micro-nav-back { left: 12px; }
+.micro-nav-home { right: 12px; }
+.micro-nav-back:hover, .micro-nav-home:hover {
+  background: var(--bg-4);
+  border-color: var(--border-h);
+}
+.micro-float-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  z-index: 9999;
+}
+.micro-float-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.micro-float-bar a:hover { opacity: 0.85; }
+.micro-float-bmc { background: #ffdd00; color: #0d0d0f; }
+.micro-float-feedback { background: var(--blue); color: #fff; }
+
+/* Layout */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 24px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.header-left { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--accent-l); }
+.badge-updated {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+}
+.badge-updated .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.header-right { display: flex; align-items: center; gap: 8px; }
+.theme-toggle {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-3);
+  color: var(--text-2);
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--t);
+}
+.theme-toggle:hover { background: var(--bg-4); }
+
+/* Sections */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 28px 0 14px;
+  color: var(--text);
+}
+
+/* Card */
+.card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: background var(--t), border-color var(--t);
+}
+
+/* Input Grid */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 640px) {
+  .input-grid { grid-template-columns: 1fr; }
+}
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.form-group input, .form-group select, .form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-3);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  transition: border-color var(--t);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.form-group select { cursor: pointer; }
+.form-group textarea { resize: vertical; min-height: 60px; font-size: 0.85rem; }
+
+/* Full-width form group */
+.form-group.full { grid-column: 1 / -1; }
+
+/* Token estimator */
+.token-est {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--text-2);
+  margin-top: 4px;
+}
+.token-est span { font-weight: 600; color: var(--accent-l); }
+.token-est-note { font-size: 0.72rem; color: var(--text-3); font-style: italic; }
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--t), transform 0.1s;
+  margin-top: 8px;
+}
+.btn-primary:hover { background: var(--accent-l); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-secondary {
+  padding: 8px 16px;
+  background: var(--bg-4);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--t);
+}
+.btn-secondary:hover { background: var(--bg-5); }
+
+/* Toggles row */
+.toggles-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+.toggle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all var(--t);
+  user-select: none;
+}
+.toggle-chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.toggle-chip:hover { border-color: var(--accent); }
+
+/* Sort controls */
+.sort-controls {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.sort-controls label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-right: 4px;
+}
+.sort-btn {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all var(--t);
+}
+.sort-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Results Table */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+thead th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+  background: var(--bg-3);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+thead th:hover { color: var(--accent-l); }
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+tbody tr:hover { background: var(--bg-3); }
+tbody td {
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+.provider-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.provider-openai { background: var(--c-openai); }
+.provider-anthropic { background: var(--c-anthropic); }
+.provider-google { background: var(--c-google); }
+.provider-meta { background: var(--c-meta); }
+.provider-mistral { background: var(--c-mistral); }
+.provider-xai { background: var(--c-xai); }
+.provider-deepseek { background: var(--c-deepseek); }
+.provider-cohere { background: var(--c-cohere); }
+
+.cheapest-row { background: var(--green-bg) !important; }
+.cheapest-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--green);
+  color: #fff;
+  margin-left: 6px;
+}
+.best-value-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  margin-left: 6px;
+}
+.deprecated-row { opacity: 0.6; }
+.deprecated-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--red);
+  color: #fff;
+  margin-left: 6px;
+}
+.model-name-cell { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.cost-warning {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.cost-warning.warn { background: var(--yellow-bg); color: var(--yellow); }
+.cost-warning.danger { background: var(--red-bg); color: var(--red); }
+
+/* Summary cards */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.summary-card {
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.summary-card .label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.summary-card .value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-l);
+  margin-top: 4px;
+}
+.summary-card .sub {
+  font-size: 0.75rem;
+  color: var(--text-2);
+  margin-top: 2px;
+}
+
+/* Bar chart (CSS-only) */
+.chart-container { margin: 16px 0; }
+.chart-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.chart-label {
+  width: 140px;
+  min-width: 140px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-2);
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chart-bar-wrap {
+  flex: 1;
+  height: 26px;
+  background: var(--bg-4);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.chart-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+  min-width: 2px;
+}
+.chart-bar-val {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Token estimator panel */
+.estimator-panel {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--bg-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.estimator-panel h4 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* AdSense placeholder */
+.adsense-slot {
+  margin: 20px 0;
+  padding: 40px 20px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--text-3);
+  font-size: 0.78rem;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-3);
+}
+footer a { color: var(--accent-l); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.disclaimer {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  line-height: 1.5;
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--bg-3);
+  border-radius: var(--radius-sm);
+}
+
+/* Hidden by default */
+.hidden { display: none !important; }
+
+/* Batch/Cached column toggle */
+.col-batch, .col-cached { display: none; }
+.show-batch .col-batch { display: table-cell; }
+.show-cached .col-cached { display: table-cell; }
+
+/* Share button */
+.share-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header { flex-direction: column; align-items: flex-start; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .chart-label { width: 90px; min-width: 90px; font-size: 0.68rem; }
+  .app { padding: 0 12px 100px; }
+}
+@media (max-width: 480px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .logo { font-size: 1.2rem; }
+  .micro-float-bar a { padding: 6px 10px; font-size: 0.72rem; }
+  .micro-nav-back, .micro-nav-home { width: 38px; height: 38px; }
+}
+
+/* Print */
+@media print {
+  .micro-nav-back, .micro-nav-home, .micro-float-bar, .theme-toggle, .adsense-slot { display: none !important; }
+  body { background: #fff; color: #000; }
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Navigation -->
+<button class="micro-nav-back" onclick="history.back()" aria-label="Go back">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+</button>
+<a class="micro-nav-home" href="../index.html" aria-label="Home">&#127968;</a>
+<div class="micro-float-bar">
+  <a class="micro-float-bmc" href="https://buymeacoffee.com/beelinkfarm" target="_blank" rel="noopener">&#9749; Buy me a coffee</a>
+  <a class="micro-float-feedback" href="https://github.com/beelinkfarm/dongili/issues/new?title=[AI-Cost-Optimizer]%20Feedback&labels=ai-cost-optimizer" target="_blank" rel="noopener">&#128221; Feedback</a>
+</div>
+
+<div class="app">
+
+<!-- Header -->
+<header>
+  <div class="header-left">
+    <div class="logo">&#9889; AI Cost Optimizer</div>
+    <span class="badge-updated"><span class="dot"></span> Last Updated: March 2026</span>
+  </div>
+  <div class="header-right">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle dark/light mode">&#9790;</button>
+  </div>
+</header>
+
+<!-- Input Section -->
+<div class="section-title">Configure Your Workload</div>
+<div class="card">
+  <div class="input-grid">
+    <div class="form-group">
+      <label for="useCase">Use Case Preset</label>
+      <select id="useCase" onchange="applyPreset()">
+        <option value="chatbot">Simple Chatbot (Q&amp;A)</option>
+        <option value="summarization">Document Summarization</option>
+        <option value="codegen">Code Generation</option>
+        <option value="rag">RAG (Retrieval-Augmented)</option>
+        <option value="support">Customer Support Agent</option>
+        <option value="content">Content Generation (Blog)</option>
+        <option value="extraction">Data Extraction / Classification</option>
+        <option value="custom">Custom</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tierFilter">Model Tier</label>
+      <select id="tierFilter" onchange="calculate()">
+        <option value="all">All Models</option>
+        <option value="economy">Economy (under $1/M input)</option>
+        <option value="standard">Standard ($1-3/M input)</option>
+        <option value="premium">Premium ($3+/M input)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="inputTokens">Avg Prompt Tokens (per request)</label>
+      <input type="number" id="inputTokens" value="350" min="1" max="10000000" onchange="calculate()">
+    </div>
+    <div class="form-group">
+      <label for="outputTokens">Avg Response Tokens (per request)</label>
+      <input type="number" id="outputTokens" value="200" min="1" max="10000000" onchange="calculate()">
+    </div>
+    <div class="form-group">
+      <label for="dailyRequests">Daily API Requests</label>
+      <input type="number" id="dailyRequests" value="1000" min="1" max="1000000" onchange="calculate()">
+    </div>
+    <div class="form-group">
+      <label for="cachingRatio">Prompt Caching Hit Rate (%)</label>
+      <input type="number" id="cachingRatio" value="50" min="0" max="100" onchange="calculate()">
+    </div>
+  </div>
+  <div style="margin-top: 14px;">
+    <button class="btn-primary" onclick="calculate()">&#9889; Calculate Costs</button>
+  </div>
+
+  <!-- Token Estimator -->
+  <div class="estimator-panel">
+    <h4>Token Estimator</h4>
+    <textarea id="estimatorText" placeholder="Paste text here to estimate token count..." oninput="estimateTokens()"></textarea>
+    <div class="token-est" id="tokenEstResult">
+      Chars: <span>0</span> | Est. Tokens: <span>0</span>
+    </div>
+    <div class="token-est-note">Estimate uses ~4 chars/token for English (+-10% accuracy)</div>
+  </div>
+</div>
+
+<!-- Toggles -->
+<div class="toggles-row">
+  <button class="toggle-chip active" id="toggleBatch" onclick="toggleColumn('batch')">&#128230; Batch Pricing</button>
+  <button class="toggle-chip" id="toggleCached" onclick="toggleColumn('cached')">&#128293; Cached Pricing</button>
+  <button class="toggle-chip" id="toggleAnnual" onclick="toggleView('annual')">&#128197; Annual View</button>
+</div>
+
+<!-- Sort controls -->
+<div class="sort-controls">
+  <label>Sort by:</label>
+  <button class="sort-btn active" data-sort="cost" onclick="setSort('cost')">Monthly Cost</button>
+  <button class="sort-btn" data-sort="provider" onclick="setSort('provider')">Provider</button>
+  <button class="sort-btn" data-sort="input" onclick="setSort('input')">Input Price</button>
+  <button class="sort-btn" data-sort="output" onclick="setSort('output')">Output Price</button>
+</div>
+
+<!-- Summary Cards -->
+<div class="summary-grid" id="summaryCards">
+  <div class="summary-card">
+    <div class="label">Cheapest Option</div>
+    <div class="value" id="sumCheapest">-</div>
+    <div class="sub" id="sumCheapestModel">-</div>
+  </div>
+  <div class="summary-card">
+    <div class="label" id="sumPeriodLabel">Monthly Cost Range</div>
+    <div class="value" id="sumRange">-</div>
+    <div class="sub" id="sumModelsCount">0 models compared</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Batch API Savings</div>
+    <div class="value" id="sumBatchSavings">-</div>
+    <div class="sub">vs. cheapest real-time</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Total Monthly Requests</div>
+    <div class="value" id="sumRequests">-</div>
+    <div class="sub" id="sumTokensTotal">-</div>
+  </div>
+</div>
+
+<!-- Cost warning -->
+<div id="costWarning" class="hidden"></div>
+
+<!-- Results Table -->
+<div class="table-wrap" id="tableWrap">
+  <table id="resultsTable">
+    <thead>
+      <tr>
+        <th onclick="setSort('rank')">#</th>
+        <th onclick="setSort('provider')">Provider</th>
+        <th onclick="setSort('name')">Model</th>
+        <th onclick="setSort('input')">Input $/1M</th>
+        <th onclick="setSort('output')">Output $/1M</th>
+        <th onclick="setSort('cost')">Monthly Cost</th>
+        <th class="col-batch" onclick="setSort('batch')">Batch Monthly</th>
+        <th class="col-cached" onclick="setSort('cached')">Cached Monthly</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="resultsBody"></tbody>
+  </table>
+</div>
+
+<!-- Chart: Top 10 Cost Comparison -->
+<div class="section-title">Cost Comparison (Top 10 Cheapest)</div>
+<div class="card">
+  <div class="chart-container" id="costChart"></div>
+</div>
+
+<!-- Batch vs Real-time Chart -->
+<div class="section-title">Batch API vs Real-time Savings</div>
+<div class="card">
+  <div class="chart-container" id="batchChart"></div>
+</div>
+
+<!-- Share -->
+<div class="share-row">
+  <button class="btn-secondary" onclick="copyResults()">&#128203; Copy Summary</button>
+  <button class="btn-secondary" onclick="shareURL()">&#128279; Share via URL</button>
+</div>
+
+<!-- AdSense Placeholder -->
+<!-- AdSense -->
+<div class="adsense-slot">Advertisement Placeholder - Google AdSense</div>
+
+<!-- Cloud Provider Links -->
+<div class="card" style="margin-top: 20px;">
+  <div style="font-size: 0.82rem; font-weight: 700; margin-bottom: 8px; color: var(--text-2);">Deploy Your AI Workload</div>
+  <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+    <a href="https://aws.amazon.com/bedrock/" target="_blank" rel="noopener" style="padding: 8px 16px; border-radius: var(--radius-sm); background: #FF9900; color: #000; font-size: 0.78rem; font-weight: 700; text-decoration: none;">AWS Bedrock</a>
+    <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener" style="padding: 8px 16px; border-radius: var(--radius-sm); background: #4285F4; color: #fff; font-size: 0.78rem; font-weight: 700; text-decoration: none;">Google Vertex AI</a>
+    <a href="https://azure.microsoft.com/en-us/products/ai-services/openai-service" target="_blank" rel="noopener" style="padding: 8px 16px; border-radius: var(--radius-sm); background: #0078D4; color: #fff; font-size: 0.78rem; font-weight: 700; text-decoration: none;">Azure OpenAI</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI Pricing</a>
+    <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" rel="noopener">Anthropic Pricing</a>
+    <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">Gemini Pricing</a>
+    <a href="https://mistral.ai/pricing" target="_blank" rel="noopener">Mistral Pricing</a>
+    <a href="https://x.ai/api" target="_blank" rel="noopener">xAI Pricing</a>
+    <a href="https://api-docs.deepseek.com/quick_start/pricing" target="_blank" rel="noopener">DeepSeek Pricing</a>
+    <a href="https://groq.com/pricing" target="_blank" rel="noopener">Groq Pricing</a>
+    <a href="https://www.together.ai/pricing" target="_blank" rel="noopener">Together AI Pricing</a>
+    <a href="https://cohere.com/pricing" target="_blank" rel="noopener">Cohere Pricing</a>
+  </div>
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> Prices are approximate and subject to change without notice. Always verify current pricing at the official provider pages linked above. Token estimates use a ~4 chars/token heuristic for English text and may vary by language and content type. This tool is for estimation purposes only and should not be used as the sole basis for financial decisions. Last verified: March 2026.
+  </div>
+  <div style="margin-top: 10px; font-size: 0.72rem;">
+    Built with &#9829; by <a href="https://github.com/beelinkfarm" target="_blank" rel="noopener">Beelinkfarm</a> | <a href="https://github.com/beelinkfarm/dongili" target="_blank" rel="noopener">View Source</a>
+  </div>
+</footer>
+
+</div><!-- /.app -->
+
+<script>
+/* =====================================================================
+   AI COST OPTIMIZER - Pricing Database & Calculator
+   Last updated: 2026-03-25 | All prices fact-checked
+   ===================================================================== */
+
+const PRICING_DATA = {
+  lastUpdated: "2026-03-25",
+  models: [
+    // ── OpenAI ──
+    { id:"gpt-4o", name:"GPT-4o", provider:"OpenAI", input:2.50, output:10.00, cachedInput:1.25, batchDiscount:0.5, tier:"standard", notes:"Flagship multimodal" },
+    { id:"gpt-4o-mini", name:"GPT-4o-mini", provider:"OpenAI", input:0.15, output:0.60, cachedInput:0.075, batchDiscount:0.5, tier:"economy", notes:"Budget tier" },
+    { id:"gpt-5", name:"GPT-5", provider:"OpenAI", input:1.25, output:10.00, cachedInput:0.125, batchDiscount:null, tier:"standard", notes:"Successor to GPT-4o; cached 90% off" },
+    { id:"gpt-5.2", name:"GPT-5.2", provider:"OpenAI", input:1.75, output:14.00, cachedInput:null, batchDiscount:null, tier:"standard", notes:"Advanced reasoning" },
+    { id:"gpt-5.4", name:"GPT-5.4 (frontier)", provider:"OpenAI", input:2.50, output:15.00, cachedInput:null, batchDiscount:null, tier:"premium", notes:"Latest frontier" },
+    { id:"gpt-5-nano", name:"GPT-5 Nano", provider:"OpenAI", input:0.05, output:0.40, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Ultra-cheap small model" },
+    // ── Anthropic (Claude) ──
+    { id:"claude-opus-4.6", name:"Claude Opus 4.6", provider:"Anthropic", input:5.00, output:25.00, cachedInput:null, batchDiscount:0.5, tier:"premium", notes:"Flagship; batch: $2.50/$12.50" },
+    { id:"claude-sonnet-4.6", name:"Claude Sonnet 4.6", provider:"Anthropic", input:3.00, output:15.00, cachedInput:null, batchDiscount:0.5, tier:"premium", notes:"1M context flat rate, NO surcharge; batch: $1.50/$7.50" },
+    { id:"claude-haiku-4.5", name:"Claude Haiku 4.5", provider:"Anthropic", input:1.00, output:5.00, cachedInput:null, batchDiscount:0.5, tier:"standard", notes:"Lightweight; batch: $0.50/$2.50" },
+    // ── Google (Gemini) ──
+    { id:"gemini-2.5-flash-lite", name:"Gemini 2.5 Flash-Lite", provider:"Google", input:0.10, output:0.40, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Budget tier" },
+    { id:"gemini-2.5-pro", name:"Gemini 2.5 Pro", provider:"Google", input:1.25, output:10.00, cachedInput:0.125, batchDiscount:0.5, tier:"standard", notes:"Premium; >200K output: $15.00/M; cached up to 90% off" },
+    { id:"gemini-2.0-flash", name:"Gemini 2.0 Flash", provider:"Google", input:0.10, output:0.40, cachedInput:null, batchDiscount:null, tier:"economy", notes:"DEPRECATED: Shutdown June 2026", deprecated:true, deprecationDate:"June 1, 2026" },
+    // ── Meta (Llama via providers) ──
+    { id:"llama-3.3-70b-groq", name:"Llama 3.3 70B (Groq)", provider:"Meta", input:0.59, output:0.59, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Ultra-low latency via Groq" },
+    { id:"llama-3.3-70b-deepinfra", name:"Llama 3.3 70B (DeepInfra)", provider:"Meta", input:0.15, output:0.20, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Cheapest 70B hosting" },
+    { id:"llama-3.1-405b-together", name:"Llama 3.1 405B Turbo", provider:"Meta", input:3.50, output:3.50, cachedInput:null, batchDiscount:null, tier:"premium", notes:"Large model via Together AI" },
+    { id:"llama-3.1-8b-groq", name:"Llama 3.1 8B (Groq)", provider:"Meta", input:0.05, output:0.05, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Fastest small model" },
+    { id:"llama-3.1-8b-deepinfra", name:"Llama 3.1 8B (DeepInfra)", provider:"Meta", input:0.03, output:0.05, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Cheapest 8B hosting" },
+    // ── Mistral ──
+    { id:"mistral-large-3", name:"Mistral Large 3", provider:"Mistral", input:2.00, output:5.00, cachedInput:null, batchDiscount:null, tier:"standard", notes:"Most capable Mistral" },
+    { id:"mistral-medium-3", name:"Mistral Medium 3", provider:"Mistral", input:0.40, output:2.00, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Balanced" },
+    { id:"mistral-small", name:"Mistral Small", provider:"Mistral", input:0.02, output:0, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Cheapest input; output pricing N/A" },
+    // ── xAI (Grok) ──
+    { id:"grok-4.1-fast", name:"Grok 4.1 Fast", provider:"xAI", input:0.20, output:0.50, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Cost-effective frontier" },
+    { id:"grok-4", name:"Grok 4", provider:"xAI", input:3.00, output:15.00, cachedInput:null, batchDiscount:null, tier:"premium", notes:"Premium" },
+    // ── DeepSeek ──
+    { id:"deepseek-v3.2", name:"DeepSeek V3.2", provider:"DeepSeek", input:0.28, output:0.42, cachedInput:0.028, batchDiscount:null, tier:"economy", notes:"GPT-5 class at 1/10 price; cached 90% off" },
+    { id:"deepseek-v4", name:"DeepSeek V4", provider:"DeepSeek", input:0.30, output:0.50, cachedInput:null, batchDiscount:null, tier:"economy", notes:"Latest, Mar 2026" },
+    // ── Cohere ──
+    { id:"command-r-plus", name:"Command R+ 08-2024", provider:"Cohere", input:2.50, output:10.00, cachedInput:null, batchDiscount:null, tier:"standard", notes:"Enterprise RAG" }
+  ]
+};
+
+/* ── State ── */
+let currentSort = "cost";
+let showBatch = true;
+let showCached = false;
+let showAnnual = false;
+let results = [];
+
+/* ── Presets ── */
+const PRESETS = {
+  chatbot:      { input: 350,  output: 200 },
+  summarization:{ input: 5000, output: 350 },
+  codegen:      { input: 1250, output: 1250 },
+  rag:          { input: 6500, output: 500 },
+  support:      { input: 2000, output: 400 },
+  content:      { input: 550,  output: 1400 },
+  extraction:   { input: 3000, output: 125 },
+  custom:       null
+};
+
+/* ── Provider colors ── */
+const PROVIDER_CSS = {
+  OpenAI: "provider-openai",
+  Anthropic: "provider-anthropic",
+  Google: "provider-google",
+  Meta: "provider-meta",
+  Mistral: "provider-mistral",
+  xAI: "provider-xai",
+  DeepSeek: "provider-deepseek",
+  Cohere: "provider-cohere"
+};
+const PROVIDER_CHART_COLOR = {
+  OpenAI: "#10A37F",
+  Anthropic: "#D97706",
+  Google: "#4285F4",
+  Meta: "#0668E1",
+  Mistral: "#FF7000",
+  xAI: "#1DA1F2",
+  DeepSeek: "#4F46E5",
+  Cohere: "#39D353"
+};
+
+/* ── Theme ── */
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  html.setAttribute("data-theme", next);
+  document.querySelector(".theme-toggle").textContent = next === "dark" ? "\u263E" : "\u2600";
+  try { localStorage.setItem("aico-theme", next); } catch(e) {}
+}
+(function initTheme() {
+  try {
+    const saved = localStorage.getItem("aico-theme");
+    if (saved) {
+      document.documentElement.setAttribute("data-theme", saved);
+      document.querySelector(".theme-toggle").textContent = saved === "dark" ? "\u263E" : "\u2600";
+    }
+  } catch(e) {}
+})();
+
+/* ── Preset ── */
+function applyPreset() {
+  const v = document.getElementById("useCase").value;
+  const p = PRESETS[v];
+  if (p) {
+    document.getElementById("inputTokens").value = p.input;
+    document.getElementById("outputTokens").value = p.output;
+  }
+  calculate();
+}
+
+/* ── Token Estimator ── */
+function estimateTokens() {
+  const text = document.getElementById("estimatorText").value;
+  const chars = text.length;
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+  const estByChars = Math.ceil(chars / 4);
+  const estByWords = Math.ceil(words / 0.75);
+  const est = chars === 0 ? 0 : Math.round((estByChars + estByWords) / 2);
+  document.getElementById("tokenEstResult").innerHTML =
+    "Chars: <span>" + chars.toLocaleString() + "</span> | Words: <span>" + words.toLocaleString() + "</span> | Est. Tokens: <span>" + est.toLocaleString() + "</span>";
+}
+
+/* ── Toggle columns ── */
+function toggleColumn(col) {
+  if (col === "batch") {
+    showBatch = !showBatch;
+    document.getElementById("toggleBatch").classList.toggle("active", showBatch);
+    document.getElementById("tableWrap").classList.toggle("show-batch", showBatch);
+  } else if (col === "cached") {
+    showCached = !showCached;
+    document.getElementById("toggleCached").classList.toggle("active", showCached);
+    document.getElementById("tableWrap").classList.toggle("show-cached", showCached);
+  }
+}
+
+function toggleView(v) {
+  if (v === "annual") {
+    showAnnual = !showAnnual;
+    document.getElementById("toggleAnnual").classList.toggle("active", showAnnual);
+    calculate();
+  }
+}
+
+/* ── Sort ── */
+function setSort(s) {
+  currentSort = s;
+  document.querySelectorAll(".sort-btn").forEach(b => b.classList.toggle("active", b.dataset.sort === s));
+  renderResults();
+}
+
+/* ── Format currency ── */
+function fmt(n) {
+  if (n === null || n === undefined) return "-";
+  if (n >= 1000000) return "$" + (n / 1000000).toFixed(2) + "M";
+  if (n >= 1000) return "$" + (n / 1000).toFixed(n >= 10000 ? 0 : 2) + "K";
+  if (n >= 1) return "$" + n.toFixed(2);
+  if (n >= 0.01) return "$" + n.toFixed(3);
+  if (n > 0) return "$" + n.toFixed(4);
+  return "$0.00";
+}
+
+/* ── Main Calculation ── */
+function calculate() {
+  const inputTokens = parseFloat(document.getElementById("inputTokens").value) || 0;
+  const outputTokens = parseFloat(document.getElementById("outputTokens").value) || 0;
+  const dailyReqs = parseFloat(document.getElementById("dailyRequests").value) || 0;
+  const cacheRatio = (parseFloat(document.getElementById("cachingRatio").value) || 0) / 100;
+  const tierFilter = document.getElementById("tierFilter").value;
+  const multiplier = showAnnual ? 12 : 1;
+
+  results = [];
+
+  PRICING_DATA.models.forEach(function(m) {
+    if (tierFilter !== "all" && m.tier !== tierFilter) return;
+
+    const monthlyInputCost = (inputTokens * m.input / 1000000) * dailyReqs * 30;
+    const monthlyOutputCost = (outputTokens * m.output / 1000000) * dailyReqs * 30;
+    const monthlyCost = (monthlyInputCost + monthlyOutputCost) * multiplier;
+
+    let batchCost = null;
+    if (m.batchDiscount) {
+      batchCost = monthlyCost * (1 - m.batchDiscount);
+    }
+
+    let cachedCost = null;
+    if (m.cachedInput !== null && m.cachedInput !== undefined) {
+      const cachedInputCost = (inputTokens * cacheRatio * m.cachedInput / 1000000) * dailyReqs * 30;
+      const uncachedInputCost = (inputTokens * (1 - cacheRatio) * m.input / 1000000) * dailyReqs * 30;
+      cachedCost = (cachedInputCost + uncachedInputCost + monthlyOutputCost) * multiplier;
+    }
+
+    results.push({
+      id: m.id,
+      name: m.name,
+      provider: m.provider,
+      input: m.input,
+      output: m.output,
+      monthlyCost: monthlyCost,
+      batchCost: batchCost,
+      cachedCost: cachedCost,
+      notes: m.notes,
+      deprecated: m.deprecated || false,
+      deprecationDate: m.deprecationDate || null,
+      tier: m.tier,
+      batchDiscount: m.batchDiscount,
+      cachedInput: m.cachedInput
+    });
+  });
+
+  renderResults();
+  updateSummary();
+  renderCostChart();
+  renderBatchChart();
+  updateURL();
+}
+
+/* ── Render Table ── */
+function renderResults() {
+  const sorted = [...results];
+  sorted.sort(function(a, b) {
+    switch (currentSort) {
+      case "cost": return a.monthlyCost - b.monthlyCost;
+      case "provider": return a.provider.localeCompare(b.provider) || a.monthlyCost - b.monthlyCost;
+      case "input": return a.input - b.input;
+      case "output": return a.output - b.output;
+      case "batch": return (a.batchCost || Infinity) - (b.batchCost || Infinity);
+      case "cached": return (a.cachedCost || Infinity) - (b.cachedCost || Infinity);
+      case "name": return a.name.localeCompare(b.name);
+      default: return a.monthlyCost - b.monthlyCost;
+    }
+  });
+
+  const cheapest = sorted.length > 0 ? sorted.reduce(function(min, r) { return r.monthlyCost < min.monthlyCost ? r : min; }) : null;
+  const cheapestCost = cheapest ? cheapest.monthlyCost : Infinity;
+
+  const tbody = document.getElementById("resultsBody");
+  let html = "";
+
+  sorted.forEach(function(r, i) {
+    const isCheapest = r === cheapest;
+    const isTop3 = i < 3 && currentSort === "cost";
+    const rowClass = [];
+    if (isCheapest) rowClass.push("cheapest-row");
+    if (r.deprecated) rowClass.push("deprecated-row");
+
+    html += '<tr class="' + rowClass.join(" ") + '">';
+    html += '<td>' + (i + 1) + '</td>';
+    html += '<td><span class="provider-badge ' + (PROVIDER_CSS[r.provider] || "") + '">' + r.provider + '</span></td>';
+    html += '<td><div class="model-name-cell">' + r.name;
+    if (isCheapest) html += '<span class="cheapest-badge">Cheapest</span>';
+    if (isTop3 && !isCheapest) html += '<span class="best-value-badge">Top ' + (i + 1) + '</span>';
+    if (r.deprecated) html += '<span class="deprecated-badge">&#9888; Deprecated ' + (r.deprecationDate || "") + '</span>';
+    html += '</div></td>';
+    html += '<td>$' + r.input.toFixed(2) + '</td>';
+    html += '<td>$' + r.output.toFixed(2) + '</td>';
+    html += '<td><strong>' + fmt(r.monthlyCost) + '</strong></td>';
+    html += '<td class="col-batch">' + (r.batchCost !== null ? fmt(r.batchCost) : '<span style="color:var(--text-3)">N/A</span>') + '</td>';
+    html += '<td class="col-cached">' + (r.cachedCost !== null ? fmt(r.cachedCost) : '<span style="color:var(--text-3)">N/A</span>') + '</td>';
+    html += '<td style="font-size:0.72rem;color:var(--text-2);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="' + r.notes + '">' + r.notes + '</td>';
+    html += '</tr>';
+  });
+
+  tbody.innerHTML = html;
+
+  // Update period label in table header
+  const periodText = showAnnual ? "Annual Cost" : "Monthly Cost";
+  const headers = document.querySelectorAll("#resultsTable thead th");
+  if (headers[5]) headers[5].textContent = periodText;
+  if (headers[6]) headers[6].textContent = showAnnual ? "Batch Annual" : "Batch Monthly";
+  if (headers[7]) headers[7].textContent = showAnnual ? "Cached Annual" : "Cached Monthly";
+}
+
+/* ── Summary Cards ── */
+function updateSummary() {
+  if (results.length === 0) return;
+
+  const sorted = [...results].sort(function(a, b) { return a.monthlyCost - b.monthlyCost; });
+  const cheapest = sorted[0];
+  const most = sorted[sorted.length - 1];
+  const dailyReqs = parseFloat(document.getElementById("dailyRequests").value) || 0;
+  const inputTokens = parseFloat(document.getElementById("inputTokens").value) || 0;
+  const outputTokens = parseFloat(document.getElementById("outputTokens").value) || 0;
+  const periodLabel = showAnnual ? "Annual" : "Monthly";
+
+  document.getElementById("sumCheapest").textContent = fmt(cheapest.monthlyCost);
+  document.getElementById("sumCheapestModel").textContent = cheapest.name;
+  document.getElementById("sumPeriodLabel").textContent = periodLabel + " Cost Range";
+  document.getElementById("sumRange").textContent = fmt(cheapest.monthlyCost) + " - " + fmt(most.monthlyCost);
+  document.getElementById("sumModelsCount").textContent = results.length + " models compared";
+
+  // Batch savings
+  const batchModels = results.filter(function(r) { return r.batchCost !== null; });
+  if (batchModels.length > 0) {
+    const cheapestBatch = batchModels.reduce(function(min, r) { return r.batchCost < min.batchCost ? r : min; });
+    const savings = cheapest.monthlyCost - cheapestBatch.batchCost;
+    document.getElementById("sumBatchSavings").textContent = savings > 0 ? fmt(savings) + "/mo" : "N/A";
+  } else {
+    document.getElementById("sumBatchSavings").textContent = "N/A";
+  }
+
+  const multiplier = showAnnual ? 360 : 30;
+  document.getElementById("sumRequests").textContent = (dailyReqs * multiplier).toLocaleString();
+  document.getElementById("sumTokensTotal").textContent =
+    ((inputTokens + outputTokens) * dailyReqs * multiplier / 1000000).toFixed(1) + "M tokens total";
+
+  // Cost warning
+  const warningEl = document.getElementById("costWarning");
+  const monthlyCostCheck = showAnnual ? cheapest.monthlyCost / 12 : cheapest.monthlyCost;
+  if (most.monthlyCost / (showAnnual ? 12 : 1) > 10000) {
+    warningEl.className = "cost-warning danger";
+    warningEl.innerHTML = "&#9888; Warning: Some models exceed $10,000/month for this workload. Review your configuration.";
+  } else if (most.monthlyCost / (showAnnual ? 12 : 1) > 1000) {
+    warningEl.className = "cost-warning warn";
+    warningEl.innerHTML = "&#9888; Note: Some models exceed $1,000/month for this workload.";
+  } else {
+    warningEl.className = "hidden";
+  }
+}
+
+/* ── CSS Bar Chart: Cost Comparison ── */
+function renderCostChart() {
+  const sorted = [...results].sort(function(a, b) { return a.monthlyCost - b.monthlyCost; });
+  const top10 = sorted.slice(0, 10);
+  if (top10.length === 0) { document.getElementById("costChart").innerHTML = ""; return; }
+
+  const maxCost = top10[top10.length - 1].monthlyCost || 1;
+  let html = "";
+  top10.forEach(function(r) {
+    const pct = Math.max((r.monthlyCost / maxCost) * 100, 1);
+    const color = PROVIDER_CHART_COLOR[r.provider] || "#7C3AED";
+    html += '<div class="chart-bar-row">';
+    html += '<div class="chart-label" title="' + r.name + '">' + r.name + '</div>';
+    html += '<div class="chart-bar-wrap">';
+    html += '<div class="chart-bar" style="width:' + pct + '%;background:' + color + ';"></div>';
+    html += '<div class="chart-bar-val">' + fmt(r.monthlyCost) + '</div>';
+    html += '</div></div>';
+  });
+  document.getElementById("costChart").innerHTML = html;
+}
+
+/* ── CSS Bar Chart: Batch vs Real-time ── */
+function renderBatchChart() {
+  const batchModels = results.filter(function(r) { return r.batchCost !== null; })
+    .sort(function(a, b) { return a.monthlyCost - b.monthlyCost; });
+
+  if (batchModels.length === 0) {
+    document.getElementById("batchChart").innerHTML = '<div style="color:var(--text-3);font-size:0.82rem;padding:16px;">No models with batch API pricing in current filter.</div>';
+    return;
+  }
+
+  const maxCost = batchModels.reduce(function(max, r) { return Math.max(max, r.monthlyCost); }, 0) || 1;
+  let html = "";
+  batchModels.forEach(function(r) {
+    const pctReal = Math.max((r.monthlyCost / maxCost) * 100, 1);
+    const pctBatch = Math.max((r.batchCost / maxCost) * 100, 1);
+    const color = PROVIDER_CHART_COLOR[r.provider] || "#7C3AED";
+    const savings = ((1 - r.batchCost / r.monthlyCost) * 100).toFixed(0);
+    html += '<div class="chart-bar-row"><div class="chart-label">' + r.name + '</div>';
+    html += '<div class="chart-bar-wrap">';
+    html += '<div class="chart-bar" style="width:' + pctReal + '%;background:' + color + ';opacity:0.4;"></div>';
+    html += '<div class="chart-bar-val">' + fmt(r.monthlyCost) + '</div>';
+    html += '</div></div>';
+    html += '<div class="chart-bar-row"><div class="chart-label" style="color:var(--green);">Batch (-' + savings + '%)</div>';
+    html += '<div class="chart-bar-wrap">';
+    html += '<div class="chart-bar" style="width:' + pctBatch + '%;background:var(--green);"></div>';
+    html += '<div class="chart-bar-val">' + fmt(r.batchCost) + '</div>';
+    html += '</div></div>';
+    html += '<div style="height:8px;"></div>';
+  });
+  document.getElementById("batchChart").innerHTML = html;
+}
+
+/* ── Copy Results ── */
+function copyResults() {
+  const sorted = [...results].sort(function(a, b) { return a.monthlyCost - b.monthlyCost; });
+  const inputTokens = document.getElementById("inputTokens").value;
+  const outputTokens = document.getElementById("outputTokens").value;
+  const dailyReqs = document.getElementById("dailyRequests").value;
+  const period = showAnnual ? "Annual" : "Monthly";
+
+  let text = "AI Cost Optimizer - " + period + " Cost Comparison\n";
+  text += "Workload: " + inputTokens + " input / " + outputTokens + " output tokens x " + dailyReqs + " req/day\n";
+  text += "---\n";
+  sorted.slice(0, 10).forEach(function(r, i) {
+    text += (i + 1) + ". " + r.name + " (" + r.provider + "): " + fmt(r.monthlyCost);
+    if (r.batchCost !== null) text += " | Batch: " + fmt(r.batchCost);
+    text += "\n";
+  });
+  text += "---\nGenerated by AI Cost Optimizer | " + window.location.href;
+
+  navigator.clipboard.writeText(text).then(function() {
+    alert("Results copied to clipboard!");
+  }).catch(function() {
+    // Fallback
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    alert("Results copied to clipboard!");
+  });
+}
+
+/* ── Share via URL ── */
+function shareURL() {
+  var params = {
+    uc: document.getElementById("useCase").value,
+    it: document.getElementById("inputTokens").value,
+    ot: document.getElementById("outputTokens").value,
+    dr: document.getElementById("dailyRequests").value,
+    cr: document.getElementById("cachingRatio").value,
+    tf: document.getElementById("tierFilter").value,
+    b: showBatch ? 1 : 0,
+    c: showCached ? 1 : 0,
+    a: showAnnual ? 1 : 0
+  };
+  var hash = btoa(JSON.stringify(params));
+  var url = window.location.origin + window.location.pathname + "#" + hash;
+  navigator.clipboard.writeText(url).then(function() {
+    alert("Shareable URL copied to clipboard!");
+  }).catch(function() {
+    prompt("Copy this URL:", url);
+  });
+}
+
+function updateURL() {
+  try {
+    var params = {
+      uc: document.getElementById("useCase").value,
+      it: document.getElementById("inputTokens").value,
+      ot: document.getElementById("outputTokens").value,
+      dr: document.getElementById("dailyRequests").value,
+      cr: document.getElementById("cachingRatio").value,
+      tf: document.getElementById("tierFilter").value,
+      b: showBatch ? 1 : 0,
+      c: showCached ? 1 : 0,
+      a: showAnnual ? 1 : 0
+    };
+    window.location.hash = btoa(JSON.stringify(params));
+  } catch(e) {}
+}
+
+function loadFromURL() {
+  try {
+    var hash = window.location.hash.substring(1);
+    if (!hash) return false;
+    var params = JSON.parse(atob(hash));
+    if (params.uc) document.getElementById("useCase").value = params.uc;
+    if (params.it) document.getElementById("inputTokens").value = params.it;
+    if (params.ot) document.getElementById("outputTokens").value = params.ot;
+    if (params.dr) document.getElementById("dailyRequests").value = params.dr;
+    if (params.cr) document.getElementById("cachingRatio").value = params.cr;
+    if (params.tf) document.getElementById("tierFilter").value = params.tf;
+    if (params.b !== undefined) {
+      showBatch = params.b === 1;
+      document.getElementById("toggleBatch").classList.toggle("active", showBatch);
+      document.getElementById("tableWrap").classList.toggle("show-batch", showBatch);
+    }
+    if (params.c !== undefined) {
+      showCached = params.c === 1;
+      document.getElementById("toggleCached").classList.toggle("active", showCached);
+      document.getElementById("tableWrap").classList.toggle("show-cached", showCached);
+    }
+    if (params.a !== undefined) {
+      showAnnual = params.a === 1;
+      document.getElementById("toggleAnnual").classList.toggle("active", showAnnual);
+    }
+    return true;
+  } catch(e) { return false; }
+}
+
+/* ── Init ── */
+(function init() {
+  // Set initial batch column visible
+  document.getElementById("tableWrap").classList.add("show-batch");
+  // Load from URL or use defaults
+  loadFromURL();
+  // Calculate on load
+  calculate();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robot ROI Calculator 2026 | Humanoid &amp; Cobot Cost Analysis</title>
+<meta name="description" content="Free robot ROI calculator with 20+ models including Tesla Optimus, Figure 02, Boston Dynamics Atlas. Calculate payback period, TCO, and compare humanoid vs industrial robots.">
+<meta name="keywords" content="robot ROI calculator, Tesla Optimus price, humanoid robot cost, warehouse automation ROI, cobot calculator, robot payback period">
+<meta property="og:title" content="Robot ROI Calculator - How Fast Will Your Robot Pay for Itself?">
+<meta property="og:description" content="Compare 20+ robot models including Tesla Optimus. Free TCO calculator with humanoid, cobot, and industrial robots.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Robot ROI Calculator 2026">
+<meta name="twitter:description" content="Calculate robot investment ROI with the world's first humanoid robot model database.">
+<link rel="canonical" href="https://dongili.com/proj_robot-roi/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Robot ROI Calculator 2026",
+  "description": "Calculate robot investment ROI with 20+ models including humanoid robots, cobots, and industrial robots.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "Dongili" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "How do you calculate robot ROI?", "acceptedAnswer": {"@type": "Answer", "text": "Robot ROI = ((Cumulative Labor Savings - Total Robot Investment) / Total Robot Investment) x 100%. Include purchase price, integration (1.36-1.42x multiplier for humanoids), annual maintenance, energy, and training costs versus displaced labor costs with benefits."}},
+    {"@type": "Question", "name": "How much does a Tesla Optimus robot cost?", "acceptedAnswer": {"@type": "Answer", "text": "Tesla has stated a target price of $20,000-$30,000 for the Optimus humanoid robot. As of March 2026, Optimus is not yet commercially available; this is a 2027 target price, not a confirmed retail price."}},
+    {"@type": "Question", "name": "What is the payback period for a cobot?", "acceptedAnswer": {"@type": "Answer", "text": "Collaborative robots (cobots) like the Universal Robots UR series typically achieve payback in 12-24 months when replacing a single-shift worker in manufacturing or warehouse roles, depending on labor costs and utilization."}},
+    {"@type": "Question", "name": "How much does a Figure 02 robot cost?", "acceptedAnswer": {"@type": "Answer", "text": "Figure 02 does not have a confirmed purchase price. Figure AI offers the robot primarily through a Robot-as-a-Service (RaaS) model at approximately $1,000/month. Contact Figure AI directly for enterprise pricing."}},
+    {"@type": "Question", "name": "What is robot Total Cost of Ownership (TCO)?", "acceptedAnswer": {"@type": "Answer", "text": "Robot TCO includes the purchase price plus integration/installation (20-80% of purchase price), annual maintenance (8-15%), software licensing (5-15%), energy costs (2-5%), training, and end-of-life costs. For humanoid robots, expect a 1.36-1.42x multiplier over 3 years."}}
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--slate-900:#0f172a;--slate-800:#1e293b;--slate-700:#334155;--slate-600:#475569;--slate-500:#64748b;--slate-400:#94a3b8;--slate-300:#cbd5e1;--slate-200:#e2e8f0;--slate-100:#f1f5f9;--slate-50:#f8fafc;--cyan-500:#06b6d4;--cyan-400:#22d3ee;--cyan-600:#0891b2;--cyan-700:#0e7490;--green-500:#22c55e;--green-600:#16a34a;--green-100:#dcfce7;--yellow-500:#eab308;--yellow-100:#fef9c3;--red-500:#ef4444;--red-100:#fee2e2;--blue-500:#3b82f6;--blue-100:#dbeafe;--orange-500:#f97316;--radius:8px;--shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);--shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--slate-100);color:var(--slate-800);line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:0 16px}
+header{background:linear-gradient(135deg,var(--slate-900),var(--slate-700));color:#fff;padding:24px 0 16px;text-align:center}
+header h1{font-size:clamp(1.4rem,4vw,2rem);margin-bottom:4px;letter-spacing:-.5px}
+header .subtitle{color:var(--cyan-400);font-size:.95rem;margin-bottom:8px}
+header .updated{font-size:.75rem;color:var(--slate-400);background:var(--slate-800);display:inline-block;padding:2px 10px;border-radius:12px}
+.tab-bar{display:flex;gap:0;background:var(--slate-800);border-bottom:2px solid var(--cyan-500);position:sticky;top:0;z-index:50}
+.tab-btn{flex:1;padding:12px 8px;text-align:center;border:none;background:transparent;color:var(--slate-400);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;position:relative}
+.tab-btn:hover{color:var(--slate-200);background:rgba(6,182,212,.08)}
+.tab-btn.active{color:#fff;background:var(--slate-700)}
+.tab-btn.active::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--cyan-500)}
+.tab-content{display:none;padding:20px 0}
+.tab-content.active{display:block}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-bottom:16px}
+.card h2{font-size:1.1rem;color:var(--slate-700);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h2 .step-num{background:var(--cyan-500);color:#fff;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column;gap:4px}
+.form-group label{font-size:.8rem;color:var(--slate-600);font-weight:600}
+.form-group select,.form-group input[type="number"],.form-group input[type="text"]{padding:8px 10px;border:1px solid var(--slate-300);border-radius:6px;font-size:.9rem;background:#fff;color:var(--slate-800);transition:border-color .2s}
+.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--cyan-500);box-shadow:0 0 0 3px rgba(6,182,212,.15)}
+.radio-group{display:flex;gap:6px;flex-wrap:wrap}
+.radio-group label{display:flex;align-items:center;gap:4px;font-size:.8rem;padding:4px 10px;border:1px solid var(--slate-300);border-radius:6px;cursor:pointer;transition:all .2s}
+.radio-group label:has(input:checked){background:var(--cyan-500);color:#fff;border-color:var(--cyan-500)}
+.radio-group input{display:none}
+.slider-wrap{display:flex;align-items:center;gap:8px}
+.slider-wrap input[type="range"]{flex:1;accent-color:var(--cyan-500)}
+.slider-wrap .val{font-size:.85rem;font-weight:600;color:var(--cyan-600);min-width:45px;text-align:right}
+.btn{padding:10px 24px;border:none;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--cyan-500);color:#fff}
+.btn-primary:hover{background:var(--cyan-600)}
+.btn-outline{background:transparent;border:2px solid var(--cyan-500);color:var(--cyan-600)}
+.btn-outline:hover{background:var(--cyan-500);color:#fff}
+.btn-sm{padding:6px 14px;font-size:.8rem}
+.wizard-nav{display:flex;justify-content:space-between;margin-top:16px;gap:8px}
+.wizard-step{display:none}
+.wizard-step.active{display:block}
+.progress-bar{display:flex;gap:4px;margin-bottom:16px}
+.progress-bar .step{flex:1;height:4px;border-radius:2px;background:var(--slate-200);transition:background .3s}
+.progress-bar .step.done{background:var(--cyan-500)}
+.progress-bar .step.current{background:var(--cyan-400)}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.badge-green{background:var(--green-100);color:var(--green-600)}
+.badge-yellow{background:var(--yellow-100);color:#92400e}
+.badge-red{background:var(--red-100);color:#dc2626}
+.badge-blue{background:var(--blue-100);color:#2563eb}
+.badge-humanoid{background:#f3e8ff;color:#7c3aed}
+.badge-cobot{background:#dbeafe;color:#2563eb}
+.badge-industrial{background:#fef3c7;color:#92400e}
+.badge-amr{background:#d1fae5;color:#065f46}
+.robot-info-card{border:1px solid var(--slate-200);border-radius:6px;padding:12px;margin-top:8px;background:var(--slate-50)}
+.robot-info-card .name{font-weight:700;font-size:.95rem;margin-bottom:4px}
+.robot-info-card .specs{display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:.8rem;color:var(--slate-600)}
+.disclaimer-box{background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:10px 12px;font-size:.78rem;color:#92400e;margin-top:8px}
+.results-panel{display:none}
+.results-panel.active{display:block}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.metric-card{background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius);padding:16px;text-align:center}
+.metric-card .label{font-size:.75rem;color:var(--slate-500);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.metric-card .value{font-size:1.8rem;font-weight:800;line-height:1.2}
+.metric-card .sub{font-size:.78rem;color:var(--slate-500);margin-top:2px}
+.color-green{color:var(--green-600)}
+.color-yellow{color:#ca8a04}
+.color-red{color:var(--red-500)}
+.color-cyan{color:var(--cyan-600)}
+.chart-bar-wrap{margin:16px 0}
+.chart-bar-wrap .chart-title{font-size:.85rem;font-weight:700;color:var(--slate-700);margin-bottom:8px}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.bar-row .bar-label{font-size:.75rem;color:var(--slate-600);min-width:90px;text-align:right}
+.bar-row .bar-track{flex:1;height:24px;background:var(--slate-100);border-radius:4px;overflow:hidden;position:relative}
+.bar-row .bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:.7rem;font-weight:700;color:#fff;transition:width .5s ease;min-width:fit-content}
+.bar-row .bar-val{font-size:.75rem;font-weight:600;color:var(--slate-600);min-width:80px}
+.risk-display{display:flex;align-items:center;gap:12px;padding:12px;background:var(--slate-50);border-radius:6px;margin-top:8px}
+.risk-display .risk-bar{flex:1;height:8px;background:var(--slate-200);border-radius:4px;overflow:hidden}
+.risk-display .risk-fill{height:100%;border-radius:4px;transition:width .5s}
+.compare-select{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.compare-select select{padding:8px;border:1px solid var(--slate-300);border-radius:6px;font-size:.85rem;min-width:200px}
+.compare-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.compare-table th{background:var(--slate-700);color:#fff;padding:8px;text-align:left;font-size:.75rem;text-transform:uppercase}
+.compare-table td{padding:8px;border-bottom:1px solid var(--slate-200)}
+.compare-table tr:nth-child(even){background:var(--slate-50)}
+.compare-table .winner{background:#dcfce7;font-weight:700}
+.db-controls{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.db-controls input,.db-controls select{padding:8px 10px;border:1px solid var(--slate-300);border-radius:6px;font-size:.85rem}
+.db-controls input{flex:1;min-width:150px}
+.db-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.db-table{width:100%;border-collapse:collapse;font-size:.8rem;min-width:700px}
+.db-table th{background:var(--slate-700);color:#fff;padding:8px;text-align:left;cursor:pointer;white-space:nowrap;font-size:.72rem;text-transform:uppercase;user-select:none}
+.db-table th:hover{background:var(--slate-600)}
+.db-table td{padding:8px;border-bottom:1px solid var(--slate-200);white-space:nowrap}
+.db-table tr:nth-child(even){background:var(--slate-50)}
+.db-table tr:hover{background:#ecfeff;cursor:pointer}
+.db-table .price-cell{font-weight:700;color:var(--slate-700)}
+.scenario-tabs{display:flex;gap:4px;margin-bottom:12px}
+.scenario-tab{padding:6px 14px;border:1px solid var(--slate-300);border-radius:6px;font-size:.78rem;font-weight:600;cursor:pointer;background:#fff;color:var(--slate-600);transition:all .2s}
+.scenario-tab.active{background:var(--cyan-500);color:#fff;border-color:var(--cyan-500)}
+.seo-section{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin:20px 0}
+.seo-section h2{font-size:1.2rem;color:var(--slate-700);margin-bottom:12px}
+.seo-section p{color:var(--slate-600);font-size:.9rem;margin-bottom:10px}
+.faq-item{border-bottom:1px solid var(--slate-200);padding:12px 0}
+.faq-item summary{font-weight:700;color:var(--slate-700);cursor:pointer;font-size:.92rem}
+.faq-item p{margin-top:8px;color:var(--slate-600);font-size:.87rem}
+.ad-slot{background:var(--slate-100);border:2px dashed var(--slate-300);border-radius:var(--radius);padding:20px;text-align:center;color:var(--slate-400);font-size:.8rem;margin:16px 0}
+footer{background:var(--slate-900);color:var(--slate-400);padding:24px 0;margin-top:32px;font-size:.78rem;text-align:center}
+footer a{color:var(--cyan-400);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.floating-btns{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:8px;z-index:100}
+.floating-btns a{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.1rem;box-shadow:var(--shadow-lg);transition:transform .2s}
+.floating-btns a:hover{transform:scale(1.1)}
+.float-back{background:var(--slate-700);color:#fff}
+.float-home{background:var(--slate-600);color:#fff}
+.float-bmc{background:#ffdd00;color:#000}
+.float-feedback{background:var(--cyan-500);color:#fff}
+.hidden{display:none}
+.toggle-wrap{display:flex;align-items:center;gap:8px}
+.toggle{position:relative;width:44px;height:24px;background:var(--slate-300);border-radius:12px;cursor:pointer;transition:background .2s}
+.toggle.on{background:var(--cyan-500)}
+.toggle::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .2s}
+.toggle.on::after{transform:translateX(20px)}
+.collapsible-header{display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.collapsible-header::after{content:'\25BC';font-size:.7rem;color:var(--slate-400);transition:transform .2s}
+.collapsible-header.open::after{transform:rotate(180deg)}
+.collapsible-body{display:none;margin-top:12px}
+.collapsible-body.open{display:block}
+@media(max-width:600px){
+  .metric-grid{grid-template-columns:1fr 1fr}
+  .floating-btns{bottom:12px;right:12px}
+  .floating-btns a{width:38px;height:38px;font-size:.95rem}
+  .compare-select{flex-direction:column}
+  .compare-select select{min-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Robot ROI Calculator</h1>
+    <p class="subtitle">Humanoid, Cobot &amp; Industrial Robot Cost Analysis</p>
+    <span class="updated">Robot pricing as of March 2026</span>
+  </div>
+</header>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('calc')">ROI Calculator</button>
+  <button class="tab-btn" onclick="switchTab('compare')">Compare Robots</button>
+  <button class="tab-btn" onclick="switchTab('database')">Robot Database</button>
+</div>
+
+<div class="container">
+
+<!-- TAB 1: CALCULATOR -->
+<div id="tab-calc" class="tab-content active">
+  <div class="progress-bar" id="wizProgress">
+    <div class="step done" data-s="0"></div>
+    <div class="step" data-s="1"></div>
+    <div class="step" data-s="2"></div>
+    <div class="step" data-s="3"></div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="wizard-step active" id="ws0">
+    <div class="card">
+      <h2><span class="step-num">1</span> Your Labor Situation</h2>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Industry / Use Case</label>
+          <select id="industry" onchange="updateWagePreset()">
+            <option value="warehouse">Warehouse Logistics</option>
+            <option value="automotive">Automotive Assembly</option>
+            <option value="electronics">Electronics Assembly</option>
+            <option value="food">Food Processing</option>
+            <option value="security">Security</option>
+            <option value="datacenter">Data Center</option>
+            <option value="construction">Construction</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Country / Region</label>
+          <select id="region" onchange="updateWagePreset()">
+            <option value="us">United States</option>
+            <option value="de">Germany</option>
+            <option value="jp">Japan</option>
+            <option value="cn">China</option>
+            <option value="mx">Mexico</option>
+            <option value="in">India</option>
+            <option value="vn">Vietnam</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Workers to Replace</label>
+          <input type="number" id="workers" value="1" min="1" max="100">
+        </div>
+        <div class="form-group">
+          <label>Hourly Wage (USD)</label>
+          <input type="number" id="wage" value="18.00" min="1" max="500" step="0.01">
+          <span style="font-size:.7rem;color:var(--slate-500)" id="wageSource">BLS May 2024</span>
+        </div>
+        <div class="form-group">
+          <label>Shifts per Day</label>
+          <div class="radio-group">
+            <label><input type="radio" name="shifts" value="1" checked>1 Shift</label>
+            <label><input type="radio" name="shifts" value="2">2 Shifts</label>
+            <label><input type="radio" name="shifts" value="3">3 Shifts</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Days per Week</label>
+          <div class="radio-group">
+            <label><input type="radio" name="days" value="5" checked>5</label>
+            <label><input type="radio" name="days" value="6">6</label>
+            <label><input type="radio" name="days" value="7">7</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Benefits Multiplier</label>
+          <div class="slider-wrap">
+            <input type="range" id="benefits" min="1.0" max="2.0" step="0.05" value="1.35" oninput="document.getElementById('benefitsVal').textContent=this.value+'x'">
+            <span class="val" id="benefitsVal">1.35x</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Annual Wage Increase (%)</label>
+          <input type="number" id="wageIncrease" value="3" min="0" max="15" step="0.5">
+        </div>
+      </div>
+      <div class="wizard-nav">
+        <div></div>
+        <button class="btn btn-primary" onclick="wizNext(1)">Next: Select Robot &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="wizard-step" id="ws1">
+    <div class="card">
+      <h2><span class="step-num">2</span> Select Your Robot</h2>
+      <div class="form-grid">
+        <div class="form-group" style="grid-column:1/-1">
+          <label>Robot Model</label>
+          <select id="robotSelect" onchange="onRobotSelect()">
+            <option value="">-- Select a Robot --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Number of Robots</label>
+          <input type="number" id="numRobots" value="1" min="1" max="50">
+        </div>
+        <div class="form-group" id="raasGroup" style="display:none">
+          <label>Pricing Model</label>
+          <div class="radio-group">
+            <label><input type="radio" name="pricing" value="purchase" checked onchange="onPricingChange()">Purchase</label>
+            <label><input type="radio" name="pricing" value="raas" onchange="onPricingChange()">RaaS (Lease)</label>
+          </div>
+        </div>
+      </div>
+      <div id="robotInfoPanel"></div>
+      <div class="wizard-nav">
+        <button class="btn btn-outline" onclick="wizNext(0)">&larr; Back</button>
+        <button class="btn btn-primary" onclick="wizNext(2)">Next: Advanced TCO &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="wizard-step" id="ws2">
+    <div class="card">
+      <h2><span class="step-num">3</span> Advanced TCO Settings</h2>
+      <p style="font-size:.82rem;color:var(--slate-500);margin-bottom:12px">Fine-tune costs or use auto-estimated defaults. All fields are pre-filled based on your robot selection.</p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Integration Cost Multiplier</label>
+          <div class="slider-wrap">
+            <input type="range" id="integrationMult" min="1.0" max="2.0" step="0.05" value="1.4" oninput="document.getElementById('intVal').textContent=this.value+'x'">
+            <span class="val" id="intVal">1.4x</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Annual Maintenance (USD)</label>
+          <input type="number" id="maintenance" value="5000" min="0" step="100">
+        </div>
+        <div class="form-group">
+          <label>Annual Energy Cost (USD)</label>
+          <input type="number" id="energy" value="300" min="0" step="50">
+        </div>
+        <div class="form-group">
+          <label>Training Cost (one-time, USD)</label>
+          <input type="number" id="training" value="2000" min="0" step="100">
+        </div>
+        <div class="form-group">
+          <label>Annual Software/License (USD)</label>
+          <input type="number" id="software" value="0" min="0" step="100">
+        </div>
+        <div class="form-group">
+          <label>Robot Uptime</label>
+          <div class="slider-wrap">
+            <input type="range" id="uptime" min="50" max="99" step="1" value="90" oninput="document.getElementById('uptimeVal').textContent=this.value+'%'">
+            <span class="val" id="uptimeVal">90%</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Productivity vs Human</label>
+          <div class="slider-wrap">
+            <input type="range" id="productivity" min="50" max="200" step="5" value="100" oninput="document.getElementById('prodVal').textContent=this.value+'%'">
+            <span class="val" id="prodVal">100%</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Analysis Period</label>
+          <select id="analysisPeriod">
+            <option value="3">3 Years</option>
+            <option value="5" selected>5 Years</option>
+            <option value="7">7 Years</option>
+            <option value="10">10 Years</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Robot Lifespan (years)</label>
+          <input type="number" id="lifespan" value="7" min="1" max="20">
+        </div>
+      </div>
+      <div class="wizard-nav">
+        <button class="btn btn-outline" onclick="wizNext(1)">&larr; Back</button>
+        <button class="btn btn-primary" onclick="calculateROI()">Calculate ROI &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: RESULTS -->
+  <div class="wizard-step" id="ws3">
+    <div class="card">
+      <h2><span class="step-num">R</span> ROI Analysis Results</h2>
+      <div class="scenario-tabs">
+        <div class="scenario-tab active" onclick="setScenario('base',this)">Base Case</div>
+        <div class="scenario-tab" onclick="setScenario('optimistic',this)">Optimistic</div>
+        <div class="scenario-tab" onclick="setScenario('conservative',this)">Conservative</div>
+      </div>
+      <div id="resultsContent"></div>
+      <div class="wizard-nav">
+        <button class="btn btn-outline" onclick="wizNext(2)">&larr; Adjust Inputs</button>
+        <button class="btn btn-primary" onclick="wizNext(0)">Start Over</button>
+      </div>
+    </div>
+    <div class="ad-slot">Advertisement Placeholder (Google AdSense)</div>
+  </div>
+</div>
+
+<!-- TAB 2: COMPARE -->
+<div id="tab-compare" class="tab-content">
+  <div class="card">
+    <h2>Compare Robots Side-by-Side</h2>
+    <p style="font-size:.85rem;color:var(--slate-500);margin-bottom:12px">Select 2-3 robots to compare their specs and ROI against your labor inputs from the Calculator tab.</p>
+    <div class="compare-select">
+      <select id="cmp1"><option value="">-- Robot 1 --</option></select>
+      <select id="cmp2"><option value="">-- Robot 2 --</option></select>
+      <select id="cmp3"><option value="">-- Robot 3 (optional) --</option></select>
+      <button class="btn btn-primary btn-sm" onclick="runCompare()">Compare</button>
+    </div>
+    <div id="compareResults"></div>
+  </div>
+</div>
+
+<!-- TAB 3: DATABASE -->
+<div id="tab-database" class="tab-content">
+  <div class="card">
+    <h2>Robot Database &mdash; 20+ Models</h2>
+    <p style="font-size:.82rem;color:var(--slate-500);margin-bottom:12px">Click any robot to load it into the ROI Calculator. Prices as of March 2026.</p>
+    <div class="db-controls">
+      <input type="text" id="dbSearch" placeholder="Search robots..." oninput="filterDB()">
+      <select id="dbCatFilter" onchange="filterDB()">
+        <option value="">All Categories</option>
+        <option value="Humanoid">Humanoid</option>
+        <option value="Cobot">Cobot</option>
+        <option value="Industrial">Industrial</option>
+        <option value="AMR">AMR</option>
+      </select>
+      <select id="dbAvailFilter" onchange="filterDB()">
+        <option value="">All Availability</option>
+        <option value="Available Now">Available Now</option>
+        <option value="Pilot">Pilot / Limited</option>
+        <option value="Pre-order">Pre-order / Future</option>
+      </select>
+    </div>
+    <div class="db-table-wrap">
+      <table class="db-table" id="dbTable">
+        <thead>
+          <tr>
+            <th onclick="sortDB('name')">Robot</th>
+            <th onclick="sortDB('manufacturer')">Maker</th>
+            <th onclick="sortDB('category')">Type</th>
+            <th onclick="sortDB('priceLow')">Price (USD)</th>
+            <th onclick="sortDB('payload')">Payload</th>
+            <th onclick="sortDB('availability')">Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="dbBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SEO CONTENT SECTIONS -->
+<div class="seo-section">
+  <h2>How to Calculate Robot ROI</h2>
+  <p>Calculating the return on investment for a robot requires comparing your current labor costs against the total cost of robot ownership. Start by determining your fully loaded labor cost: hourly wage multiplied by hours worked, adjusted for benefits (typically 1.3-1.4x base wage in the US).</p>
+  <p>Next, calculate the Total Cost of Ownership (TCO) for the robot. This goes beyond purchase price to include integration and installation (typically 20-80% of the robot price), annual maintenance (8-15%), software licensing, energy costs, and training. For humanoid robots, expect a TCO multiplier of 1.36-1.42x the purchase price over 3 years.</p>
+  <p>The ROI formula is: <strong>ROI% = ((Cumulative Labor Savings - Total Robot Investment) / Total Robot Investment) x 100</strong>. The payback period tells you how many months until the robot has saved more than it cost. Collaborative robots (cobots) typically achieve payback in 12-24 months, while humanoid robots may take 18-36 months depending on deployment scale.</p>
+</div>
+
+<div class="seo-section">
+  <h2>2026 Humanoid Robot Price Comparison</h2>
+  <p>The humanoid robotics market is evolving rapidly. As of March 2026, prices range from the Unitree G1 at $13,500 for basic research models to specialized platforms like the Boston Dynamics Atlas at an estimated $130,000-$150,000. Tesla's Optimus has a stated target price of $20,000-$30,000 but is not yet commercially available (2027 target). Figure 02 is available only through a Robot-as-a-Service model at approximately $1,000/month.</p>
+  <p>For businesses ready to deploy today, collaborative robots from Universal Robots ($23,000-$85,000) and industrial robots from FANUC, ABB, and KUKA offer proven reliability with well-documented maintenance histories and 8-15 year lifespans.</p>
+</div>
+
+<div class="seo-section">
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq-item"><summary>How do you calculate robot ROI?</summary><p>Robot ROI = ((Cumulative Labor Savings - Total Robot Investment) / Total Robot Investment) x 100%. Include purchase price, integration (1.36-1.42x multiplier for humanoids), annual maintenance, energy, and training costs versus displaced labor costs with benefits.</p></details>
+  <details class="faq-item"><summary>How much does a Tesla Optimus robot cost?</summary><p>Tesla has stated a target price of $20,000-$30,000 for the Optimus humanoid robot. As of March 2026, Optimus is not yet commercially available; this is a 2027 target price, not a confirmed retail price.</p></details>
+  <details class="faq-item"><summary>What is the payback period for a cobot?</summary><p>Collaborative robots like the Universal Robots UR series typically achieve payback in 12-24 months when replacing a single-shift worker, depending on labor costs and utilization rate.</p></details>
+  <details class="faq-item"><summary>How much does a Figure 02 robot cost?</summary><p>Figure 02 does not have a confirmed purchase price. Figure AI offers the robot primarily through a Robot-as-a-Service (RaaS) model at approximately $1,000/month. Contact Figure AI for enterprise pricing.</p></details>
+  <details class="faq-item"><summary>What is robot Total Cost of Ownership (TCO)?</summary><p>Robot TCO includes the purchase price plus integration/installation (20-80%), annual maintenance (8-15%), software licensing (5-15%), energy (2-5%), training, and end-of-life costs. Humanoid robots carry a 1.36-1.42x multiplier over 3 years.</p></details>
+</div>
+
+<div class="ad-slot">Advertisement Placeholder (Google AdSense)</div>
+
+<!-- DISCLAIMER -->
+<div class="seo-section" style="font-size:.78rem;color:var(--slate-500)">
+  <h2 style="font-size:.95rem">Disclaimer</h2>
+  <p>This calculator provides estimates for informational purposes only. Robot prices are approximate and sourced from publicly available data as of March 2026. Actual costs, maintenance requirements, and performance may vary significantly. Tesla Optimus pricing reflects stated target prices and is not a confirmed commercial price. Figure 02 is available through RaaS only; no confirmed purchase price exists. Always obtain direct quotes from manufacturers and integrators before making purchasing decisions. Labor data is based on BLS May 2024 estimates. This tool does not constitute financial or investment advice.</p>
+  <p style="margin-top:8px"><strong>Data Sources:</strong> BLS Occupational Employment and Wage Statistics (May 2024), BLS ECEC Q4 2025, manufacturer published pricing, Robozaps, ThinkRobotics, Standard Bots, BotInfo.ai, IFR World Robotics 2025.</p>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom:8px"><strong>Robot ROI Calculator 2026</strong> &mdash; by <a href="/">Dongili</a></p>
+    <p>Free robot investment analysis tool. Compare Tesla Optimus, Figure 02, Universal Robots, Boston Dynamics, and more.</p>
+    <p style="margin-top:8px">Data as of March 2026. Prices are estimates and subject to change.</p>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="floating-btns">
+  <a href="javascript:history.back()" class="float-back" title="Back" aria-label="Go back">&larr;</a>
+  <a href="/" class="float-home" title="Home" aria-label="Home">&#8962;</a>
+  <a href="https://buymeacoffee.com/dongili" target="_blank" rel="noopener" class="float-bmc" title="Buy Me a Coffee" aria-label="Buy Me a Coffee">&#9749;</a>
+  <a href="mailto:feedback@dongili.com" class="float-feedback" title="Feedback" aria-label="Send feedback">&#9993;</a>
+</div>
+
+<script>
+/* ========== ROBOT DATABASE ========== */
+const ROBOTS = [
+  {id:'optimus',name:'Tesla Optimus Gen 3',manufacturer:'Tesla',category:'Humanoid',priceLow:20000,priceHigh:30000,priceLabel:'$20K-$30K (2027 target)',maintenanceLow:5000,maintenanceHigh:10000,energyLow:200,energyHigh:500,lifespan:7,availability:'Pre-order / 2027',availClass:'red',payload:'~20 kg (est.)',reach:'N/A',raas:false,raasRate:0,riskScore:8,notes:'2027 target price per Elon Musk statement. NOT commercially available as of March 2026. Price is a target, not confirmed retail.',integrationMult:1.40,trainingCost:5000,software:0},
+  {id:'figure02',name:'Figure 02',manufacturer:'Figure AI',category:'Humanoid',priceLow:0,priceHigh:0,priceLabel:'RaaS Only (~$1,000/mo)',maintenanceLow:15000,maintenanceHigh:40000,energyLow:300,energyHigh:600,lifespan:6,availability:'Pilot Only',availClass:'yellow',payload:'~25 kg (est.)',reach:'N/A',raas:true,raasRate:1000,purchaseAvailable:false,riskScore:7,notes:'No confirmed purchase price. Available through Robot-as-a-Service (RaaS) at ~$1,000/month. Contact Figure AI for enterprise pricing.',integrationMult:1.36,trainingCost:8000,software:2000},
+  {id:'atlas',name:'Atlas (Electric)',manufacturer:'Boston Dynamics',category:'Humanoid',priceLow:130000,priceHigh:150000,priceLabel:'$130K-$150K (est.)',maintenanceLow:15000,maintenanceHigh:30000,energyLow:400,energyHigh:800,lifespan:8,availability:'Production 2026',availClass:'yellow',payload:'~25 kg',reach:'N/A',raas:false,raasRate:0,riskScore:5,notes:'Electric version. Estimated pricing for enterprise customers. Limited production in 2026.',integrationMult:1.42,trainingCost:10000,software:5000},
+  {id:'spot',name:'Spot',manufacturer:'Boston Dynamics',category:'AMR',priceLow:74500,priceHigh:300000,priceLabel:'$74,500-$300,000',maintenanceLow:8000,maintenanceHigh:15000,energyLow:200,energyHigh:400,lifespan:6,availability:'Available Now',availClass:'green',payload:'14 kg',reach:'N/A',raas:false,raasRate:0,riskScore:2,notes:'Base Explorer: $74,500. Enterprise with accessories up to $300K. Well-established platform with proven field deployments.',integrationMult:1.30,trainingCost:4000,software:3000},
+  {id:'digit',name:'Digit',manufacturer:'Agility Robotics',category:'Humanoid',priceLow:250000,priceHigh:250000,priceLabel:'~$250,000',maintenanceLow:15000,maintenanceHigh:40000,energyLow:300,energyHigh:600,lifespan:6,availability:'Active Pilots',availClass:'yellow',payload:'16 kg',reach:'N/A',raas:true,raasRate:2500,riskScore:6,notes:'Currently in active pilot programs. Custom RaaS pricing available for enterprise deployments.',integrationMult:1.40,trainingCost:8000,software:3000},
+  {id:'g1basic',name:'G1 (Basic)',manufacturer:'Unitree',category:'Humanoid',priceLow:13500,priceHigh:16000,priceLabel:'$13,500-$16,000',maintenanceLow:3000,maintenanceHigh:5000,energyLow:100,energyHigh:200,lifespan:4,availability:'Shipping Now',availClass:'green',payload:'~3 kg',reach:'N/A',raas:false,raasRate:0,riskScore:4,notes:'Entry-level humanoid. Basic configuration for research/education. Limited commercial deployment track record.',integrationMult:1.30,trainingCost:1500,software:0},
+  {id:'g1edu',name:'G1 EDU Ultimate',manufacturer:'Unitree',category:'Humanoid',priceLow:73900,priceHigh:73900,priceLabel:'$73,900',maintenanceLow:5000,maintenanceHigh:8000,energyLow:100,energyHigh:200,lifespan:4,availability:'Shipping Now',availClass:'green',payload:'~3 kg',reach:'N/A',raas:false,raasRate:0,riskScore:4,notes:'Top-tier configuration with advanced sensors and computing. Research and education focused.',integrationMult:1.30,trainingCost:2000,software:0},
+  {id:'h1',name:'H1 / H1-2',manufacturer:'Unitree',category:'Humanoid',priceLow:90000,priceHigh:128900,priceLabel:'$90,000-$128,900',maintenanceLow:6000,maintenanceHigh:10000,energyLow:200,energyHigh:400,lifespan:4,availability:'Available',availClass:'green',payload:'~10 kg',reach:'N/A',raas:false,raasRate:0,riskScore:4,notes:'Full-size humanoid platform. Higher payload and performance than G1 series.',integrationMult:1.35,trainingCost:3000,software:0},
+  {id:'neo',name:'NEO',manufacturer:'1X Technologies',category:'Humanoid',priceLow:20000,priceHigh:20000,priceLabel:'~$20,000',maintenanceLow:3000,maintenanceHigh:6000,energyLow:150,energyHigh:300,lifespan:5,availability:'Limited',availClass:'yellow',payload:'~10 kg (est.)',reach:'N/A',raas:true,raasRate:499,riskScore:6,notes:'Limited availability. RaaS option at $499/month. Home and commercial applications targeted.',integrationMult:1.35,trainingCost:2000,software:0},
+  {id:'apollo',name:'Apollo',manufacturer:'Apptronik',category:'Humanoid',priceLow:50000,priceHigh:150000,priceLabel:'$50,000-$150,000 (est.)',maintenanceLow:8000,maintenanceHigh:20000,energyLow:300,energyHigh:600,lifespan:6,availability:'Enterprise Pilots',availClass:'yellow',payload:'25 kg',reach:'N/A',raas:false,raasRate:0,riskScore:6,notes:'Enterprise pilot program. Estimated pricing. Targeting logistics and manufacturing applications.',integrationMult:1.40,trainingCost:5000,software:2000},
+  {id:'bumi',name:'Bumi',manufacturer:'Noetix',category:'Humanoid',priceLow:1400,priceHigh:1400,priceLabel:'$1,400',maintenanceLow:500,maintenanceHigh:1000,energyLow:50,energyHigh:100,lifespan:2,availability:'Shipping Now',availClass:'green',payload:'~1 kg',reach:'N/A',raas:false,raasRate:0,riskScore:5,notes:'Ultra-low-cost humanoid. Very limited capabilities compared to full-size humanoids. Research/hobby platform.',integrationMult:1.20,trainingCost:200,software:0},
+  {id:'ur3e',name:'UR3e',manufacturer:'Universal Robots',category:'Cobot',priceLow:23000,priceHigh:30000,priceLabel:'$23,000-$30,000',maintenanceLow:2000,maintenanceHigh:4000,energyLow:200,energyHigh:400,lifespan:10,availability:'Available Now',availClass:'green',payload:'3 kg',reach:'500 mm',raas:false,raasRate:0,riskScore:1,notes:'Proven cobot platform. Ideal for light assembly, testing, polishing. Large ecosystem of grippers and sensors.',integrationMult:1.30,trainingCost:2000,software:0},
+  {id:'ur5e',name:'UR5e',manufacturer:'Universal Robots',category:'Cobot',priceLow:30000,priceHigh:45000,priceLabel:'$30,000-$45,000',maintenanceLow:2500,maintenanceHigh:5000,energyLow:250,energyHigh:500,lifespan:10,availability:'Available Now',availClass:'green',payload:'5 kg',reach:'850 mm',raas:false,raasRate:0,riskScore:1,notes:'Most popular cobot globally. Versatile for pick-and-place, machine tending, packaging.',integrationMult:1.30,trainingCost:2000,software:0},
+  {id:'ur10e',name:'UR10e',manufacturer:'Universal Robots',category:'Cobot',priceLow:45000,priceHigh:60000,priceLabel:'$45,000-$60,000',maintenanceLow:3000,maintenanceHigh:6000,energyLow:300,energyHigh:600,lifespan:10,availability:'Available Now',availClass:'green',payload:'12.5 kg',reach:'1300 mm',raas:false,raasRate:0,riskScore:1,notes:'Heavy-duty cobot. Palletizing, heavy part handling, CNC machine tending.',integrationMult:1.30,trainingCost:2500,software:0},
+  {id:'ur20',name:'UR20',manufacturer:'Universal Robots',category:'Cobot',priceLow:65000,priceHigh:85000,priceLabel:'$65,000-$85,000',maintenanceLow:4000,maintenanceHigh:7000,energyLow:400,energyHigh:700,lifespan:10,availability:'Available Now',availClass:'green',payload:'20 kg',reach:'1750 mm',raas:false,raasRate:0,riskScore:1,notes:'Newest UR model. Largest payload and reach. Designed for palletizing and heavy manufacturing.',integrationMult:1.30,trainingCost:3000,software:0},
+  {id:'fanuc',name:'CRX Series (Mid)',manufacturer:'FANUC',category:'Cobot',priceLow:25000,priceHigh:50000,priceLabel:'$25,000-$50,000',maintenanceLow:3000,maintenanceHigh:8000,energyLow:300,energyHigh:800,lifespan:12,availability:'Available Now',availClass:'green',payload:'5-25 kg',reach:'700-1400 mm',raas:false,raasRate:0,riskScore:1,notes:'FANUC CRX collaborative robots. Industrial reliability with cobot safety. CRX-5iA to CRX-25iA range.',integrationMult:1.35,trainingCost:3000,software:1000},
+  {id:'abb',name:'IRB 1200',manufacturer:'ABB',category:'Industrial',priceLow:27500,priceHigh:50000,priceLabel:'$27,500-$50,000',maintenanceLow:4000,maintenanceHigh:10000,energyLow:500,energyHigh:1200,lifespan:12,availability:'Available Now',availClass:'green',payload:'5-7 kg',reach:'700-900 mm',raas:false,raasRate:0,riskScore:1,notes:'Compact industrial robot. Material handling, machine tending, assembly. Proven global platform.',integrationMult:1.50,trainingCost:4000,software:2000},
+  {id:'abbfull',name:'IRB 6700 Series',manufacturer:'ABB',category:'Industrial',priceLow:80000,priceHigh:200000,priceLabel:'$80,000-$200,000',maintenanceLow:8000,maintenanceHigh:20000,energyLow:800,energyHigh:2000,lifespan:15,availability:'Available Now',availClass:'green',payload:'150-300 kg',reach:'2600-3200 mm',raas:false,raasRate:0,riskScore:1,notes:'Heavy-duty industrial. Welding, material handling, automotive body shop applications.',integrationMult:1.60,trainingCost:6000,software:3000},
+  {id:'kuka',name:'KR Series (Mid)',manufacturer:'KUKA',category:'Industrial',priceLow:25000,priceHigh:100000,priceLabel:'$25,000-$100,000',maintenanceLow:5000,maintenanceHigh:15000,energyLow:400,energyHigh:1500,lifespan:12,availability:'Available Now',availClass:'green',payload:'6-150 kg',reach:'900-3100 mm',raas:false,raasRate:0,riskScore:1,notes:'KUKA KR QUANTEC and KR CYBERTECH range. Welding, palletizing, general handling.',integrationMult:1.50,trainingCost:4000,software:2000},
+  {id:'kukalb',name:'LBR iiwa',manufacturer:'KUKA',category:'Cobot',priceLow:45000,priceHigh:70000,priceLabel:'$45,000-$70,000',maintenanceLow:3000,maintenanceHigh:8000,energyLow:300,energyHigh:600,lifespan:10,availability:'Available Now',availClass:'green',payload:'7-14 kg',reach:'800-820 mm',raas:false,raasRate:0,riskScore:1,notes:'Sensitive cobot with 7-axis torque sensors. Assembly, testing, human-robot collaboration.',integrationMult:1.35,trainingCost:4000,software:2000},
+  {id:'amr',name:'AMR (Generic Mid-Range)',manufacturer:'Various',category:'AMR',priceLow:30000,priceHigh:60000,priceLabel:'$30,000-$60,000',maintenanceLow:3000,maintenanceHigh:8000,energyLow:300,energyHigh:600,lifespan:7,availability:'Available Now',availClass:'green',payload:'100-1000 kg',reach:'N/A',raas:false,raasRate:0,riskScore:2,notes:'Autonomous Mobile Robots for material transport. Includes brands like MiR, Locus, 6 River Systems.',integrationMult:1.35,trainingCost:3000,software:2000}
+];
+
+/* ========== WAGE PRESETS ========== */
+const WAGES={
+  warehouse:{us:18.00,de:20,jp:14,cn:6,mx:5.44,in:2.50,vn:3},
+  automotive:{us:21.00,de:25,jp:18,cn:8,mx:6,in:3,vn:3.50},
+  electronics:{us:19.50,de:22,jp:16,cn:7,mx:5.50,in:2.50,vn:3},
+  food:{us:19.00,de:18,jp:13,cn:5.50,mx:5,in:2,vn:2.50},
+  security:{us:20.62,de:18,jp:14,cn:5,mx:4.50,in:2,vn:2.50},
+  datacenter:{us:25.00,de:28,jp:20,cn:10,mx:8,in:5,vn:4},
+  construction:{us:22.00,de:24,jp:16,cn:7,mx:5.50,in:3,vn:3},
+  custom:{us:20,de:22,jp:15,cn:7,mx:5.50,in:3,vn:3}
+};
+
+/* ========== STATE ========== */
+let currentStep=0;
+let calcResults=null;
+let currentScenario='base';
+let dbSortCol='name';
+let dbSortAsc=true;
+
+/* ========== TAB SWITCHING ========== */
+function switchTab(t){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  const btns=document.querySelectorAll('.tab-btn');
+  const idx={calc:0,compare:1,database:2}[t];
+  btns[idx].classList.add('active');
+}
+
+/* ========== WIZARD ========== */
+function wizNext(step){
+  document.querySelectorAll('.wizard-step').forEach(el=>el.classList.remove('active'));
+  document.getElementById('ws'+step).classList.add('active');
+  currentStep=step;
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function updateProgress(){
+  document.querySelectorAll('#wizProgress .step').forEach((el,i)=>{
+    el.className='step';
+    if(i<currentStep) el.classList.add('done');
+    if(i===currentStep) el.classList.add('current','done');
+  });
+}
+
+/* ========== WAGE PRESET ========== */
+function updateWagePreset(){
+  const ind=document.getElementById('industry').value;
+  const reg=document.getElementById('region').value;
+  const w=WAGES[ind]?.[reg]||20;
+  document.getElementById('wage').value=w.toFixed(2);
+  const src=reg==='us'?'BLS May 2024':'Regional estimate';
+  document.getElementById('wageSource').textContent=src;
+}
+
+/* ========== ROBOT SELECT ========== */
+function populateRobotDropdown(sel){
+  const cats=['Humanoid','Cobot','Industrial','AMR'];
+  let html='<option value="">-- Select a Robot --</option>';
+  cats.forEach(c=>{
+    const bots=ROBOTS.filter(r=>r.category===c);
+    if(bots.length){
+      html+=`<optgroup label="${c}">`;
+      bots.forEach(r=>{html+=`<option value="${r.id}">${r.name} - ${r.manufacturer} (${r.priceLabel})</option>`});
+      html+='</optgroup>';
+    }
+  });
+  sel.innerHTML=html;
+}
+
+function onRobotSelect(){
+  const id=document.getElementById('robotSelect').value;
+  const r=ROBOTS.find(x=>x.id===id);
+  const panel=document.getElementById('robotInfoPanel');
+  const raasG=document.getElementById('raasGroup');
+  if(!r){panel.innerHTML='';raasG.style.display='none';return}
+
+  const availBadge=`<span class="badge badge-${r.availClass}">${r.availability}</span>`;
+  const catBadge=`<span class="badge badge-${r.category.toLowerCase()}">${r.category}</span>`;
+  let warning='';
+  if(r.id==='optimus') warning=`<div class="disclaimer-box"><strong>Important:</strong> Tesla Optimus is NOT commercially available. The $20K-$30K range is a 2027 target price stated by Elon Musk, not a confirmed retail price. ROI calculations using this price are speculative.</div>`;
+  if(r.id==='figure02') warning=`<div class="disclaimer-box"><strong>Important:</strong> Figure 02 has no confirmed purchase price. It is available only through Robot-as-a-Service (RaaS) at ~$1,000/month. The calculator will use RaaS pricing by default.</div>`;
+
+  panel.innerHTML=`<div class="robot-info-card">
+    <div class="name">${r.name} ${catBadge} ${availBadge}</div>
+    <div class="specs">
+      <div><strong>Price:</strong> ${r.priceLabel}</div>
+      <div><strong>Payload:</strong> ${r.payload}</div>
+      <div><strong>Maintenance:</strong> $${fmt(r.maintenanceLow)}-$${fmt(r.maintenanceHigh)}/yr</div>
+      <div><strong>Energy:</strong> $${fmt(r.energyLow)}-$${fmt(r.energyHigh)}/yr</div>
+      <div><strong>Lifespan:</strong> ${r.lifespan} years</div>
+      <div><strong>Risk Score:</strong> ${r.riskScore}/10</div>
+    </div>
+    <p style="font-size:.78rem;color:var(--slate-500);margin-top:6px">${r.notes}</p>
+    ${warning}
+  </div>`;
+
+  // Auto-fill TCO fields
+  const mid=(v1,v2)=>Math.round((v1+v2)/2);
+  document.getElementById('maintenance').value=mid(r.maintenanceLow,r.maintenanceHigh);
+  document.getElementById('energy').value=mid(r.energyLow,r.energyHigh);
+  document.getElementById('training').value=r.trainingCost;
+  document.getElementById('software').value=r.software;
+  document.getElementById('lifespan').value=r.lifespan;
+  document.getElementById('integrationMult').value=r.integrationMult;
+  document.getElementById('intVal').textContent=r.integrationMult+'x';
+
+  // RaaS toggle
+  if(r.raas){
+    raasG.style.display='';
+    if(r.id==='figure02'){
+      document.querySelector('input[name="pricing"][value="raas"]').checked=true;
+      const purchRadio=document.querySelector('input[name="pricing"][value="purchase"]');
+      if(!r.purchaseAvailable) purchRadio.disabled=true; else purchRadio.disabled=false;
+    } else {
+      document.querySelector('input[name="pricing"][value="purchase"]').checked=true;
+      document.querySelector('input[name="pricing"][value="purchase"]').disabled=false;
+    }
+  } else {
+    raasG.style.display='none';
+    document.querySelector('input[name="pricing"][value="purchase"]').checked=true;
+    document.querySelector('input[name="pricing"][value="purchase"]').disabled=false;
+  }
+}
+
+function onPricingChange(){}
+
+/* ========== CALCULATION ENGINE ========== */
+function getInputs(){
+  const shifts=parseInt(document.querySelector('input[name="shifts"]:checked').value);
+  const days=parseInt(document.querySelector('input[name="days"]:checked').value);
+  const hoursPerDay=shifts*8;
+  return {
+    workers:parseInt(document.getElementById('workers').value)||1,
+    wage:parseFloat(document.getElementById('wage').value)||20,
+    hoursPerWeek:hoursPerDay*days,
+    benefits:parseFloat(document.getElementById('benefits').value)||1.35,
+    wageIncrease:(parseFloat(document.getElementById('wageIncrease').value)||3)/100,
+    numRobots:parseInt(document.getElementById('numRobots').value)||1,
+    integrationMult:parseFloat(document.getElementById('integrationMult').value)||1.4,
+    maintenance:parseFloat(document.getElementById('maintenance').value)||5000,
+    energy:parseFloat(document.getElementById('energy').value)||300,
+    training:parseFloat(document.getElementById('training').value)||2000,
+    software:parseFloat(document.getElementById('software').value)||0,
+    uptime:(parseFloat(document.getElementById('uptime').value)||90)/100,
+    productivity:(parseFloat(document.getElementById('productivity').value)||100)/100,
+    period:parseInt(document.getElementById('analysisPeriod').value)||5,
+    lifespan:parseInt(document.getElementById('lifespan').value)||7
+  };
+}
+
+function calcScenario(inputs,robot,scenario){
+  if(!robot) return null;
+  let pMult=1, mMult=1, prodAdj=1, uptimeAdj=0;
+  if(scenario==='optimistic'){pMult=0.9;mMult=0.85;prodAdj=1.2;uptimeAdj=0.05}
+  if(scenario==='conservative'){pMult=1.1;mMult=1.15;prodAdj=0.8;uptimeAdj=-0.05}
+
+  const isRaas=robot.raas && document.querySelector('input[name="pricing"][value="raas"]')?.checked;
+  const priceMid=((robot.priceLow+robot.priceHigh)/2)*pMult;
+  const uptime=Math.min(0.99,Math.max(0.5,inputs.uptime+uptimeAdj));
+  const effectiveProductivity=inputs.productivity*prodAdj;
+
+  // Annual labor cost (year 1)
+  const annualLaborBase=inputs.workers*inputs.wage*inputs.hoursPerWeek*52*inputs.benefits;
+
+  // Robot upfront (year 0)
+  let robotUpfront=0;
+  let annualRobotBase=0;
+  let monthlyRaas=0;
+
+  if(isRaas){
+    monthlyRaas=robot.raasRate*inputs.numRobots;
+    const reducedIntegration=(priceMid>0?priceMid:50000)*0.15*inputs.numRobots;
+    robotUpfront=reducedIntegration+inputs.training*inputs.numRobots;
+    annualRobotBase=monthlyRaas*12+(inputs.software*inputs.numRobots);
+  } else {
+    if(robot.priceLow===0 && robot.priceHigh===0){
+      // No purchase price (Figure 02), force RaaS calculation
+      monthlyRaas=robot.raasRate*inputs.numRobots;
+      robotUpfront=inputs.training*inputs.numRobots;
+      annualRobotBase=monthlyRaas*12+(inputs.software*inputs.numRobots);
+    } else {
+      robotUpfront=(priceMid*inputs.integrationMult*inputs.numRobots)+(inputs.training*inputs.numRobots);
+      annualRobotBase=((inputs.maintenance*mMult)+(inputs.energy)+(inputs.software))*inputs.numRobots;
+    }
+  }
+
+  // Effective workers replaced considering productivity and uptime
+  const effectiveReplacement=inputs.numRobots*effectiveProductivity*uptime;
+  const workersActuallyReplaced=Math.min(inputs.workers,effectiveReplacement);
+  const laborFraction=workersActuallyReplaced/inputs.workers;
+
+  // Year-by-year
+  const years=[];
+  let cumulativeSavings=0;
+  let cumulativeRobotCost=robotUpfront;
+  let paybackMonth=null;
+  const N=inputs.period;
+
+  for(let y=1;y<=N;y++){
+    const laborThisYear=annualLaborBase*Math.pow(1+inputs.wageIncrease,y-1)*laborFraction;
+    const robotThisYear=annualRobotBase;
+    const savingsThisYear=laborThisYear-robotThisYear;
+    cumulativeSavings+=savingsThisYear;
+    cumulativeRobotCost+=robotThisYear;
+    if(!paybackMonth && cumulativeSavings>=robotUpfront){
+      const prevCum=cumulativeSavings-savingsThisYear;
+      const remaining=robotUpfront-prevCum;
+      const monthsIntoYear=remaining>0?Math.ceil((remaining/savingsThisYear)*12):0;
+      paybackMonth=(y-1)*12+monthsIntoYear;
+    }
+    years.push({year:y,laborCost:laborThisYear,robotCost:robotThisYear,savings:savingsThisYear,cumSavings:cumulativeSavings});
+  }
+
+  const totalInvestment=robotUpfront+years.reduce((s,y)=>s+y.robotCost,0);
+  const totalLaborCost=years.reduce((s,y)=>s+y.laborCost,0);
+  const netSavings=cumulativeSavings-robotUpfront;
+  const roi=robotUpfront>0?((netSavings/robotUpfront)*100):0;
+  const annualSavings=years.length?years[0].savings:0;
+  const costPerHourRobot=totalInvestment/(N*inputs.hoursPerWeek*52*inputs.numRobots)||0;
+  const costPerHourHuman=inputs.wage*inputs.benefits;
+
+  return {
+    roi,paybackMonth,annualSavings,netSavings,totalInvestment,totalLaborCost,
+    robotUpfront,annualRobotBase,years,
+    costPerHourRobot,costPerHourHuman,
+    riskScore:robot.riskScore,riskLabel:robot.riskScore<=3?'Low':robot.riskScore<=6?'Medium':'High',
+    riskColor:robot.riskScore<=3?'green':robot.riskScore<=6?'yellow':'red',
+    isRaas,monthlyRaas,robotName:robot.name,
+    N,effectiveReplacement:workersActuallyReplaced
+  };
+}
+
+function calculateROI(){
+  const id=document.getElementById('robotSelect').value;
+  const robot=ROBOTS.find(x=>x.id===id);
+  if(!robot){alert('Please select a robot first.');return}
+  const inputs=getInputs();
+  calcResults={
+    base:calcScenario(inputs,robot,'base'),
+    optimistic:calcScenario(inputs,robot,'optimistic'),
+    conservative:calcScenario(inputs,robot,'conservative'),
+    robot,inputs
+  };
+  currentScenario='base';
+  renderResults();
+  wizNext(3);
+}
+
+function setScenario(s,el){
+  currentScenario=s;
+  document.querySelectorAll('.scenario-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderResults();
+}
+
+function renderResults(){
+  if(!calcResults) return;
+  const r=calcResults[currentScenario];
+  if(!r) return;
+  const roiColor=r.roi>50?'color-green':r.roi>0?'color-yellow':'color-red';
+  const paybackText=r.paybackMonth?r.paybackMonth+' months':'> '+r.N+' years';
+  const paybackColor=r.paybackMonth&&r.paybackMonth<=24?'color-green':r.paybackMonth&&r.paybackMonth<=48?'color-yellow':'color-red';
+
+  let html=`<div class="metric-grid">
+    <div class="metric-card"><div class="label">ROI (${r.N}yr)</div><div class="value ${roiColor}">${r.roi.toFixed(1)}%</div><div class="sub">${r.roi>0?'Profitable':'Not profitable'} over ${r.N} years</div></div>
+    <div class="metric-card"><div class="label">Payback Period</div><div class="value ${paybackColor}">${paybackText}</div><div class="sub">${r.paybackMonth&&r.paybackMonth<=12?'Excellent':''}${r.paybackMonth&&r.paybackMonth>12&&r.paybackMonth<=24?'Good':''}${r.paybackMonth&&r.paybackMonth>24?'Long-term investment':''}</div></div>
+    <div class="metric-card"><div class="label">Annual Savings (Yr 1)</div><div class="value color-cyan">$${fmtK(r.annualSavings)}</div><div class="sub">vs current labor cost</div></div>
+    <div class="metric-card"><div class="label">Net Savings (${r.N}yr)</div><div class="value ${r.netSavings>0?'color-green':'color-red'}">$${fmtK(r.netSavings)}</div><div class="sub">After all robot costs</div></div>
+  </div>`;
+
+  // Cost comparison bar chart
+  const maxCost=Math.max(r.totalLaborCost,r.totalInvestment,1);
+  html+=`<div class="chart-bar-wrap"><div class="chart-title">${r.N}-Year Total Cost Comparison</div>
+    <div class="bar-row"><span class="bar-label">Labor Cost</span><div class="bar-track"><div class="bar-fill" style="width:${(r.totalLaborCost/maxCost*100).toFixed(1)}%;background:var(--red-500)">$${fmtK(r.totalLaborCost)}</div></div></div>
+    <div class="bar-row"><span class="bar-label">Robot TCO</span><div class="bar-track"><div class="bar-fill" style="width:${(r.totalInvestment/maxCost*100).toFixed(1)}%;background:var(--cyan-500)">$${fmtK(r.totalInvestment)}</div></div></div>
+  </div>`;
+
+  // Annual breakdown chart
+  html+=`<div class="chart-bar-wrap"><div class="chart-title">Annual Cost Breakdown</div>`;
+  const maxAnnual=Math.max(...r.years.map(y=>Math.max(y.laborCost,y.robotCost)),1);
+  r.years.forEach(y=>{
+    html+=`<div class="bar-row"><span class="bar-label">Year ${y.year}</span><div class="bar-track">
+      <div class="bar-fill" style="width:${(y.laborCost/maxAnnual*100).toFixed(1)}%;background:var(--red-500);position:absolute">$${fmtK(y.laborCost)}</div>
+    </div><div class="bar-track"><div class="bar-fill" style="width:${(y.robotCost/maxAnnual*100).toFixed(1)}%;background:var(--cyan-500)">$${fmtK(y.robotCost)}</div></div></div>`;
+  });
+  html+=`<div style="display:flex;gap:16px;font-size:.72rem;margin-top:4px"><span style="color:var(--red-500)">&#9632; Labor</span><span style="color:var(--cyan-500)">&#9632; Robot</span></div></div>`;
+
+  // Cost per hour
+  html+=`<div class="chart-bar-wrap"><div class="chart-title">Cost per Productive Hour</div>
+    <div class="bar-row"><span class="bar-label">Human</span><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,r.costPerHourHuman/(Math.max(r.costPerHourHuman,r.costPerHourRobot)||1)*100).toFixed(1)}%;background:var(--red-500)">$${r.costPerHourHuman.toFixed(2)}/hr</div></div></div>
+    <div class="bar-row"><span class="bar-label">Robot</span><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,r.costPerHourRobot/(Math.max(r.costPerHourHuman,r.costPerHourRobot)||1)*100).toFixed(1)}%;background:var(--cyan-500)">$${r.costPerHourRobot.toFixed(2)}/hr</div></div></div>
+  </div>`;
+
+  // Risk score
+  html+=`<div class="risk-display">
+    <div><strong>Risk Score:</strong></div>
+    <div class="risk-bar"><div class="risk-fill" style="width:${r.riskScore*10}%;background:${r.riskColor==='green'?'var(--green-500)':r.riskColor==='yellow'?'var(--yellow-500)':'var(--red-500)'}"></div></div>
+    <span class="badge badge-${r.riskColor}">${r.riskLabel} (${r.riskScore}/10)</span>
+  </div>`;
+
+  // RaaS info if applicable
+  if(r.isRaas){
+    html+=`<div class="disclaimer-box" style="margin-top:12px"><strong>RaaS Model:</strong> $${fmt(r.monthlyRaas)}/month. No large upfront purchase. Break-even vs purchase at approximately ${Math.round(r.robotUpfront/(r.monthlyRaas*12)*12)||'N/A'} months of RaaS payments.</div>`;
+  }
+
+  document.getElementById('resultsContent').innerHTML=html;
+}
+
+/* ========== COMPARE TAB ========== */
+function runCompare(){
+  const ids=[
+    document.getElementById('cmp1').value,
+    document.getElementById('cmp2').value,
+    document.getElementById('cmp3').value
+  ].filter(Boolean);
+  if(ids.length<2){alert('Select at least 2 robots to compare.');return}
+  const inputs=getInputs();
+  const results=ids.map(id=>{
+    const robot=ROBOTS.find(r=>r.id===id);
+    if(!robot) return null;
+    // Use default TCO values from robot
+    const mid=(a,b)=>Math.round((a+b)/2);
+    const tmpInputs={...inputs,
+      maintenance:mid(robot.maintenanceLow,robot.maintenanceHigh),
+      energy:mid(robot.energyLow,robot.energyHigh),
+      training:robot.trainingCost,
+      software:robot.software,
+      lifespan:robot.lifespan,
+      integrationMult:robot.integrationMult
+    };
+    // Force purchase mode for comparison unless RaaS-only
+    const scenario=calcScenarioCompare(tmpInputs,robot,'base');
+    return {robot,result:scenario};
+  }).filter(Boolean);
+
+  if(results.length<2) return;
+
+  // Find best per metric
+  const bestROI=Math.max(...results.map(r=>r.result.roi));
+  const bestPayback=Math.min(...results.filter(r=>r.result.paybackMonth).map(r=>r.result.paybackMonth));
+  const bestTCO=Math.min(...results.map(r=>r.result.totalInvestment));
+  const bestRisk=Math.min(...results.map(r=>r.robot.riskScore));
+
+  let html=`<div class="db-table-wrap"><table class="compare-table"><thead><tr><th>Metric</th>`;
+  results.forEach(r=>{html+=`<th>${r.robot.name}</th>`});
+  html+=`</tr></thead><tbody>`;
+
+  const rows=[
+    ['Category',r=>`<span class="badge badge-${r.robot.category.toLowerCase()}">${r.robot.category}</span>`],
+    ['Price',r=>r.robot.priceLabel],
+    ['Availability',r=>`<span class="badge badge-${r.robot.availClass}">${r.robot.availability}</span>`],
+    ['ROI ('+inputs.period+'yr)',r=>r.result.roi.toFixed(1)+'%',r=>Math.abs(r.result.roi-bestROI)<0.1],
+    ['Payback',r=>r.result.paybackMonth?r.result.paybackMonth+' mo':'N/A',r=>r.result.paybackMonth===bestPayback],
+    ['Total Investment',r=>'$'+fmtK(r.result.totalInvestment),r=>Math.abs(r.result.totalInvestment-bestTCO)<100],
+    ['Annual Savings',r=>'$'+fmtK(r.result.annualSavings)],
+    ['Net Savings',r=>'$'+fmtK(r.result.netSavings)],
+    ['Risk Score',r=>`${r.robot.riskScore}/10 (${r.result.riskLabel})`,r=>r.robot.riskScore===bestRisk],
+    ['Cost/Hour',r=>'$'+r.result.costPerHourRobot.toFixed(2)],
+    ['Payload',r=>r.robot.payload],
+    ['Lifespan',r=>r.robot.lifespan+' yr'],
+  ];
+
+  rows.forEach(([label,valFn,winFn])=>{
+    html+=`<tr><td><strong>${label}</strong></td>`;
+    results.forEach(r=>{
+      const isWin=winFn?winFn(r):false;
+      html+=`<td class="${isWin?'winner':''}">${valFn(r)}</td>`;
+    });
+    html+=`</tr>`;
+  });
+
+  html+=`</tbody></table></div>`;
+
+  // Best Overall
+  const scores=results.map(r=>{
+    let s=0;
+    s+=r.result.roi>0?2:0;
+    s+=r.result.paybackMonth&&r.result.paybackMonth<=24?2:r.result.paybackMonth&&r.result.paybackMonth<=48?1:0;
+    s+=r.robot.riskScore<=3?2:r.robot.riskScore<=6?1:0;
+    s+=r.robot.availClass==='green'?2:r.robot.availClass==='yellow'?1:0;
+    return {robot:r.robot,score:s};
+  });
+  scores.sort((a,b)=>b.score-a.score);
+  html+=`<div style="margin-top:12px;padding:12px;background:var(--green-100);border-radius:6px;font-size:.88rem"><strong>Best Overall: ${scores[0].robot.name}</strong> (${scores[0].robot.manufacturer}) based on ROI, payback, risk, and availability.</div>`;
+
+  document.getElementById('compareResults').innerHTML=html;
+}
+
+function calcScenarioCompare(inputs,robot,scenario){
+  // Simplified version using provided inputs directly
+  const annualLaborBase=inputs.workers*inputs.wage*inputs.hoursPerWeek*52*inputs.benefits;
+  const isRaasOnly=robot.priceLow===0&&robot.priceHigh===0&&robot.raas;
+  let robotUpfront,annualRobotBase;
+
+  if(isRaasOnly){
+    robotUpfront=inputs.training*inputs.numRobots;
+    annualRobotBase=(robot.raasRate*12+inputs.software)*inputs.numRobots;
+  } else {
+    const priceMid=(robot.priceLow+robot.priceHigh)/2;
+    robotUpfront=(priceMid*inputs.integrationMult*inputs.numRobots)+(inputs.training*inputs.numRobots);
+    annualRobotBase=(inputs.maintenance+inputs.energy+inputs.software)*inputs.numRobots;
+  }
+
+  const effectiveReplacement=Math.min(inputs.workers,inputs.numRobots*inputs.productivity*inputs.uptime);
+  const laborFraction=effectiveReplacement/inputs.workers;
+  const years=[];
+  let cumulativeSavings=0;
+  let paybackMonth=null;
+  const N=inputs.period;
+
+  for(let y=1;y<=N;y++){
+    const laborThisYear=annualLaborBase*Math.pow(1+inputs.wageIncrease,y-1)*laborFraction;
+    const robotThisYear=annualRobotBase;
+    const savingsThisYear=laborThisYear-robotThisYear;
+    cumulativeSavings+=savingsThisYear;
+    if(!paybackMonth&&cumulativeSavings>=robotUpfront){
+      const prev=cumulativeSavings-savingsThisYear;
+      const rem=robotUpfront-prev;
+      paybackMonth=(y-1)*12+(rem>0?Math.ceil((rem/savingsThisYear)*12):0);
+    }
+    years.push({year:y,laborCost:laborThisYear,robotCost:robotThisYear,savings:savingsThisYear,cumSavings:cumulativeSavings});
+  }
+  const totalInvestment=robotUpfront+years.reduce((s,y)=>s+y.robotCost,0);
+  const totalLaborCost=years.reduce((s,y)=>s+y.laborCost,0);
+  const netSavings=cumulativeSavings-robotUpfront;
+  const roi=robotUpfront>0?((netSavings/robotUpfront)*100):(netSavings>0?999:0);
+  const annualSavings=years.length?years[0].savings:0;
+  const costPerHourRobot=totalInvestment/(N*inputs.hoursPerWeek*52*inputs.numRobots)||0;
+  const costPerHourHuman=inputs.wage*inputs.benefits;
+
+  return {roi,paybackMonth,annualSavings,netSavings,totalInvestment,totalLaborCost,robotUpfront,annualRobotBase,years,costPerHourRobot,costPerHourHuman,riskScore:robot.riskScore,riskLabel:robot.riskScore<=3?'Low':robot.riskScore<=6?'Medium':'High',isRaas:isRaasOnly,monthlyRaas:robot.raasRate,N};
+}
+
+/* ========== DATABASE TAB ========== */
+function renderDB(list){
+  const body=document.getElementById('dbBody');
+  if(!list) list=ROBOTS;
+  body.innerHTML=list.map(r=>`<tr onclick="loadRobotCalc('${r.id}')">
+    <td><strong>${r.name}</strong><br><span style="font-size:.72rem;color:var(--slate-500)">${r.manufacturer}</span></td>
+    <td>${r.manufacturer}</td>
+    <td><span class="badge badge-${r.category.toLowerCase()}">${r.category}</span></td>
+    <td class="price-cell">${r.priceLabel}</td>
+    <td>${r.payload}</td>
+    <td><span class="badge badge-${r.availClass}">${r.availability}</span></td>
+    <td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();loadRobotCalc('${r.id}')">Use</button></td>
+  </tr>`).join('');
+}
+
+function filterDB(){
+  const q=document.getElementById('dbSearch').value.toLowerCase();
+  const cat=document.getElementById('dbCatFilter').value;
+  const avail=document.getElementById('dbAvailFilter').value;
+  let list=ROBOTS;
+  if(q) list=list.filter(r=>(r.name+' '+r.manufacturer+' '+r.category+' '+r.notes).toLowerCase().includes(q));
+  if(cat) list=list.filter(r=>r.category===cat);
+  if(avail){
+    if(avail==='Pilot') list=list.filter(r=>r.availClass==='yellow');
+    else if(avail==='Pre-order') list=list.filter(r=>r.availClass==='red');
+    else list=list.filter(r=>r.availability===avail);
+  }
+  renderDB(list);
+}
+
+function sortDB(col){
+  if(dbSortCol===col) dbSortAsc=!dbSortAsc; else {dbSortCol=col;dbSortAsc=true}
+  const sorted=[...ROBOTS].sort((a,b)=>{
+    let va=a[col],vb=b[col];
+    if(typeof va==='string') va=va.toLowerCase();
+    if(typeof vb==='string') vb=vb.toLowerCase();
+    if(va<vb) return dbSortAsc?-1:1;
+    if(va>vb) return dbSortAsc?1:-1;
+    return 0;
+  });
+  renderDB(sorted);
+}
+
+function loadRobotCalc(id){
+  switchTab('calc');
+  wizNext(1);
+  document.getElementById('robotSelect').value=id;
+  onRobotSelect();
+}
+
+/* ========== UTILITIES ========== */
+function fmt(n){return n.toLocaleString('en-US')}
+function fmtK(n){
+  if(Math.abs(n)>=1000000) return (n/1000000).toFixed(1)+'M';
+  if(Math.abs(n)>=1000) return (n/1000).toFixed(1)+'K';
+  return n.toFixed(0);
+}
+
+/* ========== INIT ========== */
+function init(){
+  populateRobotDropdown(document.getElementById('robotSelect'));
+  ['cmp1','cmp2','cmp3'].forEach(id=>populateRobotDropdown(document.getElementById(id)));
+  renderDB();
+  updateWagePreset();
+  updateProgress();
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>

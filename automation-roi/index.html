@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Automation ROI Calculator 2026 | AI Agent vs Robot vs Human Cost</title>
+<meta name="description" content="Calculate how much you save by automating with AI agents, RPA, or robots. Free, vendor-neutral calculator with DOGE government scenarios. Compare Zapier, Make, UiPath, Tesla Optimus & more.">
+<meta name="keywords" content="automation ROI calculator, RPA ROI calculator, robot vs human cost, AI agent cost calculator, DOGE automation savings, automation payback period">
+<meta property="og:title" content="Free Automation ROI Calculator 2026 | AI Agent vs Robot vs Human Cost">
+<meta property="og:description" content="Calculate how much you save by automating with AI agents, RPA, or robots. Free, vendor-neutral calculator with DOGE government scenarios.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dongili.github.io/tools/automation-roi-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Automation ROI Calculator 2026">
+<meta name="twitter:description" content="Calculate savings from AI agents, RPA, or robots vs human labor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Automation ROI Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free, vendor-neutral calculator covering Software Automation, AI Agents, and Physical Robots."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is a good ROI for automation?", "acceptedAnswer": {"@type": "Answer", "text": "Most successful automation projects achieve 100-300% ROI within the first year. Deloitte reports an average 31% cost reduction over 3 years, with a typical payback period of 9 months for RPA pilots."}},
+    {"@type": "Question", "name": "How do I calculate automation payback period?", "acceptedAnswer": {"@type": "Answer", "text": "Divide your total implementation cost by your monthly net savings (labor saved minus automation tool cost). For example, a $10,000 implementation saving $2,000/month nets a 5-month payback."}},
+    {"@type": "Question", "name": "Is AI automation cheaper than RPA?", "acceptedAnswer": {"@type": "Answer", "text": "AI agents often have lower upfront costs ($50-500/mo) vs enterprise RPA ($420-750/mo per bot). However, AI agents work best for unstructured tasks like customer service, while RPA excels at structured, rule-based processes."}},
+    {"@type": "Question", "name": "How much does a robot cost compared to a human worker?", "acceptedAnswer": {"@type": "Answer", "text": "Industrial cobots cost $25,000-$55,000 with $3,000-5,000/year maintenance. At ~$1/hour operating cost vs $18-22/hour for human workers, robots typically break even in 12-24 months for repetitive tasks."}},
+    {"@type": "Question", "name": "What percentage of tasks can be automated?", "acceptedAnswer": {"@type": "Answer", "text": "McKinsey estimates 57% of US work hours are technically automatable. However, practical automation coverage varies: data entry (90%+), customer service (60-80%), manufacturing assembly (70-85%)."}}
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#2563EB;--blue-light:#3B82F6;--blue-dark:#1D4ED8;--green:#16A34A;--green-light:#22C55E;--green-bg:#F0FDF4;--red:#DC2626;--red-bg:#FEF2F2;--gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;--gray-300:#D1D5DB;--gray-400:#9CA3AF;--gray-500:#6B7280;--gray-600:#4B5563;--gray-700:#374151;--gray-800:#1F2937;--gray-900:#111827;--radius:8px;--shadow:0 1px 3px rgba(0,0,0,.1);--shadow-md:0 4px 6px rgba(0,0,0,.1);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--font:'Inter',system-ui,-apple-system,sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--gray-800);background:#F8FAFC;line-height:1.6;font-size:16px}
+.container{max-width:960px;margin:0 auto;padding:0 16px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Disclosure */
+.ftc-disclosure{background:var(--gray-100);border-bottom:1px solid var(--gray-200);padding:8px 16px;text-align:center;font-size:13px;color:var(--gray-500)}
+
+/* Header */
+header{background:linear-gradient(135deg,var(--blue-dark),var(--blue-light));color:#fff;padding:32px 16px 24px;text-align:center}
+header h1{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:700;margin-bottom:8px}
+header p{font-size:clamp(.875rem,2vw,1.1rem);opacity:.9;max-width:600px;margin:0 auto}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;background:var(--gray-100);border-radius:var(--radius);padding:4px;margin:24px auto 0;max-width:540px}
+.tab-btn{flex:1;padding:10px 8px;border:none;background:transparent;border-radius:6px;cursor:pointer;font-size:clamp(.8rem,1.8vw,.95rem);font-weight:500;color:var(--gray-600);transition:all .2s;font-family:var(--font)}
+.tab-btn.active{background:#fff;color:var(--blue);box-shadow:var(--shadow)}
+.tab-btn:hover:not(.active){background:rgba(255,255,255,.5)}
+
+/* Main */
+main{padding:24px 0 80px}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-bottom:20px}
+.card h2{font-size:1.15rem;font-weight:600;margin-bottom:16px;color:var(--gray-900)}
+
+/* Presets */
+.presets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.preset-btn{padding:10px 12px;border:1px solid var(--gray-200);border-radius:6px;background:#fff;cursor:pointer;text-align:left;font-size:.85rem;font-family:var(--font);color:var(--gray-700);transition:all .15s}
+.preset-btn:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.preset-btn .preset-label{font-weight:600;display:block;margin-bottom:2px}
+.preset-btn .preset-mode{font-size:.75rem;color:var(--gray-400)}
+
+/* Form */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}}
+.form-group{display:flex;flex-direction:column}
+.form-group label{font-size:.85rem;font-weight:500;color:var(--gray-600);margin-bottom:4px}
+.form-group input,.form-group select{padding:10px 12px;border:1px solid var(--gray-300);border-radius:6px;font-size:.95rem;font-family:var(--font);color:var(--gray-800);transition:border-color .15s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.form-group .hint{font-size:.75rem;color:var(--gray-400);margin-top:2px}
+.form-group.full-width{grid-column:1/-1}
+.toggle-row{display:flex;align-items:center;gap:8px;margin:8px 0}
+.toggle-row input[type="checkbox"]{width:18px;height:18px;accent-color:var(--blue)}
+.toggle-row label{font-size:.85rem;color:var(--gray-600);cursor:pointer}
+
+/* Advanced */
+.advanced-toggle{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.9rem;color:var(--blue);font-weight:500;margin:16px 0 0;border:none;background:none;font-family:var(--font);padding:0}
+.advanced-toggle .arrow{transition:transform .2s;display:inline-block}
+.advanced-toggle.open .arrow{transform:rotate(90deg)}
+.advanced-section{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.advanced-section.open{max-height:500px}
+.advanced-inner{padding-top:16px}
+
+/* Calculate button */
+.calc-btn{display:block;width:100%;padding:14px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius);font-size:1.05rem;font-weight:600;cursor:pointer;font-family:var(--font);transition:background .15s;margin-top:8px}
+.calc-btn:hover{background:var(--blue-dark)}
+
+/* Results */
+#results{display:none}
+#results.visible{display:block;animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* Hero metrics */
+.hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+@media(max-width:600px){.hero-metrics{grid-template-columns:1fr}}
+.metric-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;text-align:center}
+.metric-card .metric-value{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:4px}
+.metric-card .metric-label{font-size:.85rem;color:var(--gray-500)}
+.metric-card.positive .metric-value{color:var(--green)}
+.metric-card.negative .metric-value{color:var(--red)}
+
+/* Bar chart */
+.chart-container{margin:16px 0}
+.chart-bar-group{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.chart-label{width:50px;font-size:.8rem;font-weight:500;color:var(--gray-600);text-align:right;flex-shrink:0}
+.chart-track{flex:1;background:var(--gray-100);border-radius:4px;height:32px;position:relative;overflow:hidden}
+.chart-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 10px;font-size:.8rem;font-weight:600;color:#fff;transition:width .6s ease;min-width:fit-content}
+.chart-fill.human{background:#F59E0B}
+.chart-fill.auto{background:var(--green)}
+.chart-fill.net{background:var(--blue)}
+.chart-fill.negative{background:var(--red)}
+
+/* Break-even viz */
+.breakeven-viz{display:flex;align-items:flex-end;gap:4px;height:120px;padding:16px 0}
+.be-bar{flex:1;border-radius:3px 3px 0 0;position:relative;transition:height .4s ease;min-width:8px}
+.be-bar.pos{background:var(--green-light)}
+.be-bar.neg{background:#FCA5A5}
+.be-bar .be-label{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:.65rem;color:var(--gray-500);white-space:nowrap}
+.be-marker{font-size:.75rem;color:var(--red);font-weight:600;text-align:center;margin-top:24px}
+
+/* TCO table */
+.tco-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:12px}
+.tco-table th,.tco-table td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--gray-200)}
+.tco-table th{background:var(--gray-50);font-weight:600;color:var(--gray-600);text-align:right}
+.tco-table th:first-child,.tco-table td:first-child{text-align:left}
+.tco-table .positive{color:var(--green);font-weight:600}
+.tco-table .negative{color:var(--red)}
+
+/* NPV box */
+.npv-box{display:flex;align-items:center;justify-content:space-between;background:var(--gray-50);border-radius:var(--radius);padding:16px;margin-top:12px}
+.npv-box .npv-label{font-size:.9rem;color:var(--gray-600)}
+.npv-box .npv-value{font-size:1.3rem;font-weight:700}
+
+/* Affiliate CTA */
+.affiliate-cta{display:none;margin-top:16px;padding:16px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:var(--radius);text-align:center}
+.affiliate-cta.visible{display:block}
+.affiliate-cta a{display:inline-block;padding:10px 24px;background:var(--blue);color:#fff;border-radius:6px;font-weight:600;font-size:.95rem;text-decoration:none}
+.affiliate-cta a:hover{background:var(--blue-dark);text-decoration:none}
+.affiliate-cta .aff-note{font-size:.75rem;color:var(--gray-400);margin-top:6px}
+
+/* Share */
+.share-section{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.share-btn{padding:8px 16px;border:1px solid var(--gray-300);border-radius:6px;background:#fff;cursor:pointer;font-size:.85rem;font-family:var(--font);color:var(--gray-600);transition:all .15s}
+.share-btn:hover{border-color:var(--blue);color:var(--blue)}
+
+/* SEO content */
+.seo-section{margin-top:40px}
+.seo-section h2{font-size:1.3rem;font-weight:700;color:var(--gray-900);margin-bottom:12px}
+.seo-section h3{font-size:1.05rem;font-weight:600;color:var(--gray-800);margin:20px 0 8px}
+.seo-section p,.seo-section li{color:var(--gray-600);font-size:.95rem;margin-bottom:8px}
+.seo-section ul{padding-left:20px}
+.comparison-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:12px 0}
+.comparison-table th,.comparison-table td{padding:8px 10px;border:1px solid var(--gray-200);text-align:left}
+.comparison-table th{background:var(--gray-50);font-weight:600}
+.stats-box{background:var(--gray-50);border-radius:var(--radius);padding:16px;margin:16px 0}
+.stats-box li{margin-bottom:6px;font-size:.9rem}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--gray-200);padding:12px 0}
+.faq-q{font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--gray-400);transition:transform .2s}
+.faq-item.open .faq-q::after{content:'-'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;color:var(--gray-600);font-size:.9rem}
+.faq-item.open .faq-a{max-height:200px;padding-top:8px}
+
+/* Footer */
+footer{background:var(--gray-800);color:var(--gray-300);padding:32px 16px;font-size:.85rem;text-align:center}
+footer a{color:var(--gray-400)}
+footer .disclaimer{font-size:.75rem;color:var(--gray-500);max-width:700px;margin:12px auto 0;line-height:1.5}
+
+/* Floating buttons */
+.floating-btns{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:8px;z-index:1000}
+.fab{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);transition:transform .15s}
+.fab:hover{transform:scale(1.1)}
+.fab-back{background:var(--gray-700);color:#fff}
+.fab-home{background:var(--blue);color:#fff}
+.fab-bmc{background:#FFDD00;color:#000}
+.fab-feedback{background:var(--green);color:#fff}
+
+/* AdSense placeholder */
+.ad-placeholder{text-align:center;padding:16px;margin:20px 0;background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--radius);color:var(--gray-400);font-size:.8rem}
+
+/* Print */
+@media print{
+  .ftc-disclosure,header,.tabs,.floating-btns,.share-section,.affiliate-cta,.ad-placeholder,.seo-section,footer,.fab,#presets-card,.calc-btn,.advanced-toggle,.advanced-section{display:none!important}
+  body{background:#fff;font-size:12pt}
+  .card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}
+  #results{display:block!important}
+  .hero-metrics{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- FTC Disclosure -->
+<div class="ftc-disclosure">Affiliate Disclosure: This page contains affiliate links. We may earn a commission at no extra cost to you.</div>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1>Automation ROI Calculator</h1>
+    <p>Calculate savings from replacing human tasks with software automation, AI agents, or physical robots</p>
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-mode="software" role="tab" aria-selected="true">Software / RPA</button>
+      <button class="tab-btn" data-mode="ai_agent" role="tab" aria-selected="false">AI Agent</button>
+      <button class="tab-btn" data-mode="robot" role="tab" aria-selected="false">Physical Robot</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- AdSense placeholder -->
+  <!-- AdSense code here -->
+
+  <!-- Presets -->
+  <div class="card" id="presets-card">
+    <h2>Preset Scenarios <span style="font-weight:400;font-size:.85rem;color:var(--gray-400)">(click to auto-fill)</span></h2>
+    <div class="presets-grid" id="presets-grid"></div>
+  </div>
+
+  <!-- Inputs -->
+  <div class="card">
+    <h2>Calculator Inputs</h2>
+    <div class="form-grid" id="input-form">
+      <div class="form-group">
+        <label for="taskType">Task Type</label>
+        <select id="taskType">
+          <option value="data_entry">Data Entry</option>
+          <option value="customer_service">Customer Service</option>
+          <option value="bookkeeping">Invoice / Bookkeeping</option>
+          <option value="warehouse">Warehouse / Logistics</option>
+          <option value="hr_specialist">HR / Onboarding</option>
+          <option value="govt_clerk">Government / FOIA</option>
+          <option value="software_dev">Social Media / Content</option>
+          <option value="manufacturing">Manufacturing / Assembly</option>
+          <option value="custom">Custom</option>
+        </select>
+        <span class="hint" id="blsHint">BLS wage will auto-fill below</span>
+      </div>
+      <div class="form-group">
+        <label for="hoursPerWeek">Hours per Week</label>
+        <input type="number" id="hoursPerWeek" min="1" max="168" value="40" step="1">
+      </div>
+      <div class="form-group">
+        <label for="numWorkers">Number of Workers</label>
+        <input type="number" id="numWorkers" min="1" max="1000" value="1" step="1">
+      </div>
+      <div class="form-group">
+        <label for="hourlyCost">Hourly Cost ($)</label>
+        <input type="number" id="hourlyCost" min="1" max="500" value="17.31" step="0.01">
+        <span class="hint" id="hourlyHint">BLS: Data Entry Keyers $17.31/hr</span>
+      </div>
+      <div class="form-group">
+        <label for="automationTool">Automation Tool</label>
+        <select id="automationTool"></select>
+        <span class="hint" id="toolHint"></span>
+      </div>
+      <div class="form-group">
+        <label for="implWeeks">Implementation Period (weeks)</label>
+        <input type="number" id="implWeeks" min="1" max="52" value="2" step="1">
+      </div>
+      <div class="form-group full-width">
+        <div class="toggle-row">
+          <input type="checkbox" id="fullyLoaded" checked>
+          <label for="fullyLoaded">Include benefits (1.3x multiplier for fully loaded cost)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Robot-specific fields -->
+    <div id="robotFields" style="display:none">
+      <div class="form-grid" style="margin-top:12px">
+        <div class="form-group">
+          <label for="robotLifeYears">Robot Useful Life (years)</label>
+          <input type="number" id="robotLifeYears" min="1" max="20" value="5">
+        </div>
+        <div class="form-group">
+          <label for="robotOperatingHours">Annual Operating Hours</label>
+          <input type="number" id="robotOperatingHours" min="1" max="8760" value="2080">
+        </div>
+      </div>
+    </div>
+
+    <!-- Implementation cost override -->
+    <div id="implCostRow" class="form-grid" style="margin-top:12px;display:none">
+      <div class="form-group full-width">
+        <label for="implCostOverride">Implementation Cost ($)</label>
+        <input type="number" id="implCostOverride" min="0" max="10000000" value="0" step="100">
+        <span class="hint">Preset-defined implementation cost</span>
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <button class="advanced-toggle" id="advToggle" type="button"><span class="arrow">&#9654;</span>&nbsp;Advanced Settings</button>
+    <div class="advanced-section" id="advSection">
+      <div class="advanced-inner form-grid">
+        <div class="form-group">
+          <label for="benefitsMultiplier">Benefits Multiplier</label>
+          <input type="number" id="benefitsMultiplier" min="1" max="1.5" value="1.3" step="0.05">
+        </div>
+        <div class="form-group">
+          <label for="discountRate">Discount Rate (NPV)</label>
+          <input type="number" id="discountRate" min="0" max="25" value="8" step="0.5">
+          <span class="hint">Default 8%</span>
+        </div>
+        <div class="form-group">
+          <label for="maintenancePct">Annual Maintenance %</label>
+          <input type="number" id="maintenancePct" min="0" max="50" value="15" step="1">
+          <span class="hint">% of annual tool cost</span>
+        </div>
+        <div class="form-group">
+          <label for="successProb">Success Probability %</label>
+          <input type="number" id="successProb" min="10" max="100" value="85" step="5">
+          <span class="hint">Accounts for implementation risk</span>
+        </div>
+        <div class="form-group">
+          <label for="automationCoverage">Automation Coverage %</label>
+          <input type="number" id="automationCoverage" min="10" max="100" value="80" step="5">
+          <span class="hint">% of task that can be automated</span>
+        </div>
+        <div class="form-group">
+          <label for="annualRaise">Annual Wage Increase %</label>
+          <input type="number" id="annualRaise" min="0" max="15" value="3" step="0.5">
+        </div>
+      </div>
+    </div>
+
+    <button class="calc-btn" id="calcBtn" type="button">Calculate ROI</button>
+  </div>
+
+  <!-- Results -->
+  <div id="results">
+    <!-- Hero Metrics -->
+    <div class="hero-metrics">
+      <div class="metric-card positive"><div class="metric-value" id="metricSavings">-</div><div class="metric-label">Annual Savings</div></div>
+      <div class="metric-card positive"><div class="metric-value" id="metricROI">-</div><div class="metric-label">ROI</div></div>
+      <div class="metric-card positive"><div class="metric-value" id="metricPayback">-</div><div class="metric-label">Payback Period</div></div>
+    </div>
+
+    <!-- Comparison bars -->
+    <div class="card">
+      <h2>Annual Cost Comparison</h2>
+      <div class="chart-container" id="comparisonChart"></div>
+    </div>
+
+    <!-- 5-Year Projection -->
+    <div class="card">
+      <h2>5-Year Savings Projection</h2>
+      <div class="chart-container" id="projectionChart"></div>
+      <div class="npv-box">
+        <span class="npv-label">5-Year Net Present Value (NPV)</span>
+        <span class="npv-value" id="npvValue">-</span>
+      </div>
+    </div>
+
+    <!-- Break-even -->
+    <div class="card">
+      <h2>Break-Even Analysis</h2>
+      <div class="be-marker" id="beMarker"></div>
+      <div class="breakeven-viz" id="breakevenChart"></div>
+    </div>
+
+    <!-- TCO Table -->
+    <div class="card">
+      <h2>Total Cost of Ownership (TCO) - 5 Years</h2>
+      <div style="overflow-x:auto"><table class="tco-table" id="tcoTable"></table></div>
+    </div>
+
+    <!-- Affiliate CTA -->
+    <div class="affiliate-cta" id="affiliateCTA"></div>
+
+    <!-- Share -->
+    <div class="card">
+      <h2>Share Results</h2>
+      <div class="share-section">
+        <button class="share-btn" id="shareLink" type="button">Copy Link</button>
+        <button class="share-btn" id="printBtn" type="button">Print Report</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ad placeholder -->
+  <div class="ad-placeholder">
+    <!-- AdSense code here -->
+    Advertisement Space
+  </div>
+
+  <!-- SEO Content -->
+  <section class="seo-section">
+    <h2>What is Automation ROI?</h2>
+    <p>Automation ROI (Return on Investment) measures the financial benefit gained from replacing manual human tasks with automated systems. It compares the cost of implementing and running automation tools against the labor costs saved. A positive ROI means the automation pays for itself and generates net savings. Most organizations achieve 100-300% ROI within the first year of deploying automation, with an average payback period of about 9 months for RPA pilots according to Deloitte research.</p>
+
+    <h3>How to Calculate Automation Payback Period</h3>
+    <p>The payback period tells you how quickly your automation investment will pay for itself. Divide your total upfront implementation cost by your monthly net savings (monthly labor cost saved minus monthly automation tool cost). For example, if implementation costs $10,000 and you save $2,000 per month net, your payback period is 5 months. Our calculator handles this automatically, including advanced factors like success probability and automation coverage percentage.</p>
+
+    <h3>AI Agent vs RPA vs Robot: Which to Choose?</h3>
+    <table class="comparison-table">
+      <thead><tr><th>Factor</th><th>Software / RPA</th><th>AI Agent</th><th>Physical Robot</th></tr></thead>
+      <tbody>
+        <tr><td>Best for</td><td>Structured, rule-based tasks</td><td>Unstructured, language-based tasks</td><td>Physical, repetitive tasks</td></tr>
+        <tr><td>Typical cost</td><td>$15-750/mo per bot</td><td>$0-500/mo</td><td>$25K-250K purchase</td></tr>
+        <tr><td>Setup time</td><td>1-8 weeks</td><td>1-4 weeks</td><td>4-16 weeks</td></tr>
+        <tr><td>Examples</td><td>Data entry, invoicing, HR forms</td><td>Customer service, content, email</td><td>Warehouse, assembly, logistics</td></tr>
+        <tr><td>ROI timeline</td><td>3-9 months</td><td>1-6 months</td><td>12-24 months</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Industry Statistics</h3>
+    <ul class="stats-box">
+      <li>78% of enterprises have implemented RPA (Deloitte 2025)</li>
+      <li>57% of US work hours are technically automatable (McKinsey, Nov 2025)</li>
+      <li>31% average cost reduction from automation over 3 years (Deloitte)</li>
+      <li>9-month average payback period for RPA pilots (Deloitte)</li>
+      <li>300% average ROI from Zapier automation (Forrester/Zapier)</li>
+      <li>$35.27B RPA market size in 2026, projected $247.34B by 2035 (GlobeNewswire)</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+    <div id="faqContainer">
+      <div class="faq-item"><div class="faq-q">What is a good ROI for automation?</div><div class="faq-a">Most successful automation projects achieve 100-300% ROI within the first year. Deloitte reports an average 31% cost reduction over 3 years, with a typical payback period of 9 months for RPA pilots.</div></div>
+      <div class="faq-item"><div class="faq-q">How do I calculate automation payback period?</div><div class="faq-a">Divide your total implementation cost by your monthly net savings (labor saved minus automation tool cost). For example, a $10,000 implementation saving $2,000/month nets a 5-month payback.</div></div>
+      <div class="faq-item"><div class="faq-q">Is AI automation cheaper than RPA?</div><div class="faq-a">AI agents often have lower upfront costs ($50-500/mo) vs enterprise RPA ($420-750/mo per bot). However, AI agents work best for unstructured tasks like customer service, while RPA excels at structured, rule-based processes.</div></div>
+      <div class="faq-item"><div class="faq-q">How much does a robot cost compared to a human worker?</div><div class="faq-a">Industrial cobots cost $25,000-$55,000 with $3,000-5,000/year maintenance. At about $1/hour operating cost vs $18-22/hour for human workers, robots typically break even in 12-24 months for repetitive tasks.</div></div>
+      <div class="faq-item"><div class="faq-q">What percentage of tasks can be automated?</div><div class="faq-a">McKinsey estimates 57% of US work hours are technically automatable. However, practical automation coverage varies: data entry (90%+), customer service (60-80%), manufacturing assembly (70-85%).</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>Automation ROI Calculator &mdash; A free, vendor-neutral tool by <a href="https://dongili.github.io/">Dongili</a></p>
+    <p style="margin-top:4px">Wage data: Bureau of Labor Statistics OEWS, May 2024 | Prices as of March 2026</p>
+    <p class="disclaimer">This calculator provides estimates for educational purposes only. Actual costs and savings may vary significantly based on your specific circumstances, implementation quality, and market conditions. Consult a professional before making business decisions. This page contains affiliate links; we may earn a commission at no extra cost to you. Make.com affiliate commission: 35% recurring.</p>
+    <p style="margin-top:8px;font-size:.75rem;color:var(--gray-500)">Last updated: March 2026</p>
+  </div>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floating-btns">
+  <button class="fab fab-back" title="Back" onclick="history.back()">&#8592;</button>
+  <a class="fab fab-home" title="Home" href="https://dongili.github.io/">&#8962;</a>
+  <a class="fab fab-bmc" title="Buy Me a Coffee" href="https://buymeacoffee.com/PLACEHOLDER" target="_blank" rel="noopener">&#9749;</a>
+  <button class="fab fab-feedback" title="Feedback" onclick="window.open('mailto:feedback@dongili.tools?subject=Automation+ROI+Calculator+Feedback','_blank')">&#9993;</button>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* === DATA === */
+var BLS_WAGES = {
+  data_entry:       { title:"Data Entry Keyers",            soc:"43-9021", hourly:17.31, annual:36000 },
+  customer_service: { title:"Customer Service Reps",        soc:"43-4051", hourly:20.59, annual:42827 },
+  info_clerks:      { title:"Information Clerks",           soc:"43-4000", hourly:21.02, annual:43730 },
+  bookkeeping:      { title:"Bookkeeping/Accounting Clerks",soc:"43-3031", hourly:22.81, annual:47440 },
+  hr_specialist:    { title:"HR Specialists",               soc:"13-1071", hourly:32.52, annual:67650 },
+  accountant:       { title:"Accountants & Auditors",       soc:"13-2011", hourly:44.96, annual:93520 },
+  software_dev:     { title:"Software Developers",          soc:"15-1252", hourly:64.08, annual:133080 },
+  warehouse:        { title:"Warehouse Workers",            soc:"53-7065", hourly:18.00, annual:37440 },
+  manufacturing:    { title:"Assembly Workers",             soc:"51-2098", hourly:22.00, annual:45760 },
+  govt_clerk:       { title:"Government Clerks (GS-7 eq)", soc:"N/A",    hourly:26.44, annual:55000 },
+  all_occupations:  { title:"All Occupations (Median)",     soc:"00-0000", hourly:23.80, annual:49500 },
+  custom:           { title:"Custom",                       soc:"N/A",    hourly:25.00, annual:52000 }
+};
+
+var TOOL_PRICING = {
+  zapier:         { name:"Zapier",             mode:"software",  monthly:29.99, notes:"Starter, monthly billing; $19.99/mo annual" },
+  make:           { name:"Make.com",           mode:"software",  monthly:10.59, notes:"Core 10K ops; Pro: $18.82/mo" },
+  power_automate: { name:"Power Automate",     mode:"software",  monthly:15.00, notes:"Per user/mo; Process: $150/mo/bot" },
+  uipath:         { name:"UiPath",             mode:"software",  monthly:420,   notes:"Enterprise, per bot estimate" },
+  n8n:            { name:"n8n",                mode:"software",  monthly:20.00, notes:"Cloud; self-host free" },
+  aa:             { name:"Automation Anywhere", mode:"software", monthly:750,   notes:"Per bot; +$500/mo additional" },
+
+  lindy:          { name:"Lindy",              mode:"ai_agent",  monthly:49.99, notes:"Credit-based, per action" },
+  relevance_ai:   { name:"Relevance AI",       mode:"ai_agent",  monthly:37.00, notes:"Solo plan" },
+  openai_api:     { name:"OpenAI Assistants",  mode:"ai_agent",  monthly:100,   notes:"Est. GPT-4o: $2.50/$10 per 1M tokens" },
+  claude_api:     { name:"Claude API",         mode:"ai_agent",  monthly:100,   notes:"Est. Sonnet: $3/$15 per 1M tokens" },
+  crewai:         { name:"CrewAI",             mode:"ai_agent",  monthly:0,     notes:"Open source, self-hosted" },
+
+  ur3e:           { name:"Universal Robots UR3e",       mode:"robot", purchase:26500,  annual_maint:3000, hourly_op:0.75 },
+  ur5e:           { name:"Universal Robots UR5e",       mode:"robot", purchase:37500,  annual_maint:4000, hourly_op:0.85 },
+  ur10e:          { name:"Universal Robots UR10e",      mode:"robot", purchase:52500,  annual_maint:5000, hourly_op:1.00 },
+  abb_compact:    { name:"ABB IRB 1200",                mode:"robot", purchase:27500,  annual_maint:3000, hourly_op:0.75 },
+  optimus:        { name:"Tesla Optimus (2027 target)", mode:"robot", purchase:25000,  annual_maint:3000, hourly_op:1.00, notes:"Target $20K-$30K, current production $50K-$100K (industry est.)" },
+  amr:            { name:"AMR (Autonomous Mobile Robot)",mode:"robot",purchase:30000,  annual_maint:5000, hourly_op:1.00, lease_monthly:2500 },
+  digit:          { name:"Agility Robotics Digit",      mode:"robot", purchase:250000, annual_maint:15000,hourly_op:1.50 },
+  figure:         { name:"Figure 02 (RaaS)",            mode:"robot", purchase:null,   annual_maint:0,   hourly_op:0, lease_monthly:1000, notes:"RaaS model only, no confirmed purchase price" }
+};
+
+var PRESETS = [
+  { id:1, name:"Data Entry Clerk -> Zapier",        mode:"software", task:"data_entry",       workers:1,  hourly:17.31, hours:40, tool:"zapier",  implWeeks:2,  implCost:null,  coverage:90, success:90 },
+  { id:2, name:"Customer Service -> AI Chatbot",     mode:"ai_agent", task:"customer_service", workers:3,  hourly:20.59, hours:40, tool:"claude_api", implWeeks:6, implCost:10000, coverage:70, success:80 },
+  { id:3, name:"Invoice Processing -> Make + OCR",   mode:"software", task:"bookkeeping",      workers:1,  hourly:22.81, hours:40, tool:"make",    implWeeks:2,  implCost:null,  coverage:85, success:90 },
+  { id:4, name:"Warehouse Picking -> AMR Robot",      mode:"robot",    task:"warehouse",        workers:1,  hourly:18.00, hours:40, tool:"amr",     implWeeks:8,  implCost:null,  coverage:75, success:85, robotLife:5, robotOpHrs:2080 },
+  { id:5, name:"HR Onboarding -> Power Automate",     mode:"software", task:"hr_specialist",    workers:1,  hourly:32.52, hours:20, tool:"power_automate", implWeeks:3, implCost:null, coverage:70, success:85 },
+  { id:6, name:"Gov FOIA Processing (DOGE)",          mode:"software", task:"govt_clerk",       workers:10, hourly:26.44, hours:40, tool:"uipath",  implWeeks:12, implCost:150000,coverage:80, success:80 },
+  { id:7, name:"Social Media -> AI Agent",             mode:"ai_agent", task:"software_dev",     workers:1,  hourly:27.88, hours:40, tool:"lindy",   implWeeks:2,  implCost:null,  coverage:75, success:85 },
+  { id:8, name:"Manufacturing -> Humanoid (2027)",     mode:"robot",    task:"manufacturing",    workers:1,  hourly:22.00, hours:40, tool:"optimus", implWeeks:8,  implCost:null,  coverage:70, success:75, robotLife:5, robotOpHrs:2080 }
+];
+
+/* === DOM REFS === */
+var $ = function(s){ return document.getElementById(s) || document.querySelector(s) };
+var taskType      = $("taskType");
+var hoursPerWeek  = $("hoursPerWeek");
+var numWorkers    = $("numWorkers");
+var hourlyCost    = $("hourlyCost");
+var automationTool= $("automationTool");
+var implWeeks     = $("implWeeks");
+var fullyLoaded   = $("fullyLoaded");
+var robotLifeYears= $("robotLifeYears");
+var robotOpHrs    = $("robotOperatingHours");
+var implCostEl    = $("implCostOverride");
+var benefitsMult  = $("benefitsMultiplier");
+var discountRate  = $("discountRate");
+var maintenancePct= $("maintenancePct");
+var successProb   = $("successProb");
+var automationCov = $("automationCoverage");
+var annualRaise   = $("annualRaise");
+
+var currentMode = "software";
+var useImplOverride = false;
+
+/* === HELPERS === */
+function fmt(n){ return n < 0 ? "-$" + Math.abs(n).toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}) : "$" + n.toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:0}) }
+function pct(n){ return n.toFixed(1) + "%" }
+
+/* === MODE SWITCHING === */
+function setMode(mode){
+  currentMode = mode;
+  document.querySelectorAll(".tab-btn").forEach(function(b){
+    b.classList.toggle("active", b.dataset.mode === mode);
+    b.setAttribute("aria-selected", b.dataset.mode === mode);
+  });
+  populateTools(mode);
+  renderPresets(mode);
+  $("robotFields").style.display = mode === "robot" ? "block" : "none";
+  $("results").classList.remove("visible");
+}
+
+function populateTools(mode){
+  automationTool.innerHTML = "";
+  Object.keys(TOOL_PRICING).forEach(function(k){
+    var t = TOOL_PRICING[k];
+    if(t.mode !== mode) return;
+    var opt = document.createElement("option");
+    opt.value = k;
+    var price = t.monthly != null ? "$" + t.monthly + "/mo" : (t.purchase != null ? "$" + t.purchase.toLocaleString() : "Variable");
+    opt.textContent = t.name + " (" + price + ")";
+    automationTool.appendChild(opt);
+  });
+  updateToolHint();
+}
+
+function updateToolHint(){
+  var t = TOOL_PRICING[automationTool.value];
+  if(t) $("toolHint").textContent = t.notes || "";
+}
+
+/* === PRESETS === */
+function renderPresets(mode){
+  var grid = $("presets-grid");
+  grid.innerHTML = "";
+  PRESETS.forEach(function(p){
+    if(mode !== "all" && p.mode !== mode) return;
+    var btn = document.createElement("button");
+    btn.className = "preset-btn";
+    btn.innerHTML = '<span class="preset-label">' + p.name + '</span><span class="preset-mode">' + p.mode.replace("_"," ") + '</span>';
+    btn.addEventListener("click", function(){ applyPreset(p) });
+    grid.appendChild(btn);
+  });
+  /* show all presets regardless of mode */
+  if(mode !== "all"){
+    PRESETS.forEach(function(p){
+      if(p.mode === mode) return;
+      var btn = document.createElement("button");
+      btn.className = "preset-btn";
+      btn.style.opacity = "0.6";
+      btn.innerHTML = '<span class="preset-label">' + p.name + '</span><span class="preset-mode">' + p.mode.replace("_"," ") + '</span>';
+      btn.addEventListener("click", function(){ setMode(p.mode); applyPreset(p) });
+      grid.appendChild(btn);
+    });
+  }
+}
+
+function applyPreset(p){
+  if(currentMode !== p.mode) setMode(p.mode);
+  taskType.value = p.task;
+  hoursPerWeek.value = p.hours;
+  numWorkers.value = p.workers;
+  hourlyCost.value = p.hourly;
+  automationTool.value = p.tool;
+  implWeeks.value = p.implWeeks;
+  automationCov.value = p.coverage || 80;
+  successProb.value = p.success || 85;
+  if(p.robotLife){ robotLifeYears.value = p.robotLife; }
+  if(p.robotOpHrs){ robotOpHrs.value = p.robotOpHrs; }
+  if(p.implCost != null){
+    useImplOverride = true;
+    implCostEl.value = p.implCost;
+    $("implCostRow").style.display = "grid";
+  } else {
+    useImplOverride = false;
+    implCostEl.value = 0;
+    $("implCostRow").style.display = "none";
+  }
+  updateHourlyHint();
+  updateToolHint();
+}
+
+/* === BLS AUTO-FILL === */
+taskType.addEventListener("change", function(){
+  var w = BLS_WAGES[taskType.value];
+  if(w){
+    hourlyCost.value = w.hourly;
+    $("hourlyHint").textContent = "BLS: " + w.title + " $" + w.hourly.toFixed(2) + "/hr";
+  }
+});
+
+function updateHourlyHint(){
+  var w = BLS_WAGES[taskType.value];
+  if(w) $("hourlyHint").textContent = "BLS: " + w.title + " $" + w.hourly.toFixed(2) + "/hr";
+}
+
+automationTool.addEventListener("change", updateToolHint);
+
+/* === ADVANCED TOGGLE === */
+$("advToggle").addEventListener("click", function(){
+  this.classList.toggle("open");
+  $("advSection").classList.toggle("open");
+});
+
+/* === CALCULATION === */
+function calculate(){
+  var hrs     = parseFloat(hoursPerWeek.value) || 40;
+  var workers = parseInt(numWorkers.value) || 1;
+  var rate    = parseFloat(hourlyCost.value) || 20;
+  var weeks   = parseInt(implWeeks.value) || 2;
+  var bMult   = fullyLoaded.checked ? (parseFloat(benefitsMult.value) || 1.3) : 1.0;
+  var dRate   = (parseFloat(discountRate.value) || 8) / 100;
+  var mPct    = (parseFloat(maintenancePct.value) || 15) / 100;
+  var sProb   = (parseFloat(successProb.value) || 85) / 100;
+  var aCov    = (parseFloat(automationCov.value) || 80) / 100;
+  var aRaise  = (parseFloat(annualRaise.value) || 3) / 100;
+
+  var toolKey = automationTool.value;
+  var tool    = TOOL_PRICING[toolKey];
+  if(!tool) return;
+
+  /* Annual labor cost */
+  var annualLaborCost = workers * (rate * bMult) * (hrs * 52);
+  var automatablePortion = annualLaborCost * aCov;
+
+  /* Annual tool cost */
+  var annualToolCost = 0;
+  if(currentMode === "robot"){
+    var lifeYrs = parseInt(robotLifeYears.value) || 5;
+    var opHrs   = parseInt(robotOpHrs.value) || 2080;
+    var purchasePrice = tool.purchase || 0;
+    var annMaint = tool.annual_maint || 0;
+    var hrlyOp   = tool.hourly_op || 0;
+    if(tool.lease_monthly && !tool.purchase){
+      annualToolCost = tool.lease_monthly * 12 + annMaint + (hrlyOp * opHrs);
+    } else {
+      annualToolCost = (purchasePrice / lifeYrs) + annMaint + (hrlyOp * opHrs);
+    }
+  } else {
+    annualToolCost = (tool.monthly || 0) * 12;
+  }
+  annualToolCost = annualToolCost + annualToolCost * mPct;
+
+  /* Implementation cost */
+  var implCost = 0;
+  if(useImplOverride && parseFloat(implCostEl.value) > 0){
+    implCost = parseFloat(implCostEl.value);
+  } else {
+    var devRate = 75;
+    implCost = weeks * 40 * devRate;
+  }
+
+  /* Annual savings */
+  var annualSavings = (automatablePortion * sProb) - annualToolCost;
+
+  /* ROI */
+  var amortizedImpl = implCost / 5;
+  var roiPct = annualToolCost + amortizedImpl > 0 ? (annualSavings / (annualToolCost + amortizedImpl)) * 100 : 0;
+
+  /* Payback period (months) */
+  var monthlySavings = annualSavings / 12;
+  var paybackMonths = monthlySavings > 0 ? implCost / monthlySavings : Infinity;
+
+  /* 5-year projection */
+  var yearData = [];
+  var cumSavings = -implCost;
+  var humanTCO5 = 0;
+  var autoTCO5 = implCost;
+  for(var y = 1; y <= 5; y++){
+    var laborY = annualLaborCost * Math.pow(1 + aRaise, y - 1);
+    var autoY = annualToolCost;
+    var savingsY = (laborY * aCov * sProb) - autoY;
+    cumSavings += savingsY;
+    humanTCO5 += laborY;
+    autoTCO5 += autoY;
+    yearData.push({ year:y, labor:laborY, auto:autoY, savings:savingsY, cumulative:cumSavings });
+  }
+  var netSavings5 = humanTCO5 - autoTCO5;
+
+  /* NPV */
+  var npv = -implCost;
+  for(var n = 1; n <= 5; n++){
+    npv += yearData[n-1].savings / Math.pow(1 + dRate, n);
+  }
+
+  /* Break-even month */
+  var beMonth = 0;
+  var cumBE = -implCost;
+  for(var m = 1; m <= 60; m++){
+    var yIdx = Math.ceil(m / 12);
+    var laborM = (annualLaborCost * Math.pow(1 + aRaise, yIdx - 1)) / 12;
+    var savM = (laborM * aCov * sProb) - (annualToolCost / 12);
+    cumBE += savM;
+    if(cumBE >= 0 && beMonth === 0){ beMonth = m; }
+  }
+
+  displayResults({
+    annualSavings: annualSavings,
+    roiPct: roiPct,
+    paybackMonths: paybackMonths,
+    annualLaborCost: annualLaborCost,
+    annualToolCost: annualToolCost,
+    implCost: implCost,
+    yearData: yearData,
+    humanTCO5: humanTCO5,
+    autoTCO5: autoTCO5,
+    netSavings5: netSavings5,
+    npv: npv,
+    beMonth: beMonth,
+    toolKey: toolKey
+  });
+}
+
+/* === DISPLAY RESULTS === */
+function displayResults(r){
+  var res = $("results");
+  res.classList.add("visible");
+
+  /* Hero metrics */
+  var savingsCard = $("metricSavings").parentElement;
+  $("metricSavings").textContent = fmt(Math.round(r.annualSavings));
+  savingsCard.className = "metric-card " + (r.annualSavings >= 0 ? "positive" : "negative");
+
+  var roiCard = $("metricROI").parentElement;
+  $("metricROI").textContent = pct(r.roiPct);
+  roiCard.className = "metric-card " + (r.roiPct >= 0 ? "positive" : "negative");
+
+  var pbCard = $("metricPayback").parentElement;
+  if(r.paybackMonths === Infinity || r.paybackMonths < 0){
+    $("metricPayback").textContent = "N/A";
+    pbCard.className = "metric-card negative";
+  } else {
+    $("metricPayback").textContent = r.paybackMonths < 1 ? "< 1 month" : Math.ceil(r.paybackMonths) + " months";
+    pbCard.className = "metric-card " + (r.paybackMonths <= 24 ? "positive" : "negative");
+  }
+
+  /* Comparison bars */
+  var maxComp = Math.max(r.annualLaborCost, r.annualToolCost, 1);
+  $("comparisonChart").innerHTML =
+    '<div class="chart-bar-group"><span class="chart-label">Human</span><div class="chart-track"><div class="chart-fill human" style="width:' + (r.annualLaborCost/maxComp*100).toFixed(1) + '%">' + fmt(Math.round(r.annualLaborCost)) + '</div></div></div>' +
+    '<div class="chart-bar-group"><span class="chart-label">Auto</span><div class="chart-track"><div class="chart-fill auto" style="width:' + (r.annualToolCost/maxComp*100).toFixed(1) + '%">' + fmt(Math.round(r.annualToolCost)) + '</div></div></div>';
+
+  /* 5-year projection */
+  var maxSav = 0;
+  r.yearData.forEach(function(d){ if(Math.abs(d.cumulative)>maxSav) maxSav=Math.abs(d.cumulative) });
+  if(maxSav === 0) maxSav = 1;
+  var projHTML = "";
+  r.yearData.forEach(function(d){
+    var w = Math.abs(d.cumulative) / maxSav * 100;
+    var cls = d.cumulative >= 0 ? "net" : "negative";
+    projHTML += '<div class="chart-bar-group"><span class="chart-label">Year ' + d.year + '</span><div class="chart-track"><div class="chart-fill ' + cls + '" style="width:' + w.toFixed(1) + '%">' + fmt(Math.round(d.cumulative)) + '</div></div></div>';
+  });
+  $("projectionChart").innerHTML = projHTML;
+
+  /* NPV */
+  var npvEl = $("npvValue");
+  npvEl.textContent = fmt(Math.round(r.npv));
+  npvEl.style.color = r.npv >= 0 ? "var(--green)" : "var(--red)";
+
+  /* Break-even */
+  if(r.beMonth > 0){
+    $("beMarker").textContent = "Break-even at month " + r.beMonth;
+    $("beMarker").style.color = "var(--green)";
+  } else {
+    $("beMarker").textContent = "Break-even not reached within 5 years";
+    $("beMarker").style.color = "var(--red)";
+  }
+  var beHTML = "";
+  var cumBE2 = -r.implCost;
+  var maxBE = r.implCost || 1;
+  var beData = [];
+  for(var m=1;m<=Math.min(r.beMonth > 0 ? r.beMonth+6 : 24, 60);m++){
+    var yI = Math.ceil(m/12);
+    var lM = (r.annualLaborCost * Math.pow(1 + (parseFloat(annualRaise.value)||3)/100, yI-1)) / 12;
+    var sM = (lM * ((parseFloat(automationCov.value)||80)/100) * ((parseFloat(successProb.value)||85)/100)) - (r.annualToolCost/12);
+    cumBE2 += sM;
+    beData.push(cumBE2);
+    if(Math.abs(cumBE2) > maxBE) maxBE = Math.abs(cumBE2);
+  }
+  beData.forEach(function(v,i){
+    var h = Math.abs(v)/maxBE*100;
+    var cls = v>=0?"pos":"neg";
+    beHTML += '<div class="be-bar '+cls+'" style="height:'+h.toFixed(1)+'%">' + (((i+1)%3===0||(i+1)===beData.length) ? '<span class="be-label">M'+(i+1)+'</span>' : '') + '</div>';
+  });
+  $("breakevenChart").innerHTML = beHTML;
+
+  /* TCO table */
+  var tHead = "<thead><tr><th>Year</th><th>Human Cost</th><th>Automation Cost</th><th>Annual Savings</th><th>Cumulative</th></tr></thead>";
+  var tBody = "<tbody>";
+  tBody += "<tr><td>Year 0</td><td>-</td><td>" + fmt(Math.round(r.implCost)) + "</td><td>-</td><td>" + fmt(Math.round(-r.implCost)) + "</td></tr>";
+  r.yearData.forEach(function(d){
+    tBody += "<tr><td>Year "+d.year+"</td><td>"+fmt(Math.round(d.labor))+"</td><td>"+fmt(Math.round(d.auto))+"</td>";
+    tBody += '<td class="'+(d.savings>=0?"positive":"negative")+'">'+fmt(Math.round(d.savings))+"</td>";
+    tBody += '<td class="'+(d.cumulative>=0?"positive":"negative")+'">'+fmt(Math.round(d.cumulative))+"</td></tr>";
+  });
+  tBody += "<tr style='font-weight:600;border-top:2px solid var(--gray-300)'><td>5-Year Total</td><td>"+fmt(Math.round(r.humanTCO5))+"</td><td>"+fmt(Math.round(r.autoTCO5))+"</td><td class='"+(r.netSavings5>=0?"positive":"negative")+"'>"+fmt(Math.round(r.netSavings5))+"</td><td class='"+(r.yearData[4].cumulative>=0?"positive":"negative")+"'>"+fmt(Math.round(r.yearData[4].cumulative))+"</td></tr>";
+  tBody += "</tbody>";
+  $("tcoTable").innerHTML = tHead + tBody;
+
+  /* Affiliate CTA */
+  var cta = $("affiliateCTA");
+  if(r.toolKey === "make"){
+    cta.className = "affiliate-cta visible";
+    cta.innerHTML = '<p style="margin-bottom:10px;font-size:.95rem">Start automating with Make.com</p><a href="https://www.make.com/?ref=AFFILIATE_ID" target="_blank" rel="noopener sponsored">Try Make.com Free</a><p class="aff-note">Affiliate link &mdash; 35% recurring commission helps support this free tool</p>';
+  } else if(r.toolKey === "zapier"){
+    cta.className = "affiliate-cta visible";
+    cta.innerHTML = '<p style="margin-bottom:10px;font-size:.95rem">Start automating with Zapier</p><a href="https://zapier.com/?ref=AFFILIATE_ID" target="_blank" rel="noopener sponsored">Try Zapier Free</a><p class="aff-note">Affiliate link helps support this free tool</p>';
+  } else {
+    cta.className = "affiliate-cta";
+    cta.innerHTML = "";
+  }
+
+  /* Scroll to results */
+  res.scrollIntoView({ behavior:"smooth", block:"start" });
+
+  /* Update URL hash */
+  updateHash();
+}
+
+/* === SHARE === */
+function updateHash(){
+  var state = {
+    m: currentMode,
+    t: taskType.value,
+    h: hoursPerWeek.value,
+    w: numWorkers.value,
+    r: hourlyCost.value,
+    tool: automationTool.value,
+    iw: implWeeks.value,
+    fl: fullyLoaded.checked ? 1 : 0,
+    ac: automationCov.value,
+    sp: successProb.value,
+    ic: implCostEl.value
+  };
+  if(currentMode === "robot"){
+    state.rl = robotLifeYears.value;
+    state.ro = robotOpHrs.value;
+  }
+  try {
+    window.history.replaceState(null,"","#"+btoa(JSON.stringify(state)));
+  } catch(e){}
+}
+
+function restoreHash(){
+  if(!location.hash || location.hash.length < 3) return false;
+  try {
+    var state = JSON.parse(atob(location.hash.slice(1)));
+    if(state.m) setMode(state.m);
+    if(state.t) taskType.value = state.t;
+    if(state.h) hoursPerWeek.value = state.h;
+    if(state.w) numWorkers.value = state.w;
+    if(state.r) hourlyCost.value = state.r;
+    if(state.tool) automationTool.value = state.tool;
+    if(state.iw) implWeeks.value = state.iw;
+    fullyLoaded.checked = state.fl != 0;
+    if(state.ac) automationCov.value = state.ac;
+    if(state.sp) successProb.value = state.sp;
+    if(state.ic && parseFloat(state.ic) > 0){
+      useImplOverride = true;
+      implCostEl.value = state.ic;
+      $("implCostRow").style.display = "grid";
+    }
+    if(state.rl) robotLifeYears.value = state.rl;
+    if(state.ro) robotOpHrs.value = state.ro;
+    updateHourlyHint();
+    updateToolHint();
+    return true;
+  } catch(e){ return false; }
+}
+
+$("shareLink").addEventListener("click", function(){
+  var url = location.href;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(function(){
+      var btn = $("shareLink");
+      btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = "Copy Link"; }, 2000);
+    });
+  }
+});
+
+$("printBtn").addEventListener("click", function(){ window.print() });
+
+/* === EVENTS === */
+document.querySelectorAll(".tab-btn").forEach(function(btn){
+  btn.addEventListener("click", function(){ setMode(this.dataset.mode) });
+});
+
+$("calcBtn").addEventListener("click", calculate);
+
+/* FAQ toggles */
+document.querySelectorAll(".faq-q").forEach(function(q){
+  q.addEventListener("click", function(){
+    this.parentElement.classList.toggle("open");
+  });
+});
+
+/* === INIT === */
+setMode("software");
+if(restoreHash()){
+  setTimeout(calculate, 100);
+}
+
+})();
+</script>
+</body>
+</html>
