@@ -4,6 +4,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-293GLNTDLQ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-293GLNTDLQ')</script>
 <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free Solar &amp; EV Savings Calculator 2026 | Solar ROI &amp; EV Charging Cost Tool</title>
 <meta name="description" content="Calculate your solar panel payback period and EV charging savings in one tool. Free, no login. Accurate 2026 data with updated tax credit status for all 50 US states.">
@@ -256,6 +257,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
   .header-actions{gap:4px}
   .header-btn{padding:4px 8px;font-size:12px}
 }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
@@ -509,7 +511,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:24px
       <p style="color:var(--text-secondary);font-size:14px;margin-bottom:16px">This tab merges your Solar ROI and EV Charging results. Calculate both tabs first, then view combined savings here.</p>
       <button class="calc-btn calc-btn-combined" onclick="calculateCombined()">Calculate Combined Savings</button>
     </div>
-    <div class="results-panel" id="combined-results" style="margin-top:24px">
+    <div class="results-panel" id="combined-results" aria-live="polite" style="margin-top:24px">
       <div class="panel" style="max-width:100%">
         <div class="result-hero combined">
           <div class="big-number" id="combined-total-savings">$0</div>

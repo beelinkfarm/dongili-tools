@@ -4,6 +4,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-293GLNTDLQ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-293GLNTDLQ')</script>
 <meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦾</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Robot ROI Calculator 2026 | Humanoid &amp; Cobot Cost Analysis</title>
 <meta name="description" content="Free robot ROI calculator with 20+ models including Tesla Optimus, Figure 02, Boston Dynamics Atlas. Calculate payback period, TCO, and compare humanoid vs industrial robots.">
@@ -177,6 +178,7 @@ footer a:hover{text-decoration:underline}
   .compare-select{flex-direction:column}
   .compare-select select{min-width:100%}
 }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
@@ -384,7 +386,7 @@ footer a:hover{text-decoration:underline}
         <div class="scenario-tab" onclick="setScenario('optimistic',this)">Optimistic</div>
         <div class="scenario-tab" onclick="setScenario('conservative',this)">Conservative</div>
       </div>
-      <div id="resultsContent"></div>
+      <div id="resultsContent" aria-live="polite"></div>
       <div class="wizard-nav">
         <button class="btn btn-outline" onclick="wizNext(2)">&larr; Adjust Inputs</button>
         <button class="btn btn-primary" onclick="wizNext(0)">Start Over</button>
