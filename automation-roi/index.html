@@ -207,11 +207,15 @@ footer .disclaimer{font-size:.75rem;color:var(--gray-500);max-width:700px;margin
   .hero-metrics{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+.floating-home{position:fixed;bottom:20px;left:20px;z-index:9999;display:flex;gap:8px}
+.floating-home a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(37,99,235,0.9);color:#fff;text-decoration:none;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);backdrop-filter:blur(8px);transition:transform 0.2s,background 0.2s}
+.floating-home a:hover{transform:scale(1.1);background:rgba(37,99,235,1)}
 </style>
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://beelinkfarm.github.io/dongili-tools/automation-roi/">
 </head>
 <body>
+<nav class="floating-home" aria-label="Navigation"><a href="https://beelinkfarm.github.io/dongili-tools/" title="Back to Portal">🏠</a></nav>
 
 <!-- FTC Disclosure -->
 <div class="ftc-disclosure">Affiliate Disclosure: This page contains affiliate links. We may earn a commission at no extra cost to you.</div>

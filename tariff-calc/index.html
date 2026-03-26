@@ -213,6 +213,9 @@ select:focus,input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 
 /* Accessible focus */
 :focus-visible{outline:2px solid var(--navy);outline-offset:2px}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+.floating-home{position:fixed;bottom:20px;left:20px;z-index:9999;display:flex;gap:8px}
+.floating-home a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(37,99,235,0.9);color:#fff;text-decoration:none;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);backdrop-filter:blur(8px);transition:transform 0.2s,background 0.2s}
+.floating-home a:hover{transform:scale(1.1);background:rgba(37,99,235,1)}
 </style>
 <script type="application/ld+json">
 {
@@ -229,6 +232,7 @@ select:focus,input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 
 </script>
 </head>
 <body>
+<nav class="floating-home" aria-label="Navigation"><a href="https://beelinkfarm.github.io/dongili-tools/" title="Back to Portal">🏠</a></nav>
 
 <header class="header">
   <div class="container">
