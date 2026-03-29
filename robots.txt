@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://beelinkfarm.github.io/dongili-tools/sitemap.xml
