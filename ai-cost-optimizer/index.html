@@ -635,6 +635,14 @@ footer a:hover { text-decoration: underline; }
 .floating-home{position:fixed;bottom:20px;left:20px;z-index:9999;display:flex;gap:8px}
 .floating-home a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(37,99,235,0.9);color:#fff;text-decoration:none;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);backdrop-filter:blur(8px);transition:transform 0.2s,background 0.2s}
 .floating-home a:hover{transform:scale(1.1);background:rgba(37,99,235,1)}
+.floating-btns{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:8px;z-index:1000}
+.fab{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform .15s}
+.fab:hover{transform:scale(1.1)}
+.fab-back{background:#374151;color:#fff}
+.fab-home{background:#2563EB;color:#fff}
+.fab-bmc{background:#FFDD00;color:#000}
+.fab-feedback{background:#059669;color:#fff}
+@media print{.floating-btns,.fab{display:none!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -1362,5 +1370,15 @@ function loadFromURL() {
   calculate();
 })();
 </script>
+<div style="text-align:center;padding:24px 16px;margin-top:40px;border-top:1px solid #E5E7EB;color:#6B7280;font-size:0.85rem;">
+  <p>Found this useful? <a href="https://buymeacoffee.com/dongili" target="_blank" rel="noopener" style="color:#2563EB;text-decoration:none;font-weight:500;">&#9749; Buy me a coffee</a> to support free tools!</p>
+  <p style="margin-top:8px;font-size:0.75rem;">Made with &#10084;&#65039; by <a href="https://beelinkfarm.github.io/dongili-tools/" style="color:#2563EB;text-decoration:none;">Dongili Tools</a></p>
+</div>
+<div class="floating-btns">
+  <button class="fab fab-back" title="Back" onclick="history.back()">&#8592;</button>
+  <a class="fab fab-home" title="Home" href="https://beelinkfarm.github.io/dongili-tools/">&#8962;</a>
+  <a class="fab fab-bmc" title="Buy Me a Coffee" href="https://buymeacoffee.com/dongili" target="_blank" rel="noopener">&#9749;</a>
+  <button class="fab fab-feedback" title="Feedback" onclick="window.open('mailto:feedback@dongili.tools?subject=Feedback','_blank')">&#9993;</button>
+</div>
 </body>
 </html>
